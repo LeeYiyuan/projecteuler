@@ -1,6 +1,9 @@
 # Project Euler Solutions
 These are my solutions to questions from ProjectEuler.net.
 
+# Requirements
+The solutions were developed against the GMP library and GCC.
+
 # Python -> C++
 Solutions for questions up to and including 154 were initially written in Python 2.7, but were converted to C++.
 
