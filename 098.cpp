@@ -57,7 +57,7 @@ ll get_number(std::pair<std::string, std::string> p, ll n_A)
 
 int main()
 {
-    std::string words_string = read_file("98_words.txt");
+    std::string words_string = read_file("098_words.txt");
     std::vector<std::string> words = split(words_string, ',');
     for(std::string &word : words)
         word = word.substr(1, word.length() - 2);

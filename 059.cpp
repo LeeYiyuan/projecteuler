@@ -31,7 +31,7 @@ int main()
     for (int i = 0b01000001; i <= 0b01011010; i++)
         uppercase_range.emplace_back(i);
 
-    std::string ciphertext_string = read_file("59_cipher.txt");
+    std::string ciphertext_string = read_file("059_cipher.txt");
     std::vector<int> ciphertext;
     for (std::string &ciphertext_character : split(ciphertext_string, ','))
         ciphertext.emplace_back(std::stoi(ciphertext_character));

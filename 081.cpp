@@ -25,7 +25,7 @@
 
 int main()
 {
-    std::string matrix_string = read_file("81_matrix.txt");
+    std::string matrix_string = read_file("081_matrix.txt");
     std::vector<std::vector<int>> matrix;
     std::vector<std::vector<int>> M;
     for (std::string &matrix_row_string : split(matrix_string, '\n'))

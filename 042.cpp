@@ -7,7 +7,7 @@
 
 int main()
 {
-    std::string words_string = read_file("42_words.txt");
+    std::string words_string = read_file("042_words.txt");
     std::vector<std::string> words = split(words_string, ',');
     for (std::string &word : words)
         word = word.substr(1, word.length() - 2);

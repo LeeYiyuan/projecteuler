@@ -113,7 +113,7 @@ std::tuple<int, int, int, int, int, int> get_hand_value(std::vector<std::string>
 
 int main()
 {
-    std::string hands_string = read_file("54_poker.txt");
+    std::string hands_string = read_file("054_poker.txt");
 
     int count = 0;
     for (std::string &hand_string : split(hands_string, '\n'))

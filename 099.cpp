@@ -17,7 +17,7 @@
 
 int main()
 {
-    std::string pairs_string = read_file("99_base_exp.txt");
+    std::string pairs_string = read_file("099_base_exp.txt");
     std::vector<std::pair<int, int>> pairs;
     for (std::string &pair_string : split(pairs_string, '\n'))
     {

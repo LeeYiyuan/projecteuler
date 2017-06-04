@@ -13,7 +13,7 @@
 
 int main()
 {
-    std::string triangle_string = read_file("67_triangle.txt");
+    std::string triangle_string = read_file("067_triangle.txt");
     std::vector<std::vector<int>> triangle;
     for (std::string &triangle_row_string : split(triangle_string, '\n'))
     {
