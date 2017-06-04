@@ -38,7 +38,8 @@
     ============================================================================
             ALGORITHM 1 : f(n, d) direct computation for general n.
     ============================================================================
-    This algorithm computes directly f(n, d) for positive digits d and
+    This algorithm computes directly f(n, d) for positive digits d and positive
+    n.
 
     Similar to the proof of lemma 1, we can split every number into ranges that
     are grouped, in this case, by their first digits. For example for 3519989,
