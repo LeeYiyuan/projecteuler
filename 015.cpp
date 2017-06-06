@@ -26,7 +26,7 @@ int main()
         numerator *= (21 + 2 * i) * 2;
         denominator *= i + 1;
 
-        ull d = gcd(numerator, denominator);
+        ull d = util::gcd(numerator, denominator);
         numerator /= d;
         denominator /= d;
     }

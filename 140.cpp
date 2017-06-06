@@ -41,7 +41,7 @@ int main()
 {
     mpz_class sum_nugget = 0;
     int count = 0;
-    pell_solver solver(5, 44);
+    util::pell_solver solver(5, 44);
     while (count < 30 && solver.move_next())
     {
         mpz_class a = solver.solution.x;

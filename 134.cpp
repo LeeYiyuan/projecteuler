@@ -34,11 +34,11 @@ typedef unsigned long long ull;
 
 int main()
 {
-    std::vector<int> primes = get_primes(1000000);
+    std::vector<int> primes = util::get_primes(1000000);
      // We need p >= 5.
     primes.erase(primes.begin(), primes.begin() + 2);
     // For when p1 is the largest prime such that p1 <= 1000000.
-    primes.emplace_back(get_next_prime(primes.back()));
+    primes.emplace_back(util::get_next_prime(primes.back()));
 
     ull sum_S = 0;
     for (int i = 0; i < primes.size() - 1; i++)
@@ -53,7 +53,7 @@ int main()
             m *= 10;
             _p1 /= 10;
         }
-        ull k = (p1 * inv_mod(p2, m)) % m;
+        ull k = (p1 * util::inv_mod(p2, m)) % m;
         ull S = k * p2;
         sum_S += S;
     }

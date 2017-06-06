@@ -135,7 +135,7 @@ int PD(ll r, ll i)
     {
         ll n_neighbour = get_number(neighbour.first, neighbour.second);
         ll diff = n > n_neighbour ? (n - n_neighbour) : (n_neighbour - n);
-        if (is_prime(diff))
+        if (util::is_prime(diff))
             count++;
     }
     return count;

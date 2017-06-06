@@ -30,7 +30,6 @@
 #include <cmath>
 #include <string>
 #include <gmpxx.h>
-#include "number_util.h"
 
 int main()
 {

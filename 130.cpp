@@ -27,7 +27,7 @@ int main()
     {
         if (n % 2 != 0 && n % 5 != 0)
         {
-            if (!is_prime(n))
+            if (!util::is_prime(n))
             {
                 if ((n - 1) % A(n) == 0)
                 {

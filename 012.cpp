@@ -24,7 +24,7 @@ int main()
     {
         n++;
         while (primes.back() < n + 1)
-            primes.emplace_back(get_next_prime(primes.back()));
+            primes.emplace_back(util::get_next_prime(primes.back()));
 
         num_divisors = 1;
 

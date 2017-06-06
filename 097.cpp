@@ -6,5 +6,5 @@ int main()
 {
     mpz_class m = 10000000000;
 
-    std::cout << (28433 * pow_mod(2, 7830457, m) + 1) % m;
+    std::cout << (28433 * util::pow_mod(2, 7830457, m) + 1) % m;
 }

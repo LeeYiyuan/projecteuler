@@ -40,7 +40,7 @@ int main()
     {
         std::vector<int> range(turns);
         std::iota(range.begin(), range.end(), 2);
-        for (std::vector<int> &combinations : get_combinations(range.begin(), range.end(), length))
+        for (std::vector<int> &combinations : util::get_combinations(range.begin(), range.end(), length))
         {
             ull numerator = 1;
             for (int d = 2; d <= turns + 1; d++)
@@ -50,5 +50,5 @@ int main()
         }
     }
 
-    std::cout << factorial(ull(turns + 1)) / numerator_sum;
+    std::cout << util::factorial(ull(turns + 1)) / numerator_sum;
 }

@@ -42,17 +42,17 @@ void search(
 int main()
 {
     int N = 50000000;
-    std::vector<int> primes = get_primes(int(std::sqrt(N)));
+    std::vector<int> primes = util::get_primes(int(std::sqrt(N)));
     std::vector<std::vector<int>> powers = { { }, { }, { } };
 
     for (int e = 2; e < 5; e++)
     {
         for (int &prime : primes)
         {
-            mpz_class power = pow(prime, e);
+            mpz_class power = util::pow(prime, e);
             if (power > N)
                 break;
-            powers[e - 2].emplace_back(mpz_to<int>(power));
+            powers[e - 2].emplace_back(util::mpz_to<int>(power));
         }
     }
 

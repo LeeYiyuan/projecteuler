@@ -17,11 +17,11 @@
 
 int main()
 {
-    std::string pairs_string = read_file("099_base_exp.txt");
+    std::string pairs_string = util::read_file("099_base_exp.txt");
     std::vector<std::pair<int, int>> pairs;
-    for (std::string &pair_string : split(pairs_string, '\n'))
+    for (std::string &pair_string : util::split(pairs_string, '\n'))
     {
-        std::vector<std::string> splitted = split(pair_string, ',');
+        std::vector<std::string> splitted = util::split(pair_string, ',');
         pairs.emplace_back(std::stoi(splitted[0]), std::stoi(splitted[1]));
     }
 

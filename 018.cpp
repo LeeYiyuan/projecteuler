@@ -28,14 +28,14 @@ R"(75
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23)";
 
-    std::vector<std::string> triangle_row_strings = split(triangle_string, '\n');
+    std::vector<std::string> triangle_row_strings = util::split(triangle_string, '\n');
     std::reverse(triangle_row_strings.begin(), triangle_row_strings.end());
 
     std::vector<std::vector<int>> triangle;
     for (std::string &triangle_row_string : triangle_row_strings)
     {
         triangle.emplace_back();
-        for (std::string &number : split(triangle_row_string, ' '))
+        for (std::string &number : util::split(triangle_row_string, ' '))
             triangle.back().emplace_back(std::stoi(number));
     }
 

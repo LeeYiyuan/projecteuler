@@ -39,7 +39,7 @@ int main()
 {
     int c_max = 120000;
 
-    std::vector<int> primes = get_primes(c_max - 1);
+    std::vector<int> primes = util::get_primes(c_max - 1);
     std::vector<int> n_to_rad(c_max, 1);
     for (int &p : primes)
     {
@@ -72,7 +72,7 @@ int main()
                 if (a > 0 && a < b)
                 {
                     int rad_a = n_to_rad[a];
-                    if (gcd(b, c) == 1 && (unsigned long long)(rad_a) * rad_b * rad_c < c)
+                    if (util::gcd(b, c) == 1 && (unsigned long long)(rad_a) * rad_b * rad_c < c)
                         sum += c;
                 }
             }

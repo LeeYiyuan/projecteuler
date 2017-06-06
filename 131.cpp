@@ -28,7 +28,7 @@ int main()
         if ((m3 - n3) % n2 == 0)
         {
             mpz_class p = (m3 - n3) / n2;
-            if (is_prime(p))
+            if (util::is_prime(p))
             {
                 if (p >= 1000000)
                 {

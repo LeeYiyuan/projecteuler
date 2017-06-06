@@ -27,7 +27,7 @@ int main()
         ull s = get_sum(a, b);
         while (s < std::pow(10, 8))
         {
-            if (is_palindrome(std::to_string(s)))
+            if (util::is_palindrome(std::to_string(s)))
                 numbers.emplace(s);
             b++;
             s = get_sum(a, b);

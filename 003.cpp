@@ -9,7 +9,7 @@ int main()
     int prime = 1;
     while (n > 1)
     {
-        prime = get_next_prime(prime);
+        prime = util::get_next_prime(prime);
         while (n % prime == 0)
             n /= prime;
     }

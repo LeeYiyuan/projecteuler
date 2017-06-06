@@ -32,7 +32,7 @@
 int main()
 {
     int n_max = 200000;
-    std::vector<int> primes = get_primes(n_max);
+    std::vector<int> primes = util::get_primes(n_max);
     std::vector<int> divisor_counts(n_max + 1, 1);
 
     for (int &d : primes)

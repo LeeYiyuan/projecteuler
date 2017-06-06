@@ -32,7 +32,6 @@
 */
 
 #include <iostream>
-#include "number_util.h"
 
 int main()
 {

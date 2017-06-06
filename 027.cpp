@@ -12,7 +12,7 @@ int main()
         for (int b = -1000; b <= 1000; b++)
         {
             int n = 0;
-            while (is_prime(n * n + a * n + b))
+            while (util::is_prime(n * n + a * n + b))
                 n++;
             if (n > max_count)
             {

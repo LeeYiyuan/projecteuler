@@ -49,10 +49,10 @@ bool is_in_triangle(point_type A, point_type B, point_type C, point_type P)
 int main()
 {
     int count = 0;
-    std::string triangles_string = read_file("102_triangles.txt");
-    for (std::string &triangle_row_string : split(triangles_string, '\n'))
+    std::string triangles_string = util::read_file("102_triangles.txt");
+    for (std::string &triangle_row_string : util::split(triangles_string, '\n'))
     {
-        std::vector<std::string> coord_strings = split(triangle_row_string, ',');
+        std::vector<std::string> coord_strings = util::split(triangle_row_string, ',');
         point_type A(std::stoi(coord_strings[0]), std::stoi(coord_strings[1]));
         point_type B(std::stoi(coord_strings[2]), std::stoi(coord_strings[3]));
         point_type C(std::stoi(coord_strings[4]), std::stoi(coord_strings[5]));

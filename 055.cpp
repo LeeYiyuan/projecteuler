@@ -22,7 +22,7 @@ int main()
 
             _n += mpz_class(_n_string);
 
-            if (is_palindrome(_n.get_str()))
+            if (util::is_palindrome(_n.get_str()))
             {
                 is_hit = false;
                 break;

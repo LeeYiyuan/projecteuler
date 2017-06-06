@@ -44,7 +44,7 @@ int main()
         }
     }
 
-    int g = gcd(n_product, d_product);
+    int g = util::gcd(n_product, d_product);
 
     std::cout << d_product / g;
 }

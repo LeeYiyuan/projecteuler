@@ -21,7 +21,7 @@ int get_longest_length(std::vector<int> &primes, int i_p)
 
 int main()
 {
-    std::vector<int> primes = get_primes(999999);
+    std::vector<int> primes = util::get_primes(999999);
 
     int value;
     int max_l = -1;

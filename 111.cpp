@@ -61,7 +61,7 @@ std::vector<ull> get_primes(int n, int d, int c)
             for (int i = 0; i < n; i++)
                 p = 10 * p + digits[i];
 
-            if (is_prime(p))
+            if (util::is_prime(p))
                 primes.emplace_back(p);
         }
     } while (std::next_permutation(positions.begin(), positions.end()));

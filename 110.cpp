@@ -34,7 +34,7 @@
 #include "prime_util.h"
 #include "number_util.h"
 
-std::vector<int> primes = get_primes(1000);
+std::vector<int> primes = util::get_primes(1000);
 
 int count_factor_pairs(std::vector<int> &exponents)
 {
@@ -48,7 +48,7 @@ mpz_class get_number(std::vector<int> &exponents)
 {
     mpz_class n = 1;
     for (int i = 0; i < exponents.size(); i++)
-        n *= pow(primes[i], exponents[i]);
+        n *= util::pow(primes[i], exponents[i]);
     return n;
 }
 

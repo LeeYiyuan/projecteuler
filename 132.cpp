@@ -52,7 +52,7 @@ bool is_factor(int p)
         for (int b = 0; b <= b_max; b++)
         {
             unsigned long int q = std::pow(2, a) * std::pow(5, b);
-            if (pow(10, q) % (9 * p) == 1)
+            if (util::pow(10, q) % (9 * p) == 1)
                 return true;
         }
     }
@@ -73,7 +73,7 @@ int main()
             s += prime;
             count++;
         }
-        primes.emplace_back(get_next_prime(prime));
+        primes.emplace_back(util::get_next_prime(prime));
     }
 
     std::cout << s;

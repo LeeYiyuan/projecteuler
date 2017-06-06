@@ -21,7 +21,7 @@ int main()
     for(int d = 2; d <= 1000000; d++)
     {
         int n = int(std::ceil(double(3 * d) / 7));
-        while (gcd(--n, d) > 1);
+        while (util::gcd(--n, d) > 1);
         double value = double(n) / double(d);
         if (value > value_closest)
         {

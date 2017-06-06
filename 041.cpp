@@ -17,7 +17,7 @@
 
 int main()
 {
-    std::vector<int> primes = get_primes(9999999);
+    std::vector<int> primes = util::get_primes(9999999);
 
     int max_pandigital_prime = -1;
     for (int &prime : primes)

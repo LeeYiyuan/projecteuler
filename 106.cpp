@@ -32,13 +32,13 @@ int main()
     int count = 0;
     for (int _n = 2; _n <= numbers.size() / 2; _n++)
     {
-        for (std::vector<int> &_a : get_combinations(numbers.begin(), numbers.end(), _n))
+        for (std::vector<int> &_a : util::get_combinations(numbers.begin(), numbers.end(), _n))
         {
             std::vector<int> _b_numbers;
             for (int &e : numbers)
                 if (!std::binary_search(_a.begin(), _a.end(), e))
                     _b_numbers.emplace_back(e);
-            for (std::vector<int> &_b : get_combinations(_b_numbers.begin(), _b_numbers.end(), _n))
+            for (std::vector<int> &_b : util::get_combinations(_b_numbers.begin(), _b_numbers.end(), _n))
             {
                 if (_a > _b)
                     continue;

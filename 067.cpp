@@ -13,12 +13,12 @@
 
 int main()
 {
-    std::string triangle_string = read_file("067_triangle.txt");
+    std::string triangle_string = util::read_file("067_triangle.txt");
     std::vector<std::vector<int>> triangle;
-    for (std::string &triangle_row_string : split(triangle_string, '\n'))
+    for (std::string &triangle_row_string : util::split(triangle_string, '\n'))
     {
         triangle.emplace_back();
-        for(std::string &number_string : split(triangle_row_string, ' '))
+        for(std::string &number_string : util::split(triangle_row_string, ' '))
         {
             triangle.back().emplace_back(std::stoi(number_string));
         }

@@ -4,7 +4,7 @@
 
 int main()
 {
-    mpz_class product = factorial(mpz_class(100));
+    mpz_class product = util::factorial(mpz_class(100));
 
     int sum = 0;
     for (char &digit : product.get_str())

@@ -30,7 +30,7 @@
 int main()
 {
     int limit = 10000000;
-    std::vector<int> primes = get_primes(limit - 1);
+    std::vector<int> primes = util::get_primes(limit - 1);
     std::vector<int> totients(limit);
     std::iota(totients.begin(), totients.end(), 0);
 

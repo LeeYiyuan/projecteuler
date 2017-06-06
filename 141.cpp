@@ -46,7 +46,7 @@ int main()
         ull y2 = 1;
         while (y < x && 1 * x3 * y + y2 < n2_max)
         {
-            if (gcd(x, y) == 1)
+            if (util::gcd(x, y) == 1)
             {
                 ull a = 1;
                 ull a2 = 1;

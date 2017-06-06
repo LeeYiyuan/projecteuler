@@ -29,10 +29,10 @@ R"(08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48)";
 
     std::vector<std::vector<int>> numbers;
-    for (std::string &numbers_row_string : split(numbers_string, '\n'))
+    for (std::string &numbers_row_string : util::split(numbers_string, '\n'))
     {
         numbers.emplace_back();
-        for (std::string &number_string : split(numbers_row_string, ' '))
+        for (std::string &number_string : util::split(numbers_row_string, ' '))
             numbers.back().emplace_back(std::stoi(number_string));
     }
 

@@ -2,4 +2,7 @@
 
 #include <string>
 
-std::string read_file(std::string file_name);
+namespace util
+{
+    std::string read_file(std::string file_name);
+}

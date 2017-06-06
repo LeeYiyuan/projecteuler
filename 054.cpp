@@ -113,12 +113,12 @@ std::tuple<int, int, int, int, int, int> get_hand_value(std::vector<std::string>
 
 int main()
 {
-    std::string hands_string = read_file("054_poker.txt");
+    std::string hands_string = util::read_file("054_poker.txt");
 
     int count = 0;
-    for (std::string &hand_string : split(hands_string, '\n'))
+    for (std::string &hand_string : util::split(hands_string, '\n'))
     {
-        std::vector<std::string> cards = split(hand_string, ' ');
+        std::vector<std::string> cards = util::split(hand_string, ' ');
 
         std::vector<std::string> hand_a = { cards[0], cards[1], cards[2], cards[3], cards[4] };
         std::vector<std::string> hand_b = { cards[5], cards[6], cards[7], cards[8], cards[9] };

@@ -31,7 +31,7 @@ int main()
         // Extend until at least n + 3, which is necessary for the prime factorization
         // of n + 3 when checking consecutive numbers.
         while (primes.back() < n + 3)
-            primes.emplace_back(get_next_prime(primes.back()));
+            primes.emplace_back(util::get_next_prime(primes.back()));
 
         std::vector<std::vector<int>> prime_factors_list;
 

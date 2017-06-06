@@ -31,7 +31,7 @@ int main()
                     multiplier *= 10;
                     _i >>= 1;
                 }
-                if (is_prime(_prime))
+                if (util::is_prime(_prime))
                 {
                     family_size++;
                     family_smallest = std::min(family_smallest, _prime);
@@ -45,6 +45,6 @@ int main()
             }
         }
 
-        prime = get_next_prime(prime);
+        prime = util::get_next_prime(prime);
     }
 }

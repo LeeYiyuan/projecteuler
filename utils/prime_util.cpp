@@ -15,7 +15,7 @@
         Webster, Jonathan (2015). "Strong Pseudoprimes to Twelve Prime Bases". arXiv:1509.00864
 */
 
-std::vector<mpz_class> miller_rabin_bases = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41 };
+std::vector<mpz_class> const miller_rabin_bases = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41 };
 
 bool miller_rabin_pass(mpz_class a, mpz_class s, mpz_class d, mpz_class n)
 {
@@ -36,7 +36,7 @@ bool miller_rabin_pass(mpz_class a, mpz_class s, mpz_class d, mpz_class n)
 }
 
 template <>
-bool is_prime(mpz_class n_mpz)
+bool util::is_prime(mpz_class n_mpz)
 {
     if (n_mpz < 2)
         return false;
@@ -50,7 +50,7 @@ bool is_prime(mpz_class n_mpz)
         d >>= 1;
         s++;
     }
-    for (mpz_class &a : miller_rabin_bases)
+    for (mpz_class const &a : miller_rabin_bases)
     {
         if (!miller_rabin_pass(a, s, d, n_mpz))
             return false;
@@ -59,7 +59,7 @@ bool is_prime(mpz_class n_mpz)
 }
 
 template <>
-mpz_class get_next_prime(mpz_class p_mpz)
+mpz_class util::get_next_prime(mpz_class p_mpz)
 {
     while (!is_prime(++p_mpz));
     return p_mpz;

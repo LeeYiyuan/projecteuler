@@ -73,12 +73,12 @@ int find_minimum_weight(matrix_type &matrix, std::vector<edge_type> &edges, int 
 
 int main()
 {
-    std::string matrix_string = read_file("107_network.txt");
+    std::string matrix_string = util::read_file("107_network.txt");
     matrix_type matrix;
-    for (std::string &matrix_row_string : split(matrix_string, '\n'))
+    for (std::string &matrix_row_string : util::split(matrix_string, '\n'))
     {
         matrix.emplace_back();
-        for (std::string &element_string : split(matrix_row_string, ','))
+        for (std::string &element_string : util::split(matrix_row_string, ','))
         {
             if (element_string == "-")
                 matrix.back().emplace_back(-1);

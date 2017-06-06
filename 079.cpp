@@ -41,8 +41,8 @@ bool check_key(std::vector<int> &permutation, std::vector<int> &key)
 
 int main()
 {
-    std::string keys_string = read_file("079_keylog.txt");
-    std::vector<std::string> key_strings = split(keys_string, '\n');
+    std::string keys_string = util::read_file("079_keylog.txt");
+    std::vector<std::string> key_strings = util::split(keys_string, '\n');
     std::vector<std::vector<int>> keys;
     for (std::string &key_string : key_strings)
         keys.emplace_back(std::vector<int>({ key_string[0] - '0', key_string[1] - '0', key_string[2] - '0' }));

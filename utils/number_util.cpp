@@ -3,7 +3,7 @@
 #include "number_util.h"
 
 template <>
-mpz_class to_mpz(signed long long n)
+mpz_class util::to_mpz(signed long long n)
 {
     long long n_abs = std::llabs(n);
     mpz_class result = (unsigned int)(n_abs >> 32);
@@ -15,7 +15,7 @@ mpz_class to_mpz(signed long long n)
 }
 
 template <>
-mpz_class to_mpz(unsigned long long n)
+mpz_class util::to_mpz(unsigned long long n)
 {
     mpz_class result = (unsigned int)((n >> 32) & 0xFFFFFFFF);
     result <<= 32;
@@ -24,13 +24,13 @@ mpz_class to_mpz(unsigned long long n)
 }
 
 template <>
-mpz_class mpz_to(mpz_class n)
+mpz_class util::mpz_to(mpz_class n)
 {
     return n;
 }
 
 template <>
-mpz_class inv_mod(mpz_class n, mpz_class m)
+mpz_class util::inv_mod(mpz_class n, mpz_class m)
 {
     mpz_t c_result;
     mpz_init(c_result);
@@ -41,7 +41,7 @@ mpz_class inv_mod(mpz_class n, mpz_class m)
 }
 
 template <>
-mpz_class pow_mod(mpz_class a, mpz_class b, mpz_class m)
+mpz_class util::pow_mod(mpz_class a, mpz_class b, mpz_class m)
 {
     mpz_t c_result;
     mpz_init(c_result);
@@ -52,7 +52,7 @@ mpz_class pow_mod(mpz_class a, mpz_class b, mpz_class m)
 }
 
 template <>
-mpz_class pow(mpz_class a, unsigned long int b)
+mpz_class util::pow(mpz_class a, unsigned long int b)
 {
     mpz_t c_result;
     mpz_init(c_result);
@@ -63,7 +63,7 @@ mpz_class pow(mpz_class a, unsigned long int b)
 }
 
 template <>
-mpz_class concat(mpz_class a, mpz_class b)
+mpz_class util::concat(mpz_class a, mpz_class b)
 {
     if (b == 0) return a * 10;
 

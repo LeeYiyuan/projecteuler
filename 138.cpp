@@ -24,7 +24,7 @@ int main()
 {
     int count_L = 0;
     mpz_class sum_L = 0;
-    pell_solver solver(20, -4);
+    util::pell_solver solver(20, -4);
     while (solver.move_next())
     {
         mpz_class x = solver.solution.x;

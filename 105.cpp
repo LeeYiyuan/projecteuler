@@ -66,13 +66,13 @@ bool check(std::vector<int> &A)
 
 int main()
 {
-    std::string sets_string = read_file("105_sets.txt");
+    std::string sets_string = util::read_file("105_sets.txt");
     std::vector<std::vector<int>> sets;
-    for (std::string &row_string : split(sets_string, '\n'))
+    for (std::string &row_string : util::split(sets_string, '\n'))
     {
         sets.emplace_back();
         std::vector<int> &set = sets.back();
-        for (std::string &n_string : split(row_string, ','))
+        for (std::string &n_string : util::split(row_string, ','))
         {
             set.emplace_back(std::stoi(n_string));
         }

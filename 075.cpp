@@ -39,7 +39,7 @@ int main()
             if ((L / 2) % m == 0)
             {
                 int n = (L / 2) / m - m;
-                if (m > n && gcd(m, n) == 1 && (m % 2 == 0 || n % 2 == 0))
+                if (m > n && util::gcd(m, n) == 1 && (m % 2 == 0 || n % 2 == 0))
                 {
                     int k = 0;
                     while ((++k) * L <= limit)

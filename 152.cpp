@@ -107,16 +107,16 @@ std::vector<group_struct> get_eliminating_groups(std::vector<int> &available_ter
 
     std::vector<int> terms;
     for (int &term : available_terms)
-        if (term % pow(p, e) == 0)
+        if (term % util::pow(p, e) == 0)
             terms.emplace_back(term);
     for (int length = 0; length <= terms.size(); length++)
     {
-        for (std::vector<int> &combination : get_combinations(terms.begin(), terms.end(), length))
+        for (std::vector<int> &combination : util::get_combinations(terms.begin(), terms.end(), length))
         {
             mpq_class s = fraction;
             for (int &term : combination)
                 s += polarity * mpq_class(1, term * term);
-            if (s.get_den() % pow(p, 2 * e - 1) != 0)
+            if (s.get_den() % util::pow(p, 2 * e - 1) != 0)
                 groups.emplace_back(combination, s);
         }
     }
@@ -129,16 +129,16 @@ bool check_eliminating_groups(std::vector<int> &available_terms, mpq_class fract
 {
     std::vector<int> terms;
     for (int &term : available_terms)
-        if (term % pow(p, e) == 0)
+        if (term % util::pow(p, e) == 0)
             terms.emplace_back(term);
     for (int length = 0; length <= terms.size(); length++)
     {
-        for (std::vector<int> &combination : get_combinations(terms.begin(), terms.end(), length))
+        for (std::vector<int> &combination : util::get_combinations(terms.begin(), terms.end(), length))
         {
             mpq_class s = fraction;
             for (int &term : combination)
                 s += polarity * mpq_class(1, term * term);
-            if (s.get_den() % pow(p, 2 * e - 1) != 0)
+            if (s.get_den() % util::pow(p, 2 * e - 1) != 0)
                 if (combination.size() > 0)
                     return true;
         }
@@ -205,7 +205,7 @@ void search(std::vector<int> &available_terms, mpq_class fraction, std::vector<i
 int main()
 {
     int limit = 80;
-    std::vector<int> primes = get_primes(limit);
+    std::vector<int> primes = util::get_primes(limit);
     primes.erase(primes.begin());
 
     std::vector<int> terms;
@@ -225,7 +225,7 @@ int main()
 
     for (int length = 0; length <= two_powers.size(); length++)
     {
-        for (std::vector<int> &combination : get_combinations(two_powers.begin(), two_powers.end(), length))
+        for (std::vector<int> &combination : util::get_combinations(two_powers.begin(), two_powers.end(), length))
         {
             valid_results.emplace_back(0);
             for (int &term : combination)

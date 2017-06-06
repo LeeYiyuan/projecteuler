@@ -15,7 +15,7 @@
 
 int main()
 {
-    std::vector<int> primes_raw = get_primes(9999);
+    std::vector<int> primes_raw = util::get_primes(9999);
     std::set<int> primes;
 
     for (int &prime : primes_raw)

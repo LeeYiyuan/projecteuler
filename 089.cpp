@@ -12,12 +12,12 @@
 #include <string>
 #include <unordered_map>
 #include "io_util.h"
-#include <string_util.h>
+#include "string_util.h"
 
 int main()
 {
-    std::string numerals_string = read_file("089_roman.txt");
-    std::vector<std::string> numerals = split(numerals_string, '\n');
+    std::string numerals_string = util::read_file("089_roman.txt");
+    std::vector<std::string> numerals = util::split(numerals_string, '\n');
 
     std::vector<int> decimals;
     std::unordered_map<char, int> values = {

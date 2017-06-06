@@ -10,12 +10,12 @@
     http://www.jpr2718.org/pell.pdf
 */
 
-pell_solution::pell_solution()
+util::pell_solution::pell_solution()
 {
 
 }
 
-pell_solution::pell_solution(mpz_class x, mpz_class y)
+util::pell_solution::pell_solution(mpz_class x, mpz_class y)
 {
     this->x = x;
     this->y = y;
@@ -25,7 +25,7 @@ pell_solution::pell_solution(mpz_class x, mpz_class y)
 
 
 
-void pell_PQa_algorithm::init(mpz_class P_0, mpz_class Q_0, mpz_class D)
+void util::pell_PQa_algorithm::init(mpz_class P_0, mpz_class Q_0, mpz_class D)
 {
     this->P_0 = P_0;
     this->Q_0 = Q_0;
@@ -35,17 +35,17 @@ void pell_PQa_algorithm::init(mpz_class P_0, mpz_class Q_0, mpz_class D)
     G.emplace_back(Q_0);
 }
 
-pell_PQa_algorithm::pell_PQa_algorithm()
+util::pell_PQa_algorithm::pell_PQa_algorithm()
 {
 
 }
 
-pell_PQa_algorithm::pell_PQa_algorithm(mpz_class P_0, mpz_class Q_0, mpz_class D)
+util::pell_PQa_algorithm::pell_PQa_algorithm(mpz_class P_0, mpz_class Q_0, mpz_class D)
 {
     init(P_0, Q_0, D);
 }
 
-void pell_PQa_algorithm::move_next()
+void util::pell_PQa_algorithm::move_next()
 {
     i++;
     mpz_class P_i, Q_i;
@@ -77,7 +77,7 @@ void pell_PQa_algorithm::move_next()
     Checks if the PQa algorithm has repeated by looking at the values of P, Q, a.
     Unfortunately I was not able to get the termintation check on pg. 7 to work.
 */
-bool pell_PQa_algorithm::has_repeated()
+bool util::pell_PQa_algorithm::has_repeated()
 {
     if (i <= 1)
         return false;
@@ -87,9 +87,9 @@ bool pell_PQa_algorithm::has_repeated()
     return false;
 }
 
-std::vector<pell_solution> LMM_algorithm(mpz_class D, mpz_class N)
+std::vector<util::pell_solution> util::LMM_algorithm(mpz_class D, mpz_class N)
 {
-    std::vector<pell_solution> fundamentals;
+    std::vector<util::pell_solution> fundamentals;
 
     std::vector<mpz_class> f_list;
     mpz_class f = 0;
@@ -147,7 +147,7 @@ std::vector<pell_solution> LMM_algorithm(mpz_class D, mpz_class N)
 
 
 
-void pell_solver::init(mpz_class D, mpz_class N)
+void util::pell_solver::init(mpz_class D, mpz_class N)
 {
     this->D = D;
     this->N = N;
@@ -176,17 +176,17 @@ void pell_solver::init(mpz_class D, mpz_class N)
     has_solution = !fundamentals.empty();
 }
 
-pell_solver::pell_solver()
+util::pell_solver::pell_solver()
 {
 
 }
 
-pell_solver::pell_solver(mpz_class D, mpz_class N)
+util::pell_solver::pell_solver(mpz_class D, mpz_class N)
 {
     init(D, N);
 }
 
-bool pell_solver::move_next()
+bool util::pell_solver::move_next()
 {
     if (!has_solution)
         return false;

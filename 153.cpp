@@ -29,7 +29,7 @@ ull C(int n)
         ull b2 = b * b;
         while (a2 + b2 <= n)
         {
-            ull d = gcd(a, b);
+            ull d = util::gcd(a, b);
             ull _a = a / d;
             ull _b = b / d;
 

@@ -110,7 +110,7 @@ R"(37107287533902102798797998220837590246510135740250
 53503534226472524250874054075591789781264330331690)";
 
     mpz_class sum = 0;
-    for (std::string &number_string : split(numbers_string, '\n'))
+    for (std::string &number_string : util::split(numbers_string, '\n'))
         sum += mpz_class(number_string);
 
     std::cout << sum.get_str().substr(0, 10);

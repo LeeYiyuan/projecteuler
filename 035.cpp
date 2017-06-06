@@ -14,7 +14,7 @@
 
 int main()
 {
-    std::vector<int> primes_vector = get_primes(1000000);
+    std::vector<int> primes_vector = util::get_primes(1000000);
     std::set<int> primes(primes_vector.begin(), primes_vector.end());
 
     int count = 0;

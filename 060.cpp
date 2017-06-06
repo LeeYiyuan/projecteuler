@@ -35,7 +35,7 @@
 
 bool is_concatenable(int a, int b)
 {
-    return is_prime(concat(a, b)) && is_prime(concat(b, a));
+    return util::is_prime(util::concat(a, b)) && util::is_prime(util::concat(b, a));
 }
 
 
@@ -75,6 +75,6 @@ int main()
                 }
             }
         }
-        prime = get_next_prime(prime);
+        prime = util::get_next_prime(prime);
     }
 }

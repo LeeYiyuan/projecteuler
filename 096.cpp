@@ -66,8 +66,8 @@ bool solve(grid_type &grid, int r, int c)
 
 int main()
 {
-    std::string grid_string = read_file("096_sudoku.txt");
-    std::vector<std::string> grid_row_strings = split(grid_string, '\n');
+    std::string grid_string = util::read_file("096_sudoku.txt");
+    std::vector<std::string> grid_row_strings = util::split(grid_string, '\n');
     std::vector<grid_type> grid;
 
     for (int i = 0; i < 50; i++)

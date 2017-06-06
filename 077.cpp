@@ -28,7 +28,7 @@ int partitions(std::vector<int> &C, int n, int k)
     if (n == 0)
         return 1;
     while (C.back() < k)
-        C.emplace_back(get_next_prime(C.back()));
+        C.emplace_back(util::get_next_prime(C.back()));
     int sum = 0;
     for (int &c : C)
         if (c <= std::min(n, k))

@@ -35,7 +35,7 @@ std::vector<std::vector<int>> search(std::vector<int> &digits, std::vector<int> 
     {
         for (int index = slices.back() + 1; index < digits.size() + 1; index++)
         {
-            if (is_prime(get_number(digits, slices.back(), index)))
+            if (util::is_prime(get_number(digits, slices.back(), index)))
             {
                 std::vector<int> _slices(slices);
                 _slices.emplace_back(index);

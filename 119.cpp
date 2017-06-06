@@ -27,7 +27,7 @@ int digit_sum(mpz_class n)
         s += n % 10;
         n /= 10;
     }
-    return mpz_to<int>(s);
+    return util::mpz_to<int>(s);
 }
 
 int main()
@@ -37,7 +37,7 @@ int main()
     {
         for (int e = 1; e <= b; e++)
         {
-            mpz_class n = pow(b, e);
+            mpz_class n = util::pow(b, e);
             if (n >= 100 && digit_sum(n) == b)
                 results.emplace_back(n);
         }

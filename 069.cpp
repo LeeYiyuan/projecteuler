@@ -30,7 +30,7 @@ int main()
     while (product * primes.back() <= 1000000)
     {
         product *= primes.back();
-        primes.emplace_back(get_next_prime(primes.back()));
+        primes.emplace_back(util::get_next_prime(primes.back()));
     }
 
     std::cout << product;

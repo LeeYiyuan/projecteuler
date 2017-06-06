@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <prime_util.h>
+#include "prime_util.h"
 
 int main()
 {
-    std::vector<int> primes = get_primes(100);
+    std::vector<int> primes = util::get_primes(100);
 
     std::vector<std::vector<int>> factorizations;
 

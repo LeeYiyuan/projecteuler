@@ -4,7 +4,7 @@
 
 int main()
 {
-    std::vector<int> primes = get_primes(1999999);
+    std::vector<int> primes = util::get_primes(1999999);
 
     unsigned long long sum = 0;
     for (int &prime : primes)

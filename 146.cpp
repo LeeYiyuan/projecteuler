@@ -96,8 +96,8 @@
 
 std::pair<int, int> solve_congruence(int a, int p, int b, int q)
 {
-    int d = mod((b - a) * inv_mod(p, q), q);
-    int n = mod(a + d * p, p * q);
+    int d = util::mod((b - a) * util::inv_mod(p, q), q);
+    int n = util::mod(a + d * p, p * q);
     return { n, p * q };
 }
 
@@ -144,9 +144,9 @@ int main()
     {
         unsigned long long n2 = n;
         n2 *= n;
-        if (!is_prime(n2 + 15) && !is_prime(n2 + 19) && !is_prime(n2 + 21) && !is_prime(n2 + 25) &&
-            is_prime(n2 + 1) && is_prime(n2 + 3) && is_prime(n2 + 7) && is_prime(n2 + 9) &&
-            is_prime(n2 + 13) && is_prime(n2 + 27))
+        if (!util::is_prime(n2 + 15) && !util::is_prime(n2 + 19) && !util::is_prime(n2 + 21) && !util::is_prime(n2 + 25) &&
+            util::is_prime(n2 + 1) && util::is_prime(n2 + 3) && util::is_prime(n2 + 7) && util::is_prime(n2 + 9) &&
+            util::is_prime(n2 + 13) && util::is_prime(n2 + 27))
         {
             sum += n;
         }

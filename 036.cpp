@@ -23,8 +23,8 @@ int main()
     {
         int n_1 = a;
         int n_2 = 10 * a + a;
-        if (is_palindrome(to_bit_string(n_1))) sum += n_1;
-        if (is_palindrome(to_bit_string(n_2))) sum += n_2;
+        if (util::is_palindrome(to_bit_string(n_1))) sum += n_1;
+        if (util::is_palindrome(to_bit_string(n_2))) sum += n_2;
     }
 
     // 3, 4 digit palindromes.
@@ -34,8 +34,8 @@ int main()
         {
             int n_3 = 100 * a + 10 * b + a;
             int n_4 = 1000 * a + 100 * b + 10 * b + a;
-            if (is_palindrome(to_bit_string(n_3))) sum += n_3;
-            if (is_palindrome(to_bit_string(n_4))) sum += n_4;
+            if (util::is_palindrome(to_bit_string(n_3))) sum += n_3;
+            if (util::is_palindrome(to_bit_string(n_4))) sum += n_4;
         }
     }
 
@@ -48,8 +48,8 @@ int main()
             {
                 int n_5 = 10000 * a + 1000 * b + 100 * c + 10 * b + a;
                 int n_6 = 100000 * a + 10000 * b + 1000 * c + 100 * c + 10 * b + a;
-                if (is_palindrome(to_bit_string(n_5))) sum += n_5;
-                if (is_palindrome(to_bit_string(n_6))) sum += n_6;
+                if (util::is_palindrome(to_bit_string(n_5))) sum += n_5;
+                if (util::is_palindrome(to_bit_string(n_6))) sum += n_6;
             }
         }
     }

@@ -4,7 +4,7 @@
 
 int main()
 {
-    mpz_class n = pow(2, 1000);
+    mpz_class n = util::pow(2, 1000);
 
     int s = 0;
     for (char &digit : n.get_str())

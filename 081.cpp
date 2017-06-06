@@ -25,14 +25,14 @@
 
 int main()
 {
-    std::string matrix_string = read_file("081_matrix.txt");
+    std::string matrix_string = util::read_file("081_matrix.txt");
     std::vector<std::vector<int>> matrix;
     std::vector<std::vector<int>> M;
-    for (std::string &matrix_row_string : split(matrix_string, '\n'))
+    for (std::string &matrix_row_string : util::split(matrix_string, '\n'))
     {
         matrix.emplace_back();
         M.emplace_back();
-        for (std::string &n_string : split(matrix_row_string, ','))
+        for (std::string &n_string : util::split(matrix_row_string, ','))
         {
             matrix.back().emplace_back(std::stoi(n_string));
             M.back().emplace_back(0);

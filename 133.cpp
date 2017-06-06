@@ -32,7 +32,7 @@ bool is_factor(int p)
         for (int b = 0; b <= b_max; b++)
         {
             unsigned long int q = std::pow(2, a) * std::pow(5, b);
-            if (pow(10, q) % (9 * p) == 1)
+            if (util::pow(10, q) % (9 * p) == 1)
                 return true;
         }
     }
@@ -43,7 +43,7 @@ bool is_factor(int p)
 int main()
 {
     int s = 0;
-    std::vector<int> primes = get_primes(100000 - 1);
+    std::vector<int> primes = util::get_primes(100000 - 1);
     for (int &prime : primes)
         if (!is_factor(prime))
             s += prime;

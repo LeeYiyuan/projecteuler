@@ -16,7 +16,7 @@ int main()
 
     for (int D = 2; D <= 1000; D++)
     {
-        pell_solver solver(D, 1);
+        util::pell_solver solver(D, 1);
         if (solver.move_next())
         {
             mpz_class x = solver.solution.x;

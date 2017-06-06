@@ -43,13 +43,13 @@ int main()
             for (int &prime : l_primes)
             {
                 int _prime = std::stoi(std::to_string(d) + std::to_string(prime));
-                if (is_prime(_prime)) _l_primes.emplace_back(_prime);
+                if (util::is_prime(_prime)) _l_primes.emplace_back(_prime);
             }
 
             for (int &prime : r_primes)
             {
                 int _prime = 10 * prime + d;
-                if (is_prime(_prime)) _r_primes.emplace_back(_prime);
+                if (util::is_prime(_prime)) _r_primes.emplace_back(_prime);
             }
         }
 

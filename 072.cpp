@@ -21,7 +21,7 @@
 int main()
 {
     int limit = 1000000;
-    std::vector<int> primes = get_primes(limit);
+    std::vector<int> primes = util::get_primes(limit);
     std::vector<int> totients(limit + 1);
     std::iota(totients.begin(), totients.end(), 0);
 

@@ -78,7 +78,7 @@ int main()
 {
     mpz_class perimeter_limit = 100000000;
     int count = 0;
-    pell_solver solver(2, -1);
+    util::pell_solver solver(2, -1);
     while (solver.move_next())
     {
         mpz_class e = solver.solution.x;
@@ -91,9 +91,9 @@ int main()
         {
             std::vector<std::pair<mpz_class, mpz_class>> candidates;
 
-            mpz_class h1 = gcd(d + e, d + 1);
+            mpz_class h1 = util::gcd(mpz_class(d + e), mpz_class(d + 1));
             candidates.emplace_back((d + e) / h1, (d + 1) / h1);
-            mpz_class h2 = gcd(d + e, d - 1);
+            mpz_class h2 = util::gcd(mpz_class(d + e), mpz_class(d - 1));
             candidates.emplace_back((d + e) / h2, (d - 1) / h2);
 
             for (std::pair<mpz_class, mpz_class> &candidate : candidates)
@@ -106,7 +106,7 @@ int main()
                     mpz_class b = 2 * m * n;
                     mpz_class c = m * m + n * n;
                     mpz_class perimeter = a + b + c;
-                    count += mpz_to<int>(perimeter_limit / perimeter);
+                    count += util::mpz_to<int>(perimeter_limit / perimeter);
                 }
             }
         }

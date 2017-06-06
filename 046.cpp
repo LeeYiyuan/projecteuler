@@ -17,13 +17,13 @@ int main()
     int n = 3;
     while (true)
     {
-        if (!is_prime(n) && n % 2 == 1)
+        if (!util::is_prime(n) && n % 2 == 1)
         {
             bool has_hit = false;
             for (int s = 1; s < int(std::sqrt((n - 2) / 2)) + 1; s++)
             {
                 int p = n - 2 * s * s;
-                if (is_prime(p))
+                if (util::is_prime(p))
                 {
                     has_hit = true;
                     break;

@@ -42,7 +42,7 @@ int main()
 {
     int count = 0;
     mpz_class n;
-    pell_solver solver(5, -4);
+    util::pell_solver solver(5, -4);
     while (count < 15 && solver.move_next())
     {
         mpz_class a = solver.solution.x;

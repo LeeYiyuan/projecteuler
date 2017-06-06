@@ -21,7 +21,7 @@ int main()
 {
     mpz_class p_max = 1000000000;
     mpz_class sum = 0;
-    pell_solver solver(3, 4);
+    util::pell_solver solver(3, 4);
 
     while (solver.move_next())
     {

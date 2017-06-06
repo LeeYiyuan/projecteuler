@@ -39,7 +39,7 @@ int main()
 
         while (p > 0)
         {
-            s += mpz_to<int>(p % 10);
+            s += util::mpz_to<int>(p % 10);
             p /= 10;
         }
     }

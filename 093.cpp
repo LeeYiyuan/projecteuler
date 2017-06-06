@@ -145,7 +145,7 @@ int main()
     int length_best = -1;
 
     std::vector<int> valid_digits = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    for (std::vector<int> &digits : get_combinations(valid_digits.begin(), valid_digits.end(), 4))
+    for (std::vector<int> &digits : util::get_combinations(valid_digits.begin(), valid_digits.end(), 4))
     {
         std::set<int> values;
 

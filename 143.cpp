@@ -63,7 +63,7 @@ int main()
         int m = n + 1;
         while (2 * m * n + n * n <= limit)
         {
-            if (gcd(m, n) == 1 && (m - n) % 3 != 0)
+            if (util::gcd(m, n) == 1 && (m - n) % 3 != 0)
             {
                 int f = m * m - n * n;
                 int g = 2 * m * n + n * n;
