@@ -39,7 +39,6 @@ std::pair<int, int> search(int a, int b_min)
     return { b, int(std::sqrt(a * a + b * b)) };
 }
 
-
 int main()
 {
     int a = 1; // x + y;

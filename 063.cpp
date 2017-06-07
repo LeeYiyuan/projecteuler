@@ -30,6 +30,7 @@
 #include <cmath>
 #include <string>
 #include <gmpxx.h>
+#include "number_util.h"
 
 int main()
 {
@@ -39,7 +40,7 @@ int main()
         int k = 0;
         while ((++k) * std::log10(a) + 1 >= k)
         {
-            mpz_class power = pow(a, k);
+            mpz_class power = util::pow(a, k);
 
             if (power.get_str().length() == k)
                 hits++;

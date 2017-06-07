@@ -38,7 +38,7 @@
     one characterized by k and the other by d / k >= k.
 
     We collect solutions in (a, b, p, n) across (x, y) across n in an std::set
-    and remove any duplicates. Probably the only time this happens is when
+    to remove any duplicates. Probably the only time this happens is when
     k * k = d, for which both k, d / k characterizes the same solution.
 */
 

@@ -11,8 +11,8 @@
 
         6r + k - 1, 6r + k, 6r + k + 1
 
-    Now, we consider the differences modulo 2 and 3 for the possible values of k. For
-    modulo 2 and 3, the 6r term is annihilated so we only have to worry about the k
+    Now, we consider the differences util::modulo 2 and 3 for the possible values of k. For
+    util::modulo 2 and 3, the 6r term is annihilated so we only have to worry about the k
     and constant terms.
 
         k   (k - 1) % 2   k % 2   (k + 1) % 2   (k - 1) % 3   k % 3   (k + 1) % 3
@@ -85,17 +85,10 @@
 #include <utility>
 #include <cmath>
 #include "prime_util.h"
+#include "number_util.h"
 
 typedef signed long long ll;
 typedef std::pair<ll, ll> node_type;
-
-ll mod(ll a, ll m)
-{
-    ll result = a % m;
-    if (result < 0)
-        result += m;
-    return result;
-}
 
 ll get_number(ll r, ll i)
 {
@@ -108,21 +101,21 @@ std::vector<node_type> get_neighbours(ll r, ll i)
     ll f = i / r;
     if (i % r != 0)
     {
-        results.emplace_back(r - 1, mod(f * (r - 1) + (i - f * r) - 1, 6 * (r - 1)));
-        results.emplace_back(r - 1, mod(f * (r - 1) + (i - f * r), 6 * (r - 1)));
-        results.emplace_back(r, mod(i - 1, 6 * r));
-        results.emplace_back(r, mod(i + 1, 6 * r));
-        results.emplace_back(r + 1, mod(f * (r + 1) + (i - f * r), 6 * (r + 1)));
-        results.emplace_back(r + 1, mod(f * (r + 1) + (i - f * r) + 1, 6 * (r + 1)));
+        results.emplace_back(r - 1, util::mod(f * (r - 1) + (i - f * r) - 1, 6 * (r - 1)));
+        results.emplace_back(r - 1, util::mod(f * (r - 1) + (i - f * r), 6 * (r - 1)));
+        results.emplace_back(r, util::mod(i - 1, 6 * r));
+        results.emplace_back(r, util::mod(i + 1, 6 * r));
+        results.emplace_back(r + 1, util::mod(f * (r + 1) + (i - f * r), 6 * (r + 1)));
+        results.emplace_back(r + 1, util::mod(f * (r + 1) + (i - f * r) + 1, 6 * (r + 1)));
     }
     else
     {
-        results.emplace_back(r - 1, mod(f * (r - 1), 6 * (r - 1)));
-        results.emplace_back(r, mod(i - 1, 6 * r));
-        results.emplace_back(r, mod(i + 1, 6 * r));
-        results.emplace_back(r + 1, mod(f * (r + 1) - 1, 6 * (r + 1)));
-        results.emplace_back(r + 1, mod(f * (r + 1), 6 * (r + 1)));
-        results.emplace_back(r + 1, mod(f * (r + 1) + 1, 6 * (r + 1)));
+        results.emplace_back(r - 1, util::mod(f * (r - 1), 6 * (r - 1)));
+        results.emplace_back(r, util::mod(i - 1, 6 * r));
+        results.emplace_back(r, util::mod(i + 1, 6 * r));
+        results.emplace_back(r + 1, util::mod(f * (r + 1) - 1, 6 * (r + 1)));
+        results.emplace_back(r + 1, util::mod(f * (r + 1), 6 * (r + 1)));
+        results.emplace_back(r + 1, util::mod(f * (r + 1) + 1, 6 * (r + 1)));
     }
     return results;
 }
