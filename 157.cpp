@@ -34,7 +34,7 @@
         (a, b, p, n) = ((k / d)(10^n + x), (k / d)(10^n + y), d / k, n)
 
     We need k | d for p to be a positive integer. Notice that we only need
-    to search up to k^2 <= d, because for every k <= d we have two solutions,
+    to search up to k^2 <= d, because for every k^2 <= d we have two solutions,
     one characterized by k and the other by d / k >= k.
 
     We collect solutions in (a, b, p, n) across (x, y) across n in an std::set
