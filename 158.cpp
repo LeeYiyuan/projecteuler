@@ -40,9 +40,6 @@
 
 #include <vector>
 #include <iostream>
-#include <algorithm>
-#include <utility>
-#include <numeric>
 #include "number_util.h"
 
 typedef unsigned long long ull;
