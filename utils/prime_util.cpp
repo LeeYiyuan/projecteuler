@@ -3,7 +3,6 @@
 #include <vector>
 #include <gmpxx.h>
 #include <gmp.h>
-#include <map>
 #include "number_util.h"
 
 /*
@@ -19,10 +18,7 @@ std::vector<mpz_class> const miller_rabin_bases = { 2, 3, 5, 7, 11, 13, 17, 19, 
 
 bool miller_rabin_pass(mpz_class a, mpz_class s, mpz_class d, mpz_class n)
 {
-    mpz_t c_a_to_power;
-    mpz_init(c_a_to_power);
-    mpz_powm(c_a_to_power, a.get_mpz_t(), d.get_mpz_t(), n.get_mpz_t());
-    mpz_class a_to_power(c_a_to_power);
+    mpz_class a_to_power = util::pow_mod(a, d, n);
 
     if (a_to_power == 1)
         return true;
@@ -61,6 +57,6 @@ bool util::is_prime(mpz_class n_mpz)
 template <>
 mpz_class util::get_next_prime(mpz_class p_mpz)
 {
-    while (!is_prime(++p_mpz));
+    while (!util::is_prime(++p_mpz));
     return p_mpz;
 }

@@ -8,7 +8,7 @@ namespace util
     template <typename T>
     bool is_prime(T n)
     {
-        return is_prime(to_mpz(n));
+        return util::is_prime(util::to_mpz(n));
     }
 
     template <>
@@ -17,7 +17,7 @@ namespace util
     template <typename T>
     T get_next_prime(T p)
     {
-        return mpz_to<T>(get_next_prime(to_mpz(p)));
+        return mpz_to<T>(util::get_next_prime(util::to_mpz(p)));
     }
 
     template <>

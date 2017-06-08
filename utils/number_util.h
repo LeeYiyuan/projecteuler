@@ -32,7 +32,7 @@ namespace util
     template <typename T>
     T gcd(T a, T b)
     {
-        return mpz_to<T>(::gcd(to_mpz(a), to_mpz(b)));
+        return mpz_to<T>(::gcd(util::to_mpz(a), util::to_mpz(b)));
     }
 
     template <typename Tn, typename Tm>
@@ -47,7 +47,7 @@ namespace util
     template <typename Tn, typename Tm>
     Tm inv_mod(Tn n, Tm m)
     {
-        return mpz_to<Tm>(inv_mod(to_mpz(n), to_mpz(m)));
+        return mpz_to<Tm>(util::inv_mod(util::to_mpz(n), util::to_mpz(m)));
     }
 
     template <>
@@ -56,7 +56,7 @@ namespace util
     template <typename Ta, typename Tb, typename Tm>
     Tm pow_mod(Ta a, Tb b, Tm m)
     {
-        return mpz_to<Tm>(pow_mod(to_mpz(a), to_mpz(b), to_mpz(m)));
+        return mpz_to<Tm>(util::pow_mod(util::to_mpz(a), util::to_mpz(b), util::to_mpz(m)));
     }
 
     template <>
@@ -65,7 +65,7 @@ namespace util
     template <typename Ta, typename Tb>
     mpz_class pow(Ta a, Tb b)
     {
-        return pow(to_mpz(a), to_mpz(b));
+        return util::pow(util::to_mpz(a), util::to_mpz(b));
     }
 
     template <>
@@ -74,7 +74,7 @@ namespace util
     template <typename T>
     T concat(T a, T b)
     {
-        return mpz_to<T>(concat(to_mpz(a), to_mpz(b)));
+        return mpz_to<T>(util::concat(util::to_mpz(a), util::to_mpz(b)));
     }
 
     template <>
@@ -92,7 +92,7 @@ namespace util
     template <typename T>
     T binom(T n, T k)
     {
-        return mpz_to<T>(binom(to_mpz(n), to_mpz(k)));
+        return mpz_to<T>(util::binom(util::to_mpz(n), util::to_mpz(k)));
     }
 
     template <>

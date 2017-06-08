@@ -29,7 +29,7 @@ namespace util
     std::vector<std::vector<typename InputIterator::value_type>> get_combinations(InputIterator first, InputIterator last, int r)
     {
         std::vector<std::vector<typename InputIterator::value_type>> combinations;
-        for (std::vector<InputIterator> &combination_it : get_combinations_it(first, last, r))
+        for (std::vector<InputIterator> &combination_it : util::get_combinations_it(first, last, r))
         {
             combinations.emplace_back();
             for (InputIterator &it : combination_it)
