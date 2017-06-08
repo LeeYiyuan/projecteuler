@@ -88,4 +88,13 @@ namespace util
             f *= i;
         return f;
     }
+
+    template <typename T>
+    T binom(T n, T k)
+    {
+        return mpz_to<T>(binom(to_mpz(n), to_mpz(k)));
+    }
+
+    template <>
+    mpz_class binom(mpz_class n, mpz_class k);
 }

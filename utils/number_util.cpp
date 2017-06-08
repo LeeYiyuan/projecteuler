@@ -75,3 +75,16 @@ mpz_class util::concat(mpz_class a, mpz_class b)
 
     return a + b;
 }
+
+template <>
+mpz_class util::binom(mpz_class n, mpz_class k)
+{
+    mpz_class numerator = 1;
+    mpz_class denominator = 1;
+    for (mpz_class i = 0; i < k; i++)
+    {
+        numerator *= n - i;
+        denominator *= k - i;
+    }
+    return numerator / denominator;
+}
