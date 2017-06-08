@@ -9,7 +9,6 @@
 #include <vector>
 #include <cmath>
 #include <numeric>
-#include <gmpxx.h>
 #include <unordered_set>
 #include "prime_util.h"
 #include "number_util.h"
@@ -49,10 +48,10 @@ int main()
     {
         for (int &prime : primes)
         {
-            mpz_class power = util::pow(prime, e);
+            int power = util::mpz_to<int>(util::pow(prime, e));
             if (power > N)
                 break;
-            powers[e - 2].emplace_back(util::mpz_to<int>(power));
+            powers[e - 2].emplace_back(power);
         }
     }
 

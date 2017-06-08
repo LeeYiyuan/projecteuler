@@ -91,9 +91,9 @@ int main()
         {
             std::vector<std::pair<mpz_class, mpz_class>> candidates;
 
-            mpz_class h1 = util::gcd(mpz_class(d + e), mpz_class(d + 1));
+            mpz_class h1 = util::gcd(util::to_mpz(d + e), util::to_mpz(d + 1));
             candidates.emplace_back((d + e) / h1, (d + 1) / h1);
-            mpz_class h2 = util::gcd(mpz_class(d + e), mpz_class(d - 1));
+            mpz_class h2 = util::gcd(util::to_mpz(d + e), util::to_mpz(d - 1));
             candidates.emplace_back((d + e) / h2, (d - 1) / h2);
 
             for (std::pair<mpz_class, mpz_class> &candidate : candidates)

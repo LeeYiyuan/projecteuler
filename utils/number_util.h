@@ -65,11 +65,11 @@ namespace util
     template <typename Ta, typename Tb>
     mpz_class pow(Ta a, Tb b)
     {
-        return pow(to_mpz(a), (unsigned long int)b);
+        return pow(to_mpz(a), to_mpz(b));
     }
 
     template <>
-    mpz_class pow(mpz_class a, unsigned long int b);
+    mpz_class pow(mpz_class a, mpz_class b);
 
     template <typename T>
     T concat(T a, T b)

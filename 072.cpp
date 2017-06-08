@@ -35,7 +35,7 @@ int main()
         }
     }
 
-    mpz_class count = std::accumulate(totients.begin() + 1, totients.end(), mpz_class(1));
+    mpz_class count = std::accumulate(totients.begin() + 1, totients.end(), 1_mpz);
     count -= 2;
 
     std::cout << count;

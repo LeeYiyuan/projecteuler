@@ -1,5 +1,6 @@
 #include <gmp.h>
 #include <gmpxx.h>
+#include <iostream>
 #include "number_util.h"
 
 template <>
@@ -52,12 +53,21 @@ mpz_class util::pow_mod(mpz_class a, mpz_class b, mpz_class m)
 }
 
 template <>
-mpz_class util::pow(mpz_class a, unsigned long int b)
+mpz_class util::pow(mpz_class a, mpz_class b)
 {
-    mpz_t c_result;
-    mpz_init(c_result);
-    mpz_pow_ui(c_result, a.get_mpz_t(), b);
-    mpz_class result(c_result);
+    mpz_class result = 1;
+    mpz_class base = a;
+    while (b > 0)
+    {
+        mpz_t flag;
+        mpz_init(flag);
+        mpz_and(flag, b.get_mpz_t(), (1_mpz).get_mpz_t());
+        if (mpz_class(flag) == 1)
+            result *= base;
+
+        base *= base;
+        b >>= 1;
+    }
 
     return result;
 }
