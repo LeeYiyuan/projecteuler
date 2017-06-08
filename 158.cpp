@@ -9,7 +9,7 @@
     there is exactly one decrease.
 
     First, we pick the decreasing pair (a, b) with a < b. Then the permutations
-    containing this as the decrease looks something like ..., b, a, ....
+    containing this as the decrease look something like ..., b, a, ....
 
     None of 1, ..., a - 1 can lie to the right because they are less than a
     and there must be a decrease; However this will give an additional decrease
