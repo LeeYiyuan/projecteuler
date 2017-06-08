@@ -1,11 +1,12 @@
 /*
-    For all minimum product sums n of 2 <= k <= 12000, we guess that n <= 2 * 12000.
+    For all minimum product sums n of 2 <= k <= 12000, we guess that n <= 2 *
+    12000.
 
     Next, for all integers n within this bound, we go through the possible
-    factorizations of n containg terms larger than 1. Suppost we have a factorization
-    with l terms. By appending j = product - sum number of 1s to the sum of these
-    terms, we get a sum equal to the product, we can say that n is a (not necessarily
-    minimal) product sum number for k = l + j.
+    factorizations of n containg terms larger than 1. Suppost we have a
+    factorization with l terms. By appending j = product - sum number of 1s to
+    the sum of these terms, we get a sum equal to the product, we can say that n
+    is a (not necessarily minimal) product sum number for k = l + j.
 
     We collect product sum numbers n of k and for each k, pick the minimal one.
     Then, we sum up all distinct minimal product sum numbers across k.

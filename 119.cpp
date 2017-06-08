@@ -4,12 +4,12 @@
     The range of the exponent is selected very generously and in general, we
     will expect smaller results to have exponent nowhere close to the base.
 
-    For every (base, exponent) pair such that the sum of digits of base ^ exponent
+    For every (base, exponent) pair such that the sum of digits of base^exponent
     equals to base, we add it to our results list.
 
-    A rough limit of 100 is imposed on base and the results collected are sorted.
-    The first item corresponds to a_1, so we take the 29th item which corresponds
-    to a_30.
+    A rough limit of 100 is imposed on base and the results collected are
+    sorted. The first item corresponds to a_1, so we take the 29th item which
+    corresponds to a_30.
 */
 
 #include <vector>

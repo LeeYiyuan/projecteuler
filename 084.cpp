@@ -1,5 +1,6 @@
 /*
-    This solution use random playouts to determine the frequencies of each square.
+    This solution use random playouts to determine the frequencies of each
+    square.
 
     First start with a hits counter for each of the square.
 
@@ -8,10 +9,9 @@
     not sure how much this helps).
 
     Each match starts with its own shuffled list of CC and CH cards. Each match
-    starts at step 0.
-    For each round, we simulate the gameplay and roll two random numbers to
-    determine the eventual square after applying all the rules. The hits counter
-    for that particular square is incremented by 1.
+    starts at step 0. For each round, we simulate the gameplay and roll two
+    random numbers to determine the eventual square after applying all the
+    rules. The hits counter for that particular square is incremented by 1.
 
     After all the matches, we pick the three squares with the top most hits.
 */

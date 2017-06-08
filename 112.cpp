@@ -1,7 +1,7 @@
 /*
-    Notice that a number is bouncy if and only if its reverse is bouncy. This lets
-    us optimize bounciness determination by using modulo and division by 10 operations
-    instead of string operations.
+    Notice that a number is bouncy if and only if its reverse is bouncy. This
+    lets us optimize bounciness determination by using modulo and division by 10
+    operations instead of string operations.
 */
 
 #include <iostream>

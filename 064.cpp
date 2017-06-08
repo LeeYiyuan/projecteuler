@@ -1,6 +1,7 @@
 /*
     We track a, the coefficients of the continued fraction and c[0, 1], which
-    contains information about the rationalized fraction at every step, in particular
+    contains information about the rationalized fraction at every step, in
+    particular
 
         (sqrt(n) + c[0]) / c[1]
 

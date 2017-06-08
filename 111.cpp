@@ -1,21 +1,22 @@
 /*
-    First, we define a routine that, given a number length n, a digit d and a digit
-    count c, can determine the number of primes that have n digits (excluding
-    trailing zeroes) with k of the digits that are d.
+    First, we define a routine that, given a number length n, a digit d and a
+    digit count c, can determine the number of primes that have n digits
+    (excluding trailing zeroes) with k of the digits that are d.
 
     To do this, given (n, d, k), we first iterate through the positions of the k
-    d digits. This is done by picking the length k permutations of 0, 1, ..., (n - 1).
+    d digits. This is done by picking the length k permutations of 0, 1, ..., (n -
+    1).
 
-    Next, for each position combination of the k d digits, we iterate through the
-    possible other digits and slot it into our number. This is done by considering
-    the base 9 numbers up to the relevant limit.
+    Next, for each position combination of the k d digits, we iterate through
+    the possible other digits and slot it into our number. This is done by
+    considering the base 9 numbers up to the relevant limit.
 
     For each length n number we get, we check if it has leading zeroes and skip
     if so.
 
     Otherwise, for each prime number we get that has length n, we return it as a
-    result. It is trivial afterwards to write routines using this as a subroutine
-    to find M(n, d), N(n, d), S(n, d).
+    result. It is trivial afterwards to write routines using this as a
+    subroutine to find M(n, d), N(n, d), S(n, d).
 */
 
 #include <vector>

@@ -1,18 +1,18 @@
 /*
-    We loop through the 26^3 = 17576 possible combinations of the key and pass the
-    ciphertext through a cyclic XOR mask based on the key.
+    We loop through the 26^3 = 17576 possible combinations of the key and pass
+    the ciphertext through a cyclic XOR mask based on the key.
 
     We take the key that produces most letters, selecting the 'most English'
     plaintext.
 
     I also tried doing frequency analysis to get see which key gives a frequency
-    vector that is closest to the standard English frequency vector, with respect
-    to L_2 norm.
+    vector that is closest to the standard English frequency vector, with
+    respect to L_2 norm.
 
-    Surprisingly, there are keys which give frequency vectors that are "more English",
-    but the resultant plaintexts has extremely few letters. It turns out that
-    these are garbage that happen to, among the few letters they produce, sound
-    "more English".
+    Surprisingly, there are keys which give frequency vectors that are "more
+    English", but the resultant plaintexts has extremely few letters. It turns
+    out that these are garbage that happen to, among the few letters they
+    produce, sound "more English".
 */
 
 #include <iostream>

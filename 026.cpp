@@ -1,10 +1,11 @@
 /*
     Consider the decimal cycle for 1/k where k >= 2. Suppose the length of the
-    cycle is d. Then d is the smallest non-negative integer such that
-    (1/k)*10^d and 1/k will eventually have the same digits. That is,
-    (10^d)/k - 1/k will eventually terminate (with zeroes).
+    cycle is d. Then d is the smallest non-negative integer such that (1/k)*10^d
+    and 1/k will eventually have the same digits. That is, (10^d)/k - 1/k will
+    eventually terminate (with zeroes).
 
-    As such, we can shift both of them left by a certain number of places so that
+    As such, we can shift both of them left by a certain number of places so
+    that
 
         10^e * ((10^d) / k) - 10^e * (1/k)
 
@@ -21,8 +22,8 @@
 
         k | (10^e)(10^d - 1) <=> k/d | (10^e / d)(10^d - 1)
 
-    where d = gcd(k, 10^e). This is effectively the product of all 2s and 5s that
-    divide k.
+    where d = gcd(k, 10^e). This is effectively the product of all 2s and 5s
+    that divide k.
 
     Afterwards, we just need the the smallest integer d such that
 

@@ -1,18 +1,18 @@
 /*
     First we cache pairs of words that are anagrams of each other.
 
-    Next, we cache squares that have length up to the maximum of the words in the
-    word pairs.
+    Next, we cache squares that have length up to the maximum of the words in
+    the word pairs.
 
-    Then for each word pair (A, B) where len(A) = len(B) = k, we consider squares
-    of k digits. We define mapping getNumber such that getNumber((A, B), square)
-    substitutes the digits of A with the corresponding digits of the square number,
-    and then retrieves the number corresponding to B based on the substituted digits
-    and returns this result.
+    Then for each word pair (A, B) where len(A) = len(B) = k, we consider
+    squares of k digits. We define mapping getNumber such that getNumber((A, B),
+    square) substitutes the digits of A with the corresponding digits of the
+    square number, and then retrieves the number corresponding to B based on the
+    substituted digits and returns this result.
 
-    For every square such that square' = getNumber((A, B), square) is also a k digit
-    square, we collect max(square, square') and at the end, output the highest
-    collected value.
+    For every square such that square' = getNumber((A, B), square) is also a k
+    digit square, we collect max(square, square') and at the end, output the
+    highest collected value.
 */
 
 #include <algorithm>

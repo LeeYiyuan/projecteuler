@@ -1,6 +1,6 @@
 /*
-    Consider triangles with sides a, a, b where b = a \pm 1.
-    Let the altitude of this triangle with base b be c. Then,
+    Consider triangles with sides a, a, b where b = a \pm 1. Let the altitude of
+    this triangle with base b be c. Then,
 
         a^2 = c^2 + b^2 / 4
         4a^2 = 4c^2 + (a + 1)^2 , 4c^2 + (a - 1)^2

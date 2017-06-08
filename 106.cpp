@@ -1,21 +1,22 @@
 /*
-    Consider a pair of subsets (A, B) with lengths n_A and n_B respectively.
-    If n_A != n_B then either n_A > n_B or n_A < n_B and therefore S(A) > S(B)
-    and S(A) < S(B) respectively; That is, we only need to check pairs of subsets
+    Consider a pair of subsets (A, B) with lengths n_A and n_B respectively. If
+    n_A != n_B then either n_A > n_B or n_A < n_B and therefore S(A) > S(B) and
+    S(A) < S(B) respectively; That is, we only need to check pairs of subsets
     with equal length for the first condition.
 
-    To prevent double counting, we pick pairs of disjoint subsets (A, B) with equal
-    lengths such that the smallest element of A is smaller than the smallest element
-    of B.
+    To prevent double counting, we pick pairs of disjoint subsets (A, B) with
+    equal lengths such that the smallest element of A is smaller than the
+    smallest element of B.
 
-    Notice that starting from the first element, we can "cancel" the smallest element
-    of A from the smallest element of B. If we are able to cancel all elements, then
-    it is implied that S(A) < S(B) and thus (A, B) need not be checked.
+    Notice that starting from the first element, we can "cancel" the smallest
+    element of A from the smallest element of B. If we are able to cancel all
+    elements, then it is implied that S(A) < S(B) and thus (A, B) need not be
+    checked.
 
-    On the other hand, if we reach an index where cancellation can't work (i.e. the
-    element of A at that index is larger than the element of B at that index), then
-    we know that there is a need to check this pair as it is not guaranteed that
-    S(A) < S(B).
+    On the other hand, if we reach an index where cancellation can't work (i.e.
+    the element of A at that index is larger than the element of B at that
+    index), then we know that there is a need to check this pair as it is not
+    guaranteed that S(A) < S(B).
 */
 
 #include <vector>

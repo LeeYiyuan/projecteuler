@@ -1,24 +1,26 @@
 /*
-    We use dynamic programming to keep track of how many l digit increasing
-    and decreasing numbers there are separately. Specifically, we store the number
+    We use dynamic programming to keep track of how many l digit increasing and
+    decreasing numbers there are separately. Specifically, we store the number
     of l digit increasing numbers that start with a certain digit 0 - 9.
 
-    For a l digit increasing number that starts with digit d, we know that the next
-    digit must be a l - 1 digit number that starts with one of d, d + 1, ..., 9.
-    We add these up to give the number of l digit increasing numbers starting with
-    digit d, and repeat if for every d = 0, ..., 9.
+    For a l digit increasing number that starts with digit d, we know that the
+    next digit must be a l - 1 digit number that starts with one of d, d + 1, ...,
+    9. We add these up to give the number of l digit increasing numbers starting
+    with digit d, and repeat if for every d = 0, ..., 9.
 
     After doing this for 100 digits, we sum up the number of l digit increasing
     numbers starting with digit d for l = 1, 2, ..., 100 and d = 1, ..., 9. We
     extend our argument and get another sum for decreasing numbers.
 
-    The increasing numbers and decreasing numbers overlap in cases where all digits
-    are the same, for example 11111, 99, 3333. For each number length l there
-    are 9 such cases, and thus for l = 1, ..., 100, there are a total of 999 cases.
+    The increasing numbers and decreasing numbers overlap in cases where all
+    digits are the same, for example 11111, 99, 3333. For each number length l
+    there are 9 such cases, and thus for l = 1, ..., 100, there are a total of
+    999 cases.
 
-    By the Inclusion-Exclusion Principle, the number of non bouncy numbers, which is
-    the number of increasing or decreasing numbers, is the sum of the number of
-    increasing with the number of decreasing numbers, minus the overlapping count.
+    By the Inclusion-Exclusion Principle, the number of non bouncy numbers,
+    which is the number of increasing or decreasing numbers, is the sum of the
+    number of increasing with the number of decreasing numbers, minus the
+    overlapping count.
 */
 
 #include <iostream>

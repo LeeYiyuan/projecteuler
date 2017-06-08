@@ -1,7 +1,8 @@
 /*
-    For each permutation of 1, 2, ..., 9, we loop through the combinations of slices
-    such that each slice is a prime number. The valid slice combinations are
-    collected and the count of unique slice combinations is taken as the answer.
+    For each permutation of 1, 2, ..., 9, we loop through the combinations of
+    slices such that each slice is a prime number. The valid slice combinations
+    are collected and the count of unique slice combinations is taken as the
+    answer.
 */
 
 #include <vector>

@@ -1,6 +1,7 @@
 /*
-    This is just probability with some algebraic manipulations. Let m be the number
-    of turns. Then the probabilities of drawing blue for turns 1, ..., m are
+    This is just probability with some algebraic manipulations. Let m be the
+    number of turns. Then the probabilities of drawing blue for turns 1, ..., m
+    are
 
         1/2, 1/3, ..., 1/{m + 1}
 
@@ -12,13 +13,13 @@
     combinations of turns with length more than half of m, with each combination
     corresponding to the turns where blue is drawn.
 
-    Let the combination in some step of the loop be c. We start with a value called
-    numerator with initial value 1. For d = 2, ..., m + 1, if d is in c, then
-    multiply numerator by 1. Else, multiply numerator by d - 1. These correspond
-    to blue and red probabilities respectively.
+    Let the combination in some step of the loop be c. We start with a value
+    called numerator with initial value 1. For d = 2, ..., m + 1, if d is in c,
+    then multiply numerator by 1. Else, multiply numerator by d - 1. These
+    correspond to blue and red probabilities respectively.
 
-    The final expected probability is the sum of numerators from each step over (m + 1)!.
-    The maximum prize sum is then (m + 1)! / numeratorSum.
+    The final expected probability is the sum of numerators from each step over
+    (m + 1)!. The maximum prize sum is then (m + 1)! / numeratorSum.
 */
 
 #include <iostream>

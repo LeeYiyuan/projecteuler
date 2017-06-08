@@ -8,14 +8,14 @@
     1, 2, ..., 10 terms of u_n.
 
     For each interpolating polynomial p_i we find the first value of n such that
-    p_i(n) != u(n). The values p_i(n) are collected and summed to give the required
-    result.
+    p_i(n) != u(n). The values p_i(n) are collected and summed to give the
+    required result.
 
-    For interpolation, we use Lagrange's Interpolation. The idea is that we explictly
-    construct terms for each value in the set of interpolating points. Every term
-    will be "annihilated" except when n equals to the x value of the point
-    corresponding to the term. For example to interpolating (1, 1), (2, 8), (3, 15),
-    we have
+    For interpolation, we use Lagrange's Interpolation. The idea is that we
+    explictly construct terms for each value in the set of interpolating points.
+    Every term will be "annihilated" except when n equals to the x value of the
+    point corresponding to the term. For example to interpolating (1, 1), (2,
+    8), (3, 15), we have
 
         p(n) = 1 * (n - 8)(n - 15) / ((1 - 8)(1 - 15)) +
                8 * (n - 1)(n - 15) / ((2 - 1)(2 - 15))

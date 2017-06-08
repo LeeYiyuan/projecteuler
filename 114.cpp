@@ -7,11 +7,11 @@
 
         b_i = b_{i - 1} + r_{i - 1}
 
-    For r_i, there are two cases. First, the previous block ends with a red section
-    that is at least 3 units long. This is r_{i - 1}. Second, the previous block
-    ends with a red section that is exactly 2 units long. To do this, we take a
-    length i - 3 block ending with black (there are b_{i - 3}) such blocks) and
-    we put in two red units. In principle,
+    For r_i, there are two cases. First, the previous block ends with a red
+    section that is at least 3 units long. This is r_{i - 1}. Second, the
+    previous block ends with a red section that is exactly 2 units long. To do
+    this, we take a length i - 3 block ending with black (there are b_{i - 3})
+    such blocks) and we put in two red units. In principle,
 
         r_i = r_{i - 1} + b_{i - 3}
 

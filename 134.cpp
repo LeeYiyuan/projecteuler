@@ -7,14 +7,15 @@
 
         kp_2 \equiv p_1 \pmod 10^l
 
-    Since p_2 != 2, 5, GCD(p_2, 10^l) = 1 and thus p_2 has a multiplicative inverse
-    modulo 10^l, namely p_2', which we calculate using the extended Euclidean
-    Algorithm. Then,
+    Since p_2 != 2, 5, GCD(p_2, 10^l) = 1 and thus p_2 has a multiplicative
+    inverse modulo 10^l, namely p_2', which we calculate using the extended
+    Euclidean Algorithm. Then,
 
         k \equiv p_1 * p_2' \pmod 10^l
 
-    meaning that every k with such a remainder modulo 10^l is a solution. Since we
-    are interested in the smallest n, we take the smallest k, which is exactly
+    meaning that every k with such a remainder modulo 10^l is a solution. Since
+    we are interested in the smallest n, we take the smallest k, which is
+    exactly
 
         k = (p_1 * p_2') % 10^l
 

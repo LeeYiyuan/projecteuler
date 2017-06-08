@@ -1,7 +1,7 @@
 /*
     This is straightforward. The only thing that requires concern is that some
-    palindromes can be written in more than one way as sum of consecutive squares,
-    so there is a need to check for duplicates.
+    palindromes can be written in more than one way as sum of consecutive
+    squares, so there is a need to check for duplicates.
 */
 
 #include <iostream>

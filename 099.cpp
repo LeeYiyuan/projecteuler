@@ -3,8 +3,8 @@
 
         a > b iff log(a) > log(b)
 
-    so instead we track values of log(base ^ exponent) = exponent * log(base) and
-    see which line number gives the largest value.
+    so instead we track values of log(base ^ exponent) = exponent * log(base)
+    and see which line number gives the largest value.
 */
 
 #include <cmath>

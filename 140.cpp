@@ -1,6 +1,6 @@
 /*
-    We take the same approach as #137 but here we modify our solution to A(x)
-    as the seed values are now different.
+    We take the same approach as #137 but here we modify our solution to A(x) as
+    the seed values are now different.
 
         A(x)         = G_1x + G_2x^2 + G_3x^3 + G_4x^4 + ...
         xA(x)        =        G_1x^2 + G_2x^3 + G_3x^4 + ...
@@ -27,9 +27,9 @@
         (5n + 7)^2 + 5 - 49 = 5m^2
         (5n + 7)^2 - 5m^2 = 44
 
-    which is essentially the Pell equation a^2 - 5b^2 = 44 where (a, b) = (5n + 7, m).
-    For every solution (a, b) we check if n is a positve integer. If it is, then
-    x is rational and n is a golden nugget.
+    which is essentially the Pell equation a^2 - 5b^2 = 44 where (a, b) = (5n +
+    7, m). For every solution (a, b) we check if n is a positve integer. If it
+    is, then x is rational and n is a golden nugget.
 */
 
 #include <vector>

@@ -1,14 +1,14 @@
 /*
-    We use the technique from #21 to compute divisor sums across a range of numbers
-    quickly.
+    We use the technique from #21 to compute divisor sums across a range of
+    numbers quickly.
 
     Then, we filter out the abundant numbers.
 
-    Finally, we create a bit flag array and loop through pairs of abundant numbers,
-    each time marking out the entry in the bit flag array that corresponds to their
-    sum. We can limit the inner loop corresponding to the second item to start
-    not before the first item to remove duplicate cases and to reduce our search
-    space.
+    Finally, we create a bit flag array and loop through pairs of abundant
+    numbers, each time marking out the entry in the bit flag array that
+    corresponds to their sum. We can limit the inner loop corresponding to the
+    second item to start not before the first item to remove duplicate cases and
+    to reduce our search space.
 
     We then take the sum of numbers whose corresponding entry in the bit flag
     array is not marked out.

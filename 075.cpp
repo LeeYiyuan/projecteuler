@@ -13,14 +13,17 @@
     length sums.
 
     For each L, we consider unique solutions (m, n) to:
+
         L = a + b + c
           = 2m^2 + 2mn
           L / 2 = m(m + n)
-    For each (m, n), we have a primitive triple. We add 1 to the counters of
-    1L, 2L, ..., kL whenever kL < 1500000. This is to account for the non-primitive
+
+    For each (m, n), we have a primitive triple. We add 1 to the counters of 1L,
+    2L, ..., kL whenever kL < 1500000. This is to account for the non-primitive
     triples, which are multiples of some smaller primitive triple.
 
-    Finally, we count the number of counters for which there is exactly one count.
+    Finally, we count the number of counters for which there is exactly one
+    count.
 */
 
 #include <iostream>

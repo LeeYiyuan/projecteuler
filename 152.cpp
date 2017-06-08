@@ -11,21 +11,23 @@
     divides y. Then p^n must divide at least one of a_i.
 
     PROOF: Let p^n be a factor of y such that p^n is the highest power of p that
-    divides y. The reduced denominator of the RHS divides the LCM(a_1, ..., a_k).
-    But this reduced denominator is exactly y. Hence y divides LCM(a_1, ..., a_k).
+    divides y. The reduced denominator of the RHS divides the LCM(a_1, ...,
+    a_k). But this reduced denominator is exactly y. Hence y divides LCM(a_1, ...,
+    a_k).
 
-    Suppose for the sake of contradiction that p^n does not divide any of a_1, ..., a_k.
-    Then the highest power of p that divides LCM(a_1, ..., a_k) is less than n.
-    Hence, p^n will not divide LCM(a_1, ..., a_k), and thus the reduced denominator
-    y that divides LCM(a_1, ..., a_k) cannot be divisible by p^n, leading to a
-    contradiction since p^n divides y.
+    Suppose for the sake of contradiction that p^n does not divide any of a_1, ...,
+    a_k. Then the highest power of p that divides LCM(a_1, ..., a_k) is less
+    than n. Hence, p^n will not divide LCM(a_1, ..., a_k), and thus the reduced
+    denominator y that divides LCM(a_1, ..., a_k) cannot be divisible by p^n,
+    leading to a contradiction since p^n divides y.
 
     ============================================================================
                                      THEOREM 2
     ============================================================================
-    THEOREM: Supposed 1/m^2 is contained among 1/2 = 1/a_1^2 + ... + 1/a_k^2. Let
-    p != 2 be a prime divisor of m and let p^n be the greatest power of p that
-    divides m. Let b_1, b_2, ... be all the terms among a_1, ... a_k such that:
+    THEOREM: Supposed 1/m^2 is contained among 1/2 = 1/a_1^2 + ... + 1/a_k^2.
+    Let p != 2 be a prime divisor of m and let p^n be the greatest power of p
+    that divides m. Let b_1, b_2, ... be all the terms among a_1, ... a_k such
+    that:
 
         1) b_i != m
         2) b_i is a multiple of p^n
@@ -36,10 +38,10 @@
     p^{2n - 1} We move everything to the left such that the remaining terms of
     a_i do not contain any multiples of p^n.
 
-    On the LHS, we have 1/2 - 1/m^2 - 1/b_^2 - 1/b_2^2 - .... Since p != 2, it is
-    trivial to show that the reduced denominator of the LHS is also divisible by
-    p^{2n - 1}. As a trivial but not so direct consequence of theorem 1, there
-    must be some term among the remaining a_i such that p^n divides a_i.
+    On the LHS, we have 1/2 - 1/m^2 - 1/b_^2 - 1/b_2^2 - .... Since p != 2, it
+    is trivial to show that the reduced denominator of the LHS is also divisible
+    by p^{2n - 1}. As a trivial but not so direct consequence of theorem 1,
+    there must be some term among the remaining a_i such that p^n divides a_i.
 
     This leads to a contradiction because we have moved all such terms to the LHS.
 
@@ -48,13 +50,13 @@
     ================================================================================
     With theorem 2, we can determine which terms from 2-80 are not allowed to be
     included in the sum. Firstly we shall ignore perfect powers of 2 because we
-    do not want to elminate all factors of 2 completely in the denominator of the
-    sum (we need it to be 1/2).
+    do not want to elminate all factors of 2 completely in the denominator of
+    the sum (we need it to be 1/2).
 
     For every n within 2-80 that are not perfect powers of 2, we look for p != 2
-    that divides n. For every such p, let p^e be the largest power that divides n.
-    Then, we check if there is a combination b_1, b_2, ... of multiples of p^n
-    among 2-80 except for n such that
+    that divides n. For every such p, let p^e be the largest power that divides
+    n. Then, we check if there is a combination b_1, b_2, ... of multiples of
+    p^n among 2-80 except for n such that
 
         1/n^2 + 1/b_1^2 + 1/b_2^2 + ...
 
@@ -66,19 +68,20 @@
     ================================================================================
                                 SEARCH ALGORITHM
     ================================================================================
-    We can group the allowed terms into multiples of primes. Interestingly for 2-80,
-    all allowed terms only have prime factors of 3, 5, 7, 13. Again we will ignore
-    2 because we don't want to eliminate 2 from the denominator.
+    We can group the allowed terms into multiples of primes. Interestingly for
+    2-80, all allowed terms only have prime factors of 3, 5, 7, 13. Again we
+    will ignore 2 because we don't want to eliminate 2 from the denominator.
 
     We start with an availablity list and for each prime factor p, we decide on
-    the multiples of p that are present. These are the multiples whose reciprocal
-    squared have p eliminated from the reduced denominator. All multiples of p
-    are removed from the availability list and selected multiples are collected.
+    the multiples of p that are present. These are the multiples whose
+    reciprocal squared have p eliminated from the reduced denominator. All
+    multiples of p are removed from the availability list and selected multiples
+    are collected.
 
-    This is done recursively until all prime factors have been considered. For each
-    collected list, if there exists such a sum among {1/2^2, 1/4^2, 1/8^2, 1/16^2, 1/32^2, 1/64^2}
-    such that this sum together with that of the collected list is equal to 1/2,
-    then we have a hit.
+    This is done recursively until all prime factors have been considered. For
+    each collected list, if there exists such a sum among {1/2^2, 1/4^2, 1/8^2,
+    1/16^2, 1/32^2, 1/64^2} such that this sum together with that of the
+    collected list is equal to 1/2, then we have a hit.
 */
 
 #include <iostream>

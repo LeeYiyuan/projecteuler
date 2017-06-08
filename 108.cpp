@@ -6,20 +6,21 @@
         xy - nx - ny = 0
         (x - n)(y - n) = n^2
 
-    Hence we need to look for the least n such that n^2 has more than 1000 factor
-    pairs.
+    Hence we need to look for the least n such that n^2 has more than 1000
+    factor pairs.
 
-    To count the number of factor pairs of n^2, we consider the prime factorization
-    of n and multiply all of (2 * exponent + 1) together. This gives us the number
-    of factors n_f of n^2. As each factor repeats twice except for (n, n), the
-    number of factor pairs is then (n_f - 1) / 2 + 1 = (n_f + 1) / 2.
+    To count the number of factor pairs of n^2, we consider the prime
+    factorization of n and multiply all of (2 * exponent + 1) together. This
+    gives us the number of factors n_f of n^2. As each factor repeats twice
+    except for (n, n), the number of factor pairs is then (n_f - 1) / 2 + 1 =
+    (n_f + 1) / 2.
 
-    As we are going to count factor pairs for a range of n, we do this more efficiently
-    by first guessing an upper bound (of 200000) for the least required n. For
-    every prime p, we know that only multiples of p have a prime factor with
-    base p. So we can determine immediately the exponents of the factor of p in
-    the prime factorization of n^2 for n <= 200000 such that n^2 has a prime factor
-    of p.
+    As we are going to count factor pairs for a range of n, we do this more
+    efficiently by first guessing an upper bound (of 200000) for the least
+    required n. For every prime p, we know that only multiples of p have a prime
+    factor with base p. So we can determine immediately the exponents of the
+    factor of p in the prime factorization of n^2 for n <= 200000 such that n^2
+    has a prime factor of p.
 
     After counting the factor pairs of n^2 for n = 1, ..., 200000, we look for
     the first n such that there are more than 1000 factor pairs.

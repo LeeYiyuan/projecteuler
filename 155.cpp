@@ -1,22 +1,22 @@
 /*
     To generate a size n network, we consider the ways to combine a size i
-    network with a size j network in both parallel and series with
-    i >= j, i + j = n and i, j != n. This way we consider every size n network
-    at least once, and for each n we collect the distinct overall capacitances.
-    Notice that there is some dynamic programming involved, as the possible overall
-    capacitances for smaller network sizes is cached and retrieved when determining
-    the possible overall capacitances for the current network size.
+    network with a size j network in both parallel and series with i >= j, i + j =
+    n and i, j != n. This way we consider every size n network at least once,
+    and for each n we collect the distinct overall capacitances. Notice that
+    there is some dynamic programming involved, as the possible overall
+    capacitances for smaller network sizes is cached and retrieved when
+    determining the possible overall capacitances for the current network size.
 
     Also in principle, we can use any fixed capacitance and don't have to stick
     to 60 micro Farads. So we denote our fixed capacitance as 1. This way, when
-    we combine fractions, we can ensure that the numerator and denominator remains
-    as small as possible.
+    we combine fractions, we can ensure that the numerator and denominator
+    remains as small as possible.
 
     It turns out that with fixed capacitance 1, all related variables can fit
     within unsigned int even while neglecting the GCD step of adding fractions.
     As such, we can totally skip the GCD part of adding fractions and define our
-    own struct with a custom <  that considers a / b < c / d <=> ad < bc for use
-    by std::set when checking for order.
+    own struct with a custom < operator that considers a / b < c / d <=> ad < bc
+    for use by std::set when checking for order.
 */
 
 #include <iostream>

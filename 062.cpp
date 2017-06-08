@@ -1,23 +1,23 @@
 /*
     Define a digit vector v_n of a number n as a length 10 tuple where v_i is
-    the number of occurences of the digit i in n, where leading zeros are ignored.
-    Define the count of v_n to be the sum of the elements in v_n, which is exactly
-    the number of digits in n.
+    the number of occurences of the digit i in n, where leading zeros are
+    ignored. Define the count of v_n to be the sum of the elements in v_n, which
+    is exactly the number of digits in n.
 
     We maintain a map of digit vectors to a (count, min_cube) pair. For every
     cube n^3 starting from n = 1, we update the map entry corresponding to v_n
     by incrementing count by 1 and setting min_cube to the the minimum between
     the previous value of min_cube and n^3. Equivalently, since n is increasing,
-    we record the min_cube of every digit vector as the first n^3 with that digit
-    vector.
+    we record the min_cube of every digit vector as the first n^3 with that
+    digit vector.
 
     We stop when we get a digit vector with count = 5.
 
-    Notice that we have not shown that the digit vector whose count first reaches
-    5 gives the min_cube that is minimal across all digit vectors whose count will
-    subsequently reach 5. In fact, we haven't even shown that the digit vector
-    count will remain at exactly 5 and not grow anymore (there could be larger
-    cubes with the same digit vector)!
+    Notice that we have not shown that the digit vector whose count first
+    reaches 5 gives the min_cube that is minimal across all digit vectors whose
+    count will subsequently reach 5. In fact, we haven't even shown that the
+    digit vector count will remain at exactly 5 and not grow anymore (there
+    could be larger cubes with the same digit vector)!
 
     Fortunately however, the first digit vector whose count hits 5 has min_cube
     that is the correct answer.

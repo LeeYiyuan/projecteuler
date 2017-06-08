@@ -1,8 +1,9 @@
 /*
     We consider without loss of generality triples (a, b, c) such that a, b < c.
-    The tiles will have length \pm(b - a), depending on whether a or b is larger,
-    and we need this to divide c. Note that we only need consider primitive triples
-    because if \pm(b - a() | c, then \pm(kb - ka) | kc for every positive integer k.
+    The tiles will have length \pm(b - a), depending on whether a or b is
+    larger, and we need this to divide c. Note that we only need consider
+    primitive triples because if \pm(b - a() | c, then \pm(kb - ka) | kc for
+    every positive integer k.
 
     First parametrize our primitive triples (a, b, c) using Euclid's formula:
 
@@ -10,8 +11,8 @@
         b = 2mn
         c = m^2 + n^2
 
-    where m > n > 0 , (m, n) = 1, and m, n are not both odd. Then for some positive
-    integer d we need
+    where m > n > 0 , (m, n) = 1, and m, n are not both odd. Then for some
+    positive integer d we need
 
         d(b - a) = c , -d(b - a) = c
         d(2mn - m^2 + n^2) = m^2 + n^2 , -d(2mn - m^2 + n^2) = m^2 + n^2
@@ -36,27 +37,27 @@
           = n * (d \pm e) / (d + 1) , n * (d \pm e) / (d - 1)
           = n * (d + e) / (d + 1) , n * (d + e) / (d - 1)
 
-    noting that the case with -e instead of +e is rejected because e > d and thus
-    d - e < 0. if e = 1, then from the Pell equation we have d = 1. For the first
-    case, m = n and for the second, there are no solutions to m. Hence we only
-    consider e > 1, in which case d > 1. For the first case, m > n and for the
-    second, there is a solution to m.
+    noting that the case with -e instead of +e is rejected because e > d and
+    thus d - e < 0. if e = 1, then from the Pell equation we have d = 1. For the
+    first case, m = n and for the second, there are no solutions to m. Hence we
+    only consider e > 1, in which case d > 1. For the first case, m > n and for
+    the second, there is a solution to m.
 
     By rearranging m as an expression of n into a ratio,
 
         m / n = (d + e) / (d + 1), (d + e) / (d - 1)
 
-    so in fact, the candidates (m, n) for (e, d) are exactly multiples of (f1, g1)
-    and (f2, g2), where f1 / g1 and f2 / g2 are the reduced fractions of
-    (d + e) / (d + 1) and (d + e) / (d - 1) respectively. However, since we need
+    so in fact, the candidates (m, n) for (e, d) are exactly multiples of (f1,
+    g1) and (f2, g2), where f1 / g1 and f2 / g2 are the reduced fractions of (d +
+    e) / (d + 1) and (d + e) / (d - 1) respectively. However, since we need
     gcd(m, n) = 1, we cannot have multiples of (f1, g1) or (f2, g2). Thus, there
     are only two candidates for (m, n), namely (f1, g1), (f2, g2).
 
     To recap,
 
-        1) Find (e, d) as solutions to e^2 - 2d^2 - 1. We can stop when d exceeds
-           the perimeter limit, because then c will exceed the perimeter limit
-           and thus the permiter will exceed the perimeter limit.
+        1) Find (e, d) as solutions to e^2 - 2d^2 - 1. We can stop when d
+           exceeds the perimeter limit, because then c will exceed the perimeter
+           limit and thus the permiter will exceed the perimeter limit.
         2) For each (e, d), list candidates (m, n) = (f1, g1), (f2, g2) where
            f1 / g1, f2 / g2 are the reduced fractions of (d + e) / (d + 1),
            (d + e) / (d - 1) respectively.

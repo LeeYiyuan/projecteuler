@@ -5,9 +5,9 @@
     divisible by 3 iff the sum of its digits is divisible by 3, we expect
     pandigital primes only with 1, 4 or 7 digits.
 
-    We search up to and including 7 digits anyway, neglecting a skip for 2, 3, 5, 6
-    digits because they make up less than 12% of 7 digit numbers so it isn't all
-    that bad.
+    We search up to and including 7 digits anyway, neglecting a skip for 2, 3,
+    5, 6 digits because they make up less than 12% of 7 digit numbers so it
+    isn't all that bad.
 */
 
 #include <iostream>

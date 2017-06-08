@@ -1,10 +1,10 @@
 /*
-    Interesting. By brute forcing through the first few rings, one can notice that
-    PD(3) only occurs either at the start or end of the rings and nowhere else. We
-    can prove this conjecture. There are two cases for the numbers.
+    Interesting. By brute forcing through the first few rings, one can notice
+    that PD(3) only occurs either at the start or end of the rings and nowhere
+    else. We can prove this conjecture. There are two cases for the numbers.
 
-    Firstly, suppose n lies on some vertex k = 0, 1, ..., 5 of ring r, with k = 0
-    running from the top most vertex anti-clockwise.
+    Firstly, suppose n lies on some vertex k = 0, 1, ..., 5 of ring r, with k =
+    0 running from the top most vertex anti-clockwise.
 
     Then n is given by 2 + 3r(r - 1) + kr. The neighbours on ring r + 1 are then
     2 + 3(r + 1)r + k(r + 1) + {-1, 0, 1}. The differences are then
@@ -26,47 +26,47 @@
 
     It turns out that for k = 1, ..., 5, there are at least two differences that
     are each divisible by either 2 or 3. On the other hand, when k = 0, there
-    are two differences that are divisible by neither 2 or 3. As such, out of the
-    three neighbours in ring r + 1, there will be at most one prime difference
-    except when n is on the top most vertex, in which case there can be up to two
-    prime differences.
+    are two differences that are divisible by neither 2 or 3. As such, out of
+    the three neighbours in ring r + 1, there will be at most one prime
+    difference except when n is on the top most vertex, in which case there can
+    be up to two prime differences.
 
     Moving on, we see that the maximum PD(n) is contributed by:
 
-        - The consecutive differences between n and the 3 consecutive neighbours on
-          ring r + 1. As discussed earlier, this is at most 1 if n does not lie
-          on the top most vertex of ring r, and at most 2 if it does.
-        - If n does not lies on the top most vertex, there is no prime difference
-          between n and the number before and after n on ring r, because these
-          differences are exactly 1 which is not prime. However, if n lies on the
-          top most vertex then there can be at most 1 prime difference contributed
-          by the previous element which "wraps around" to the last element of the
-          ring.
-        - There is at most one prime difference from the neighbour on ring r - 1 if
-          k = 1, 3, 5. However, if n lies on vertex k = 0, 2, 4, where 0 is the top
-          most vertex, then the neighbour from ring r - 1 is exactly
-          n' = 2 + 3(r - 1)(r) + kr. Either one of the consecutive r - 1, r must \
-          be divisible by 2. Furthermore,  2 | k. Hence 2 | n' if n lies on vertex
+        - The consecutive differences between n and the 3 consecutive neighbours
+          on ring r + 1. As discussed earlier, this is at most 1 if n does not
+          lie on the top most vertex of ring r, and at most 2 if it does.
+        - If n does not lies on the top most vertex, there is no prime
+          difference between n and the number before and after n on ring r,
+          because these differences are exactly 1 which is not prime. However,
+          if n lies on the top most vertex then there can be at most 1 prime
+          difference contributed by the previous element which "wraps around" to
+          the last element of the ring.
+        - There is at most one prime difference from the neighbour on ring r - 1
+          if k = 1, 3, 5. However, if n lies on vertex k = 0, 2, 4, where 0 is
+          the top most vertex, then the neighbour from ring r - 1 is exactly n' =
+          2 + 3(r - 1)(r) + kr. Either one of the consecutive r - 1, r must be
+          divisible by 2. Furthermore,  2 | k. Hence 2 | n' if n lies on vertex
           0, 2, or 4, leading to no prime differences (both n and the neighbour
           from ring r - 1 are even, so their difference is even).
 
-    In all, PD(n) <= 1 + 0 + 1 = 2 if n does not lie on the top most vertex,
-    and PD(n) <= 2 + 1 + 0 = 3 if n lies on the top most vertex. Hence we only
-    need to check the top most vertices of the rings.
+    In all, PD(n) <= 1 + 0 + 1 = 2 if n does not lie on the top most vertex, and
+    PD(n) <= 2 + 1 + 0 = 3 if n lies on the top most vertex. Hence we only need
+    to check the top most vertices of the rings.
 
 
 
-    Secondly, suppose n lies on some edge on ring r, and n is not the last element
-    of the ring. The maximum PD(n) is contributed by:
+    Secondly, suppose n lies on some edge on ring r, and n is not the last
+    element of the ring. The maximum PD(n) is contributed by:
 
         - The two consecutive neighbours on ring r + 1. The difference between n
-          and these two neighbours are consecutive, and thus only one of them can
-          be odd. Hence there is at most 1 prime difference.
-        - The number before and after n on ring r. The differences are 1 which is
-          not prime.
+          and these two neighbours are consecutive, and thus only one of them
+          can be odd. Hence there is at most 1 prime difference.
+        - The number before and after n on ring r. The differences are 1 which
+          is not prime.
         - The two consecutive neighbours on ring r - 1. The difference between n
-          and these two neighbours are again consecutive, and thus only one ot them
-          can be odd. Therefore there is at most 1 prime difference.
+          and these two neighbours are again consecutive, and thus only one ot
+          them can be odd. Therefore there is at most 1 prime difference.
 
     Hence, PD(n) = 2 whenever n lies on some edge and is not equal to the last
     element. The only way PD(n) for an edge n can be equal to 3 is if n is the

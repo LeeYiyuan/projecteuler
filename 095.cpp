@@ -1,20 +1,20 @@
 /*
     First, we generate a table for n -> sd(n). We consider divisors d >= 1 and
-    for each d, we consider quotients q >= 2. q = 1 is excluded because d
-    is not a proper divisor of 1 * d. For each (d, q), we add d to the entry sd(qd).
+    for each d, we consider quotients q >= 2. q = 1 is excluded because d is not
+    a proper divisor of 1 * d. For each (d, q), we add d to the entry sd(qd).
 
-    This is a lot faster than prime factorizing each n and considering
-    the geometric combinations of the prime factors to determine sd(n).
+    This is a lot faster than prime factorizing each n and considering the
+    geometric combinations of the prime factors to determine sd(n).
 
     One of my previous attempts drew inspiration from Euler's "Decouverte d'une
-    loi tout extraordinaire des nombres par rapport a la somme de leurs diviseurs"
-    that uses the pentagonal numbers to recursively calculate sd(n). However this
-    was too slow as well.
+    loi tout extraordinaire des nombres par rapport a la somme de leurs
+    diviseurs" that uses the pentagonal numbers to recursively calculate sd(n).
+    However this was too slow as well.
 
-    Next, we consider the chains. At every step, we pick any (n, sd(n)) from
-    the table and generate the respective chain. For every element in this chain,
-    we can remove the respective entry in the table to prevent having to check
-    them again, because we know they will eventually fall into this chain.
+    Next, we consider the chains. At every step, we pick any (n, sd(n)) from the
+    table and generate the respective chain. For every element in this chain, we
+    can remove the respective entry in the table to prevent having to check them
+    again, because we know they will eventually fall into this chain.
 
     The algorithm stops when there are no longer any entries in the table.
 */

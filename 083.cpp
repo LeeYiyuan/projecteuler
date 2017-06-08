@@ -1,19 +1,19 @@
 /*
     We represent the problem as a graph traversal problem. Each node represents
-    a coordinate in the matrix. A node corresponding to (r, c) is connected
-    to the nodes corresponding to (r - 1, c), (r, c - 1), (r, c + 1), (r + 1, c).
+    a coordinate in the matrix. A node corresponding to (r, c) is connected to
+    the nodes corresponding to (r - 1, c), (r, c - 1), (r, c + 1), (r + 1, c).
 
     d(A, B) is given by the value of the matrix element corresponding to node B.
 
     The distance between A and B is non commutative, i.e. d(A, B) does not
     necessarily equal d(B, A).
 
-    We start from the node corresponding to (0, 0) and look for the shortest path
-    to the node corresponding to (79, 79). This is done using Dijkistra's.
+    We start from the node corresponding to (0, 0) and look for the shortest
+    path to the node corresponding to (79, 79). This is done using Dijkistra's.
     (https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).
 
-    We not have the minimum matrix path sum excluding initial elemnet.
-    We add back M(0, 0) to get the minimum path sum.
+    We not have the minimum matrix path sum excluding initial element. We add
+    back M(0, 0) to get the minimum path sum.
 */
 
 #include <iostream>

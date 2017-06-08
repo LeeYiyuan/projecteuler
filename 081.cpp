@@ -1,8 +1,8 @@
 /*
-    For each element, we determine the minimum possible sum ending at that element.
-    This can be done by adding it with the minimum of the two previous elements,
-    giving us the recurrence relation for the minimum sum ending at the element:
-    at row r and column c:
+    For each element, we determine the minimum possible sum ending at that
+    element. This can be done by adding it with the minimum of the two previous
+    elements, giving us the recurrence relation for the minimum sum ending at
+    the element: at row r and column c:
 
         M(r, c) = matrix[r][c] + min(M(r, c - 1), M(r - 1, c))
         M(r, c) = 0 for r < 0 or c < 0
@@ -12,8 +12,8 @@
     considers M(70, 70), leading to unnecessary evaluations.
 
     As such, we use dynamic programming. We start from the top row and move left
-    to right, computing the minimums and storing them once. We move downwards
-    to the other rows with the same steps.
+    to right, computing the minimums and storing them once. We move downwards to
+    the other rows with the same steps.
 */
 
 #include <iostream>

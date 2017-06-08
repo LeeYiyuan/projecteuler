@@ -8,16 +8,19 @@
           = 4xy - 5y^2
           = y(4x - 5y)
 
-    We can search through valid pairs of (x, y) and add one to the counter for every
-    corresponding n. Afterwards, we count the number of n whose counter reads 10.
+    We can search through valid pairs of (x, y) and add one to the counter for
+    every corresponding n. Afterwards, we count the number of n whose counter
+    reads 10.
 
-    Now, we need to specify bounds for our iteration of (x, y). We will pick y first
-    and then loop through x for every value of y. Since y | n, we need y <= n.
+    Now, we need to specify bounds for our iteration of (x, y). We will pick y
+    first and then loop through x for every value of y. Since y | n, we need y <=
+    n.
 
-    For every y, we need n to be positive. We can start with x > 5y / 4, or
-    x >= ceil(5y / 4). Since z must be positive and z = 2y - x, we have an upper bound
-    x < 2y. Furthermore, for fixed y, n = y(4x - 5y) increases as x increases.
-    This gives us the second upper bound that n = y(4x - 5y) <= n_max, which is 999999 in this case.
+    For every y, we need n to be positive. We can start with x > 5y / 4, or x >=
+    ceil(5y / 4). Since z must be positive and z = 2y - x, we have an upper
+    bound x < 2y. Furthermore, for fixed y, n = y(4x - 5y) increases as x
+    increases. This gives us the second upper bound that n = y(4x - 5y) <=
+    n_max, which is 999999 in this case.
 */
 
 #include <cmath>

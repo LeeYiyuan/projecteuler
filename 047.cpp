@@ -28,8 +28,10 @@ int main()
     {
         n += 1;
 
-        // Extend until at least n + 3, which is necessary for the prime factorization
-        // of n + 3 when checking consecutive numbers.
+        /*
+            Extend until at least n + 3, which is necessary for the prime
+            factorization of n + 3 when checking consecutive numbers.
+        */
         while (primes.back() < n + 3)
             primes.emplace_back(util::get_next_prime(primes.back()));
 

@@ -1,20 +1,22 @@
 /*
-    We scan the columns from left to right and for each row of the current column
-    column, we determine the minimum possible sum terminating at that cell.
+    We scan the columns from left to right and for each row of the current
+    column column, we determine the minimum possible sum terminating at that
+    cell.
 
     Consider a path ending at A[r, c] with minimum sum M[r, c]. Then A[r, c]
-    must be connected to some element in the column c - 1 either directly, in which
-    case the path ends with
+    must be connected to some element in the column c - 1 either directly, in
+    which case the path ends with
 
         A[r, c - 1] -> A[r, c]
 
-    or indirectly, in which case there exists r' != r such that the path ends with
+    or indirectly, in which case there exists r' != r such that the path ends
+    with
 
         A[r', c - 1] -> A[r', c] -> A[r' + 1, c] -> ... -> A[r, c] if r' < c, or
         A[r', c - 1] -> A[r', c] -> A[r' - 1, c] -> ... -> A[r, c] if r' > c
 
-    We select the minimum M[r_min, c_min] of these possible previous paths and set
-    M[r, c] = A[r, c] + M[r_min, c_min].
+    We select the minimum M[r_min, c_min] of these possible previous paths and
+    set M[r, c] = A[r, c] + M[r_min, c_min].
 */
 
 #include <iostream>

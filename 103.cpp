@@ -1,32 +1,34 @@
 /*
-    Consider a set A with length 7 with the required properties. Let the elements of
-    the set be a_1 < a_2 < ... < a_7. We try to search recursively for each of a,
-    at each recursion imposing a bound that is determined by the previous element.
+    Consider a set A with length 7 with the required properties. Let the
+    elements of the set be a_1 < a_2 < ... < a_7. We try to search recursively
+    for each of a, at each recursion imposing a bound that is determined by the
+    previous element.
 
-    Consider element a_i with a >= 3. Then, the sum of the first j element starting
-    from a_i, namely a_i + ... + a_{i + (j - 1)}, must be less than all subsets of
-    (a_1, ..., a_{i - 1}) that has length j + 1 as imposed by the properties
-    required of elements of A.
+    Consider element a_i with a >= 3. Then, the sum of the first j element
+    starting from a_i, namely a_i + ... + a_{i + (j - 1)}, must be less than all
+    subsets of (a_1, ..., a_{i - 1}) that has length j + 1 as imposed by the
+    properties required of elements of A.
 
-    But we only need to compare a_1 + ... + a_{i + (j - 1)} for the minimum length j + 1
-    subset of (a_1, ..., a_{i - 1}), which is exactly a_1 + ... + a_{j + 1}, to
-    show that it is less than all length j + 1 subset of (a_1, ..., a_{i - 1}}).
+    But we only need to compare a_1 + ... + a_{i + (j - 1)} for the minimum
+    length j + 1 subset of (a_1, ..., a_{i - 1}), which is exactly a_1 + ... +
+    a_{j + 1}, to show that it is less than all length j + 1 subset of (a_1, ...,
+    a_{i - 1}}).
 
-    Hence, when considering the values that a_i can take, we start with
-    a_i = a_{i - 1} + 1 (since a_i > a_{i - 1}), up to some value for a_i such that
+    Hence, when considering the values that a_i can take, we start with a_i =
+    a_{i - 1} + 1 (since a_i > a_{i - 1}), up to some value for a_i such that
 
         a_i + ... + a_{i + (j - 1)} < a_1 + ... + a_{j}
 
-    Next, we need to weave our subset properties check into our recursion algorithm.
-    We start at the top-most step of our algorithm, where we select the values for
-    a_3. Suppose we have a previous list of subsets from {a_1, a_2}, namely {a_1},
-    {a_2}, {a_1, a_2}. We partition our subsets of {a_1, a_2, a_3} into two cases,
-    those that do not contain a_3 and those that do.
+    Next, we need to weave our subset properties check into our recursion
+    algorithm. We start at the top-most step of our algorithm, where we select
+    the values for a_3. Suppose we have a previous list of subsets from {a_1,
+    a_2}, namely {a_1}, {a_2}, {a_1, a_2}. We partition our subsets of {a_1,
+    a_2, a_3} into two cases, those that do not contain a_3 and those that do.
 
-    Subsets that do not contain a_3 must be subsets of {a_1, a_2}, which is exactly
-    the previous list. Since this previous list has been checked such that the
-    properties of pairs of disjoint subsets fulfil the required properties, we
-    are done.
+    Subsets that do not contain a_3 must be subsets of {a_1, a_2}, which is
+    exactly the previous list. Since this previous list has been checked such
+    that the properties of pairs of disjoint subsets fulfil the required
+    properties, we are done.
 
     Next, subsets that contain a_3. These are exactly the subsets of {a_1, a_2}
     extended with a_3. The subsets among this case all contain a_3, so there are
@@ -34,9 +36,9 @@
 
     As such, we only need to check pairs of subset with one element coming from
     the subsets that do not contain a_3, and one coming from the subsets that
-    contain a_3. For each disjoint pair, we check if the required properties hold
-    true. If anyone pair fails, we reject the test value of a_3 and move on to
-    the next test value.
+    contain a_3. For each disjoint pair, we check if the required properties
+    hold true. If anyone pair fails, we reject the test value of a_3 and move on
+    to the next test value.
 
     After the subset check, we concatenate the subsets not containing a_3, which
     are exactly the subset from the previous step, with the subsets containing
@@ -49,20 +51,22 @@
     element must be more than the previous element, and also from bounds implied
     by the required properties of disjoint subsets.
 
-    Now, we need to iterate through pairs of numbers in order to select the first
-    two items of A, in particular the smallest two items a_1, a_2. We do this by
-    reverse pair iteration; That is, instead of selecting a in (a, b) and then
-    selecting b such that (b > a), we select b in (a, b) and select b from 1, ..., a - 1.
+    Now, we need to iterate through pairs of numbers in order to select the
+    first two items of A, in particular the smallest two items a_1, a_2. We do
+    this by reverse pair iteration; That is, instead of selecting a in (a, b)
+    and then selecting b such that (b > a), we select b in (a, b) and select b
+    from 1, ..., a - 1.
 
     This is necessary because the forward iteration requires the set from which
     we select a, b to be finitely bounded (so that for a fixed a, we can test
     finish all possible values of b in finite time), but this is not the case.
 
-    We collect the minimum sums produced for each starting numbers (a_1, a_2), if any.
-    We stop when a_1 + (a_1 + 1) + ... + (a_1 + 6) is greater than the smallest
-    minimum sum we have collected thus far, because going any further will cause
-    the minimum sum to be greater than the smallest minimum sum we have collected
-    and the result will always not replace our smallest minimum sum.
+    We collect the minimum sums produced for each starting numbers (a_1, a_2),
+    if any. We stop when a_1 + (a_1 + 1) + ... + (a_1 + 6) is greater than the
+    smallest minimum sum we have collected thus far, because going any further
+    will cause the minimum sum to be greater than the smallest minimum sum we
+    have collected and the result will always not replace our smallest minimum
+    sum.
 */
 
 #include <iostream>

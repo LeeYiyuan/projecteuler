@@ -1,23 +1,24 @@
 /*
-    For the incidence of some beam with gradient m onto a point x, y, we consider
-    how the gradient of the reflected beam, m', will change with respect to the
-    gradient of the mirror tangent at (x, y).
+    For the incidence of some beam with gradient m onto a point x, y, we
+    consider how the gradient of the reflected beam, m', will change with
+    respect to the gradient of the mirror tangent at (x, y).
 
     In general we can split the cases into the four usual quadrants. For each
-    quadrant, we split the cases of m into two, positive or negative, and use atan2
-    to determine the reflected angle, which we can use to determine the reflected
-    gradient.
+    quadrant, we split the cases of m into two, positive or negative, and use
+    atan2 to determine the reflected angle, which we can use to determine the
+    reflected gradient.
 
     Note also that the rays always reflect clockwise so we can half the number
     of cases to consider.
 
-    Because I can't really draw here, the details of the gradient transformations
-    are therefore, as some may say, left as an exercise to the reader.
+    Because I can't really draw here, the details of the gradient
+    transformations are therefore, as some may say, left as an exercise to the
+    reader.
 
     After finding m' for an incidence (x, y, m), we can let the equation of the
-    reflected ray be y' = mx' + s. s can be found using the incidence coordinates:
-    s = y - mx. Next, we are interested in where y' = mx' + s intersects the ellipse.
-    That is, we need
+    reflected ray be y' = mx' + s. s can be found using the incidence
+    coordinates: s = y - mx. Next, we are interested in where y' = mx' + s
+    intersects the ellipse. That is, we need
 
         (mx' + s)^2 = 100 - 4x'^2
 

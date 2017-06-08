@@ -1,9 +1,9 @@
 /*
     We loop through the primes and for each prime, we check if out of the 4!
-    permutations, there are 3 that form an increasing sequence. If yes, then
-    we have our solution. If not, we remove the 4! permutations from the list
-    because they are permutations of one another and there is no need to check the
-    cases for each other permutation again.
+    permutations, there are 3 that form an increasing sequence. If yes, then we
+    have our solution. If not, we remove the 4! permutations from the list
+    because they are permutations of one another and there is no need to check
+    the cases for each other permutation again.
 */
 
 #include <iostream>

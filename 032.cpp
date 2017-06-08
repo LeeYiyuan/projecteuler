@@ -1,7 +1,6 @@
 /*
-    Consider a * b = n.
-    Let k_a, k_b, k_n be the number of digits of a, b, n respectively.
-    Then
+    Consider a * b = n. Let k_a, k_b, k_n be the number of digits of a, b, n
+    respectively. Then
 
         10^{k_a - 1} <= a <= 10^{k_a}
         10^{k_b - 1} <= b <= 10^{k_b}

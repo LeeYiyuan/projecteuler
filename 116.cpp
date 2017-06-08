@@ -2,8 +2,8 @@
     Somewhat similar to #114 and #115.
 
     In general, let b_i be the number of ways for a length i row to be filled
-    such that the last tile is black, and let c_i be the number of ways for
-    a length i row to be filled such that the last tile is colored (red, green,
+    such that the last tile is black, and let c_i be the number of ways for a
+    length i row to be filled such that the last tile is colored (red, green,
     blue separately). Then,
 
         b_i = b_{i - 1} + c_{i - 1}
@@ -15,9 +15,9 @@
         c_i = 0 for i = 1, 2, ..., m - 1
         c_m = 1
 
-    The number of ways to fill a length n row is b_n + c_n - 1 for some color. The
-    minus 1 is necessary because at least one tile is used, and there is exactly
-    one case where less than one tile, i.e. no tile, is used.
+    The number of ways to fill a length n row is b_n + c_n - 1 for some color.
+    The minus 1 is necessary because at least one tile is used, and there is
+    exactly one case where less than one tile, i.e. no tile, is used.
 */
 
 #include <vector>

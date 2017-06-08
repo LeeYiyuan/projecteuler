@@ -1,8 +1,8 @@
 /*
     For each row, we look for the minimum triangle sums whose base lie on that
-    row. For each row, this is done by adding diagonals to the right one at a time,
-    and for each diagonal added, we remove antidiagonals from the left one at a
-    time and collect the sum that is minimal across the entire process.
+    row. For each row, this is done by adding diagonals to the right one at a
+    time, and for each diagonal added, we remove antidiagonals from the left one
+    at a time and collect the sum that is minimal across the entire process.
 */
 
 #include <iostream>

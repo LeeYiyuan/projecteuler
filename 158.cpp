@@ -11,10 +11,10 @@
     First, we pick the decreasing pair (a, b) with a < b. Then the permutations
     containing this as the decrease look something like ..., b, a, ....
 
-    None of 1, ..., a - 1 can lie to the right because they are less than a
-    and there must be a decrease; However this will give an additional decrease
-    apart from b, a. So 1, ..., a - 1 must lie on the left subsequence. Similarly,
-    b + 1, ..., n must lie on the right subsequence.
+    None of 1, ..., a - 1 can lie to the right because they are less than a and
+    there must be a decrease; However this will give an additional decrease
+    apart from b, a. So 1, ..., a - 1 must lie on the left subsequence.
+    Similarly, b + 1, ..., n must lie on the right subsequence.
 
     So we only need to partition the overlapping numbers, i.e. a + 1, ..., b - 1
     to the left and right. There are 2^{b - 1 - a} ways to do this. For each
@@ -23,8 +23,8 @@
 
     We try to come up with a closed form expression for the sum of 2^{b - 1 - a}
     over (a, b). In principle 2^{(b - a) - 1} can be characterized by (b - a)
-    which we have as 1, 2, ..., n - 1, and 1, 2, ..., n - 2, etc all the way until
-    a starts with n - 2 for which b can only be n - 1. So we have
+    which we have as 1, 2, ..., n - 1, and 1, 2, ..., n - 2, etc all the way
+    until a starts with n - 2 for which b can only be n - 1. So we have
 
           2^{1 - 1} + 2^{2 - 1} + ... + 2^{n - 1 - 1}
         + 2^{1 - 1} + 2^{2 - 1} + ... + 2^{n - 2 - 1}

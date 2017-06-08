@@ -6,8 +6,8 @@
     For some p, we need to look for a power q such that:
 
        1) 10^q \equiv 1 \pmod 9p
-       2) q | 10^9 (so that RHS remains as 1 while raising both sides to the power
-          of the quotient)
+       2) q | 10^9 (so that RHS remains as 1 while raising both sides to the
+          power of the quotient)
 
     If such q exists then p is a prime factor.
 
@@ -15,11 +15,11 @@
     integers 0 <= a, b <= 9.
 
     Furthermore, we know that if 10^q \equiv 1 \pmod 9p, then q | \phi(9p). In
-    addition, \phi(9p) can be calculated easily: \phi(27) = 18 and
-    \phi(9p) = 6(p - 1) for p > 3.
+    addition, \phi(9p) can be calculated easily: \phi(27) = 18 and \phi(9p) =
+    6(p - 1) for p > 3.
 
-    Combining the two constraints, we need to look for factors q of \phi(9p) of the
-    form q = 2^a5^b where 0 <= a, b <= 9 such that 9n | 10^q.
+    Combining the two constraints, we need to look for factors q of \phi(9p) of
+    the form q = 2^a5^b where 0 <= a, b <= 9 such that 9n | 10^q.
 */
 
 #include <iostream>

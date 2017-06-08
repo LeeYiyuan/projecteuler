@@ -1,8 +1,8 @@
 /*
     We use the recursive Binomial formula to generate Pascal's triangle. If any
     one of the relevant element in the previous row is greater than a million,
-    we mark the current element with a marker to indicate that it is also greater
-    than a million.
+    we mark the current element with a marker to indicate that it is also
+    greater than a million.
 
     Finally we count the total number of elements marked greater than a million.
 */

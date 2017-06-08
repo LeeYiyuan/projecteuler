@@ -2,8 +2,9 @@
     First we generate the list of figurate numbers with 4 digits.
 
     We know that every list of cyclic numbers can be rearranged by shifting the
-    last element to the first. As such, we can decide on a figure number to start
-    our search. In this case, I've decided to start with the triangular number.
+    last element to the first. As such, we can decide on a figure number to
+    start our search. In this case, I've decided to start with the triangular
+    number.
 
     Recursively, we run through the figures not picked yet and for each unpicked
     figure, we select the numbers of that figure whose 2 leading digits are the

@@ -1,5 +1,6 @@
 /*
-    Similar to #103, but we convert the generation of elements in A to a check of A.
+    Similar to #103, but we convert the generation of elements in A to a check
+    of A.
 */
 
 #include <iostream>

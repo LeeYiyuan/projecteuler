@@ -1,10 +1,10 @@
 /*
-    This solution draws ideas from how genetic algorithms can be used to determine
-    combinations of operators and values to give some selected number.
+    This solution draws ideas from how genetic algorithms can be used to
+    determine combinations of operators and values to give some selected number.
 
-    We consider arithmetic operations in Polish notation. We have a set of operators,
-    A = {'.', '+', '-', '*', '/'} where '.' refers to a unary operator that maps
-    a number to itself.
+    We consider arithmetic operations in Polish notation. We have a set of
+    operators, A = {'.', '+', '-', '*', '/'} where '.' refers to a unary
+    operator that maps a number to itself.
 
     First we start with a tuple ('+') corresponding to the outer most operator.
     We expand this tuple by selecting the possible pairs of second outer most
@@ -16,13 +16,13 @@
         (+(*)(+))   (+(*)(-))   (+(*)(*))   (+(*)(/))   (+(*)(.))
         (+(/)(+))   (+(/)(-))   (+(/)(*))   (+(/)(/))   (+(/)(.))
 
-    Next, we move on to expand the sub operators, in this case the last two operators.
-    For (+(-)(*)), we expand (-) and (*), giving results such as
+    Next, we move on to expand the sub operators, in this case the last two
+    operators. For (+(-)(*)), we expand (-) and (*), giving results such as
 
         (+(-(.)(.)) (*(.)(.)))
 
-    A tuple is said to be fully expanded when it cannot be expanded anymore, i.e.
-    when the innermost operators at each depth is '.'. Examples are
+    A tuple is said to be fully expanded when it cannot be expanded anymore,
+    i.e. when the innermost operators at each depth is '.'. Examples are
 
         (+(.)(.))
         (+(+(.)(.)))
@@ -30,13 +30,14 @@
     Note we need expansion with "length" 4. These are full expansions with 4 '.',
     for which we can slot a, b, c, d into.
 
-    With our expressions table, we try out all combinations of a < b < c < d. For
-    each combination, we evaluate the expressions in the expressions table with
-    values that are permutations of (a, b, c, d) and collect the integer results
-    (of course catching divide by zero errors and discarding such cases).
+    With our expressions table, we try out all combinations of a < b < c < d.
+    For each combination, we evaluate the expressions in the expressions table
+    with values that are permutations of (a, b, c, d) and collect the integer
+    results (of course catching divide by zero errors and discarding such
+    cases).
 
-    Finally, we pick the combination that gives the most consecutive first positive
-    integers.
+    Finally, we pick the combination that gives the most consecutive first
+    positive integers.
 */
 
 #include <utility>

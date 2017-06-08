@@ -2,7 +2,8 @@
     This question here is very similar to #31. We have to find the number of
     partitions of 100 into sums of at least two positive integers.
 
-    Let p(n, k) denote the number of ways to partition n into parts of at most k.
+    Let p(n, k) denote the number of ways to partition n into parts of at most
+    k.
 
     Then the largest part of n can be 1, 2, ..., k. For each case, we count the
     number of partitions for the remainder of the n. This gives
@@ -15,8 +16,8 @@
     is calculated multiple times and time is wasted here to calculated the same
     value again and again.
 
-    We turn this into a dynamic programming approach and calculate p(n, k) bottom
-    up from n = 0 to 100, and for each n, from k = 0 to 100.
+    We turn this into a dynamic programming approach and calculate p(n, k)
+    bottom up from n = 0 to 100, and for each n, from k = 0 to 100.
 */
 
 #include <iostream>

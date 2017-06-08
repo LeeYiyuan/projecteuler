@@ -1,12 +1,13 @@
 /*
     Once again, similar to #31, #76, #77.
 
-    Because we expect a ridiculously large n, we shall use dynamic programming just
-    like we did in #76. However this time we do all computations modulo 1000000
-    because the other digits are irrelevant.
+    Because we expect a ridiculously large n, we shall use dynamic programming
+    just like we did in #76. However this time we do all computations modulo
+    1000000 because the other digits are irrelevant.
 
-    Except this time, even dynamic programming can't save us! It still runs too slowly
-    after testing (at least previously on Python 2.7 before I ported it to C++ here).
+    Except this time, even dynamic programming can't save us! It still runs too
+    slowly after testing (at least previously on Python 2.7 before I ported it
+    to C++ here).
 
     We resort to Number Theory and use the recursive formula given here :
     (https://en.wikipedia.org/wiki/Pentagonal_number_theorem).

@@ -13,8 +13,8 @@
     small as possible.
 
     We come to a conjecture guess that the maximum of n / \phi(n) occurs at the
-    product of the first k primes, where k is smallest integer such that the product
-    of the first k + 1 primes exceeds 1000000.
+    product of the first k primes, where k is smallest integer such that the
+    product of the first k + 1 primes exceeds 1000000.
 
     Fortunately, this leads to the accepted answer.
 */

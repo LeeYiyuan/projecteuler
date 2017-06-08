@@ -1,9 +1,9 @@
 /*
-    Here, we use a set to store our primes instead of a vector becuse we are doing
-    iteration, search and removal on the primes. To clarify, the "iteration" here
-    refers to always picking out the smallest prime left. An unordered_set won't
-    allow us to do this, while a sorted vector is slow when it comes to removal
-    of elements. So we settle for a set.
+    Here, we use a set to store our primes instead of a vector becuse we are
+    doing iteration, search and removal on the primes. To clarify, the
+    "iteration" here refers to always picking out the smallest prime left. An
+    unordered_set won't allow us to do this, while a sorted vector is slow when
+    it comes to removal of elements. So we settle for a set.
 */
 
 #include <iostream>

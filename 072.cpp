@@ -1,15 +1,16 @@
 /*
-    Let F_n define the sequence of reduced proper fractions with denominator
-    at most n.
+    Let F_n define the sequence of reduced proper fractions with denominator at
+    most n.
 
-    According to https://en.wikipedia.org/wiki/Farey_sequence#Sequence_length_and_index_of_a_fraction,
+    According to
+    https://en.wikipedia.org/wiki/Farey_sequence#Sequence_length_and_index_of_a_fraction,
     |F_n| = 1 + \sum_{i = 1}^n \totient(i)
 
     Since F_n includes 0/1 and 1/1, we subtract 2 from our calculations to give
     us the required answer.
 
-    We reuse the method from #70 to more efficiently find totients across the first
-    natural numbers.
+    We reuse the method from #70 to more efficiently find totients across the
+    first natural numbers.
 */
 
 #include <iostream>

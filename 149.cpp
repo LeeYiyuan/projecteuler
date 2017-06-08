@@ -1,7 +1,7 @@
 /*
-    Essentially, for each of the 2000 rows, 2000 columns, 3999 diagonals and 3999
-    anti diagonals, we have to look for the maximum subarray sum. Then, we pick
-    the maximum of the maximum subarray sum across the 11998 cases.
+    Essentially, for each of the 2000 rows, 2000 columns, 3999 diagonals and
+    3999 anti diagonals, we have to look for the maximum subarray sum. Then, we
+    pick the maximum of the maximum subarray sum across the 11998 cases.
 
     To look for the maximum subarray, we will use Kadane's algorithm which runs
     in O(n) time where n is the length of the input array.

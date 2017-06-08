@@ -1,15 +1,15 @@
 /*
     We start from p_b = p_2 and move towards the right.
 
-    At each step we find the largest previous p_a such that p_b - p_a
-    is a pentagonal number, and if p_b + p_a is a pentagonal number.
-    If there is and the difference p_b - p_a is smaller than previous
-    differences, output the difference.
+    At each step we find the largest previous p_a such that p_b - p_a is a
+    pentagonal number, and if p_b + p_a is a pentagonal number. If there is and
+    the difference p_b - p_a is smaller than previous differences, output the
+    difference.
 
     We loop until p_b - p_{b - 1} is greater than the smallest previously found
-    difference, because for this b and beyond, the smallest difference of
-    p_b - p_a for each b will always be greater than the previously found
-    smallest difference.
+    difference, because for this b and beyond, the smallest difference of p_b -
+    p_a for each b will always be greater than the previously found smallest
+    difference.
 */
 
 #include <cmath>

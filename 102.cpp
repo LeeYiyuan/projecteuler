@@ -10,9 +10,9 @@
 
     which forms the basis of our search filter.
 
-    To find the area of triangle ABC given points ABC, we can use Heron's formula
-    on sides AB, BC, AC. In order to reduce rounding error, we use a modified
-    version that only does the square root at the end.
+    To find the area of triangle ABC given points ABC, we can use Heron's
+    formula on sides AB, BC, AC. In order to reduce rounding error, we use a
+    modified version that only does the square root at the end.
 */
 
 #include <cmath>

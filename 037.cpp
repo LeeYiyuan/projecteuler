@@ -1,7 +1,7 @@
 /*
     Define a left strippable prime as one that remains a prime while digits are
-    removed from the left. Similarly, a right strippable prime is one that remains
-    a prime while digits are removed from the right.
+    removed from the left. Similarly, a right strippable prime is one that
+    remains a prime while digits are removed from the right.
 
     We maintain a list of left and right strippable primes separately, starting
     with those of length 1.
@@ -14,8 +14,8 @@
     removing the last digit will give us a prime that was previously left and
     right strippable respectively.
 
-    At each step, we count the number of primes that appear in both lists and add
-    that to our hits list. We terminate the process when we have 11 primes.
+    At each step, we count the number of primes that appear in both lists and
+    add that to our hits list. We terminate the process when we have 11 primes.
 */
 
 #include <iostream>

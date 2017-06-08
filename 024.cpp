@@ -1,13 +1,15 @@
 /*
     Consider the first permutation that starts with digit k where 0 < k <= 9.
-    There are permutations that lie before it starting with digits 0, 1, ..., k - 1.
-    In each case, we can count this by selecting the first digit, and then
-    considering the number of ways to permute the remaining 9 digits. There
-    are 9! cases for a total of k * 9! cases.
+    There are permutations that lie before it starting with digits 0, 1, ..., k -
+    1.
 
-    The same argument can be extended to the following digits to find the permutation
-    with 1000000 - 1 permutations preceding it. This number is then the 1000000th
-    permutation.
+    In each case, we can count this by selecting the first digit, and then
+    considering the number of ways to permute the remaining 9 digits. There are
+    9! cases for a total of k * 9! cases.
+
+    The same argument can be extended to the following digits to find the
+    permutation with 1000000 - 1 permutations preceding it. This number is then
+    the 1000000th permutation.
 */
 
 #include <iostream>

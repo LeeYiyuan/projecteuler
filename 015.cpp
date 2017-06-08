@@ -1,13 +1,18 @@
 /*
-    Each path corresponds to a permutation of a string with 20 'r's and
-    20 'c's, each corresponding to either a right or left move.
+    Each path corresponds to a permutation of a string with 20 'r's and 20 'c's,
+    each corresponding to either a right or left move.
 
     There are 40! / (20! * 20!) possible permutations. Firstly,
+
         40! = (1 * 3 * ... * 39) * 2^20 * (1 * 2 * ... * 20)
         40! / 20! = (1 * 3 * ... * 39 ) * 2^20
+
     Next,
+
         20! = (1 * 3 * ... * 19) * 2^10 * (1 * 2 * ... * 10)
+
     Hence,
+
         40 ! / (20! * 20!) = (21 * 23 * ... * 39) * 2^10 / (1 * 2 * ... * 10)
 */
 

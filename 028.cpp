@@ -5,9 +5,8 @@
     (1001 + 1) / 2 = 501 spirals, with dimensions 1, 3, ..., 1001. We shall
     number the spirals, with spiral n having dimension 2n - 1.
 
-    First, the arm extending towards the bottom right.
-    The distance between the element of spiral n and the element of
-    spiral n + 1 is given by
+    First, the arm extending towards the bottom right. The distance between the
+    element of spiral n and the element of spiral n + 1 is given by
 
         3((2n - 1) - 1) + ((2n + 1) - 1)
         = 8n - 6
@@ -33,8 +32,8 @@
         = \sum_{i = 1}^501 (16i^2 - 28i + 16) - 3
 
     The -3 at the back is because we have overcounted the common element of each
-    each spiral, namely 1 in spiral 1, 3 times. So we deduct these from the overall
-    sum. Using Faulhaber's formulas, this is
+    each spiral, namely 1 in spiral 1, 3 times. So we deduct these from the
+    overall sum. Using Faulhaber's formulas, this is
 
         16(501)(501 + 1)(2 * 501 + 1) / 6 - 28(501)(501 + 1) / 2 + 16 * 501
 */

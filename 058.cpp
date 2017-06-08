@@ -1,15 +1,14 @@
 /*
-    Label the spirals 1, 2, 3, ... with spiral 1 having only one element, namely 1.
-    Note that the length of spiral n is given by
+    Label the spirals 1, 2, 3, ... with spiral 1 having only one element, namely
+    1. Note that the length of spiral n is given by
 
         l_n = 2n - 1
 
     where l_1 = 1.
 
-    We start at the end of spiral 1, namely step 1, and move 2 steps to reach the
-    element in spiral 2 at the top right
-    diagonal. We then move 2 more steps to the top left, bottom left and bottom
-    right diagonals.
+    We start at the end of spiral 1, namely step 1, and move 2 steps to reach
+    the element in spiral 2 at the top right diagonal. We then move 2 more steps
+    to the top left, bottom left and bottom right diagonals.
 
     We are now at the end of spiral 2. We then move 4 steps to get the element
     in spiral 3 at the top right diagonal. 4 more steps is needed for each of
@@ -19,8 +18,9 @@
     This allows us to traverse the spiral systematically.
 
     This is the first problem where I switched the primality testing from a
-    dynamically expanding list of primes to Miller-Rabin (deterministic), because
-    the expanding list of primes proved to be too slow even with a lookup table.
+    dynamically expanding list of primes to Miller-Rabin (deterministic),
+    because the expanding list of primes proved to be too slow even with a
+    lookup table.
 */
 
 #include <iostream>

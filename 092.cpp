@@ -1,10 +1,11 @@
 /*
-Separate the starting numbers into two groups: The first are the starting numbers
-that eventually arrive at 1; And the second, those that eventually arrive at 89.
+    Separate the starting numbers into two groups: The first are the starting
+    numbers that eventually arrive at 1; And the second, those that eventually
+    arrive at 89.
 
-We also make the following observation: For some starting number n, every starting
-number that is an element of the chain of n is also in the same group as n. With
-this we can cache some results and avoid some computations.
+    We also make the following observation: For some starting number n, every
+    starting number that is an element of the chain of n is also in the same
+    group as n. With this we can cache some results and avoid some computations.
 */
 
 #include <iostream>

@@ -1,6 +1,6 @@
 /*
-    Similar to #94 so we try and use the same approach of formulating a Pell equation
-    with the provided requirements.
+    Similar to #94 so we try and use the same approach of formulating a Pell
+    equation with the provided requirements.
 
         h^2 = l^2 - (b/2)^2
         4h^2 = 4l^2 - b^2
@@ -11,8 +11,8 @@
         (5b \pm 4)^2 + 20 - 16 - 20l^2 = 0
         (5b \pm 4)^2 - 20l^2 = -4
 
-    This gives us a Pell equation x^2 - 20y^2 = -4. For every solution (x, y), we
-    have (x, y) = (5b \pm 4, l).
+    This gives us a Pell equation x^2 - 20y^2 = -4. For every solution (x, y),
+    we have (x, y) = (5b \pm 4, l).
 */
 
 #include <iostream>

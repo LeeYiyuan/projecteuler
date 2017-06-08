@@ -1,14 +1,14 @@
 /*
-    Each digit appearing in keylog.txt must appear in the required number at least
-    once. It is possible that the hit with the least possible length is one where
-    each digit appears exactly once.
+    Each digit appearing in keylog.txt must appear in the required number at
+    least once. It is possible that the hit with the least possible length is
+    one where each digit appears exactly once.
 
     Luckily it appears than this is the case for the required answer.
 
-    If needed, we can consider permutations of the digits appearing in keylog.txt
-    and try permutations with repeated digits until we find an answer, though I
-    am not sure how fast this takes (surely faster than naively searching through
-    the integers.)
+    If needed, we can consider permutations of the digits appearing in
+    keylog.txt and try permutations with repeated digits until we find an
+    answer, though I am not sure how fast this takes (surely faster than naively
+    searching through the integers.)
 */
 
 #include <vector>

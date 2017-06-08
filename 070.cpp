@@ -1,18 +1,19 @@
 /*
     First, we generate the list of primes below 10^7.
 
-    Next, we generate the table of n -> \phi(n) by loop through through the primes.
-    For each prime p, we know that n = pq contains the prime factor p for all
-    positive integers q. So we multiply the \phi table entry of n by
-    (1 - 1/p) = (p - 1) / p.
+    Next, we generate the table of n -> \phi(n) by loop through through the
+    primes. For each prime p, we know that n = pq contains the prime factor p
+    for all positive integers q. So we multiply the \phi table entry of n by (1 -
+    1/p) = (p - 1) / p.
 
-    This method is a lot faster than factorizing each number 1 < n < 10^7 individually
-    and computing \phi(n) separately. Here, instead of checking if p | n, we loop
-    through n such that n | p by multiplying p it with positive integer quotients.
+    This method is a lot faster than factorizing each number 1 < n < 10^7
+    individually and computing \phi(n) separately. Here, instead of checking if
+    p | n, we loop through n such that n | p by multiplying p it with positive
+    integer quotients.
 
-    It may be even possible to somehow use the fact that the smallest prime factor
-    of n apart from itself is at most \sqrt{n} to speed this up, though I haven't
-    explored this idea yet at the moment.
+    It may be even possible to somehow use the fact that the smallest prime
+    factor of n apart from itself is at most \sqrt{n} to speed this up, though I
+    haven't explored this idea yet at the moment.
 
     The rest is trivial - Loop through n, check \phi(n) permutates n, and if so,
     collect (n, n / \phi(n)). We pick n in the pair for which n / \phi(n) is

@@ -8,8 +8,8 @@
 
         rad(abc) = rad(a)rad(b)rad(c)
 
-    Since we need rad(abc) < c, we can pick c such that rad(c) < c. These are all
-    non-square free numbers c. If c is square free, rad(c) = c and since
+    Since we need rad(abc) < c, we can pick c such that rad(c) < c. These are
+    all non-square free numbers c. If c is square free, rad(c) = c and since
     rad(abc) >= rad(c), there will be no candidates for a, b.
 
     Now, we design a nested loop across c and b. For each (c, rad(c)) such that
@@ -17,10 +17,10 @@
     is useful to sort (n, rad(n)) according to rad(n) so we can limit the inner
     loop to (b, rad(b)) such that rad(b)rad(c) < c.
 
-    For selected (b, rad(b)) and (c, rad(c)), we can deduce a = c - b
-    from the conditions imposed. Then, we check if a > 0 and a < b. If it does,
-    we check if gcd(b, c) = 1. Notice that gcd(b, c) = 1 is enough to prove
-    gcd(a, b) = gcd(a, c) = gcd(b, c) = 1, because a = c - b and
+    For selected (b, rad(b)) and (c, rad(c)), we can deduce a = c - b from the
+    conditions imposed. Then, we check if a > 0 and a < b. If it does, we check
+    if gcd(b, c) = 1. Notice that gcd(b, c) = 1 is enough to prove gcd(a, b) =
+    gcd(a, c) = gcd(b, c) = 1, because a = c - b and
 
         gcd(a, b) = gcd(c - b, b) = gcd(c, b) = 1
         gcd(a, c) = gcd(c - b, c) = gcd(c - b, b) = gcd(c, b) = 1

@@ -1,5 +1,8 @@
 /*
-    Let a_0, a_1, ..., a_99 be the 100 coefficients (1, 1, 2, 1, 1, 4, 1, ..., 1, 2k, 1, ...)
+    Let a_0, a_1, ..., a_99 be the 100 coefficients
+
+        (1, 1, 2, 1, 1, 4, 1, ..., 1, 2k, 1, ...)
+
     required to determine the 100th convergent.
 
     Let b_n = a_{99 - n} + 1 / b_{n - 1} with b_0 = a_99.

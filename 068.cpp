@@ -1,19 +1,19 @@
 /*
-    We take 5-combinations of the 10 digits for the outer ring. For each outer ring
-    combination, we have a corresponding inner ring combination.
+    We take 5-combinations of the 10 digits for the outer ring. For each outer
+    ring combination, we have a corresponding inner ring combination.
 
     We permutate the largest 4 elements of the outer ring to get outer ring
     permutations that do not repeat cyclically.
 
     Then, for each outer ring permutation, we permutate the inner rings. Here,
-    we allow inner permutations that repeat cyclically. This is because for every
-    class of cyclically equivalent inner ring permutations, we can rotate some
-    corresponding characterizing inner ring permutation around and each will
-    combine differently with the outer ring.
+    we allow inner permutations that repeat cyclically. This is because for
+    every class of cyclically equivalent inner ring permutations, we can rotate
+    some corresponding characterizing inner ring permutation around and each
+    will combine differently with the outer ring.
 
     For each outer ring and inner ring permutation pair that is magic, we take
-    the required string. We find the largest 16-digit string across all
-    (outer ring, inner ring) pairs.
+    the required string. We find the largest 16-digit string across all (outer
+    ring, inner ring) pairs.
 */
 
 #include <iostream>

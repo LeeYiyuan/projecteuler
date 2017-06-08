@@ -1,15 +1,17 @@
 /*
-    Equivalently, consider a sequence a with a_1 = 1. For a_{i + 1}, where i >= 1,
-    the possible values are a_{i} + a_{j} where j = 1, 2, ..., i.
+    Equivalently, consider a sequence a with a_1 = 1. For a_{i + 1}, where i >=
+    1, the possible values are a_{i} + a_{j} where j = 1, 2, ..., i.
 
-    We are looking for sequences such that the last element is equal to k for
-    k = 1, .., 200. m(k) corresponds to 1 less than the shortest sequence we can find.
+    We are looking for sequences such that the last element is equal to k for k =
+    1, .., 200. m(k) corresponds to 1 less than the shortest sequence we can
+    find.
 
-    Our search will be conducted using depth first search with a dynamically imposed
-    limit on the length of the sequence. This limit is reduced whenever a valid
-    sequence with a shorted length is found. To speed things up, we consider a_j
-    starting from the largest element first. This is so that shorter sequences
-    can be found faster, and thus the length limit can be reduced faster.
+    Our search will be conducted using depth first search with a dynamically
+    imposed limit on the length of the sequence. This limit is reduced whenever
+    a valid sequence with a shorted length is found. To speed things up, we
+    consider a_j starting from the largest element first. This is so that
+    shorter sequences can be found faster, and thus the length limit can be
+    reduced faster.
 */
 
 #include <vector>

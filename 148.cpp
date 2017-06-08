@@ -1,16 +1,16 @@
 /*
     By Lucas' Theorem (https://en.wikipedia.org/wiki/Lucas%27s_theorem), we need
-    all (m, n) such that in the base 7 expansion of m, n, each digit of
-    n are at most the corresponding digits of m. Furthermore, there is an inclusive
-    limit of m = 10^9 - 1 = (33531600615)_7.
+    all (m, n) such that in the base 7 expansion of m, n, each digit of n are at
+    most the corresponding digits of m. Furthermore, there is an inclusive limit
+    of m = 10^9 - 1 = (33531600615)_7.
 
     Let the base 7 expansions of m and n be respectively:
 
         m = m_0 * 7^0 + m_1 * 7^1 + ...
         n = n_0 * 7^0 + n_1 * 7^1 + ...
 
-    Let a(d) be the number of non-negative integers less than or equal to d. Then
-    a(d) = d + 1.
+    Let a(d) be the number of non-negative integers less than or equal to d.
+    Then a(d) = d + 1.
 
     Let b(k) be the number of (m, n) pairs whose base 7 expansion has length k,
     where leading zeroes are allowed. Then

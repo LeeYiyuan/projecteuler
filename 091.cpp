@@ -1,13 +1,16 @@
 /*
-We brute force the possible coordinates of P and Q, which should be reasonable
-since there are only 50^4 = 6250000 cases. We reject the following cases:
-    1) If P or Q = 0, or if P = Q, since no triangle will be formed.
-    2) If width or height from origin == 0, since no triangle will be formed.
-    3) If not right angled. This can be done efficiently by computing the possible
-       dot products of (OP, OQ), (OP, PQ), (OQ, PQ) and checking if at least one
-       is right angled.
-    4) If it is already counted. (x_P, y_P, x_Q, y_Q) and (x_Q, y_Q, x_P, y_P)
-       are duplicate cases.
+    We brute force the possible coordinates of P and Q, which should be
+    reasonable since there are only 50^4 = 6250000 cases. We reject the
+    following cases:
+
+        1) If P or Q = 0, or if P = Q, since no triangle will be formed.
+        2) If width or height from origin == 0, since no triangle will be
+           formed.
+        3) If not right angled. This can be done efficiently by computing the
+           possible dot products of (OP, OQ), (OP, PQ), (OQ, PQ) and checking
+           if at least one is right angled.
+        4) If it is already counted. (x_P, y_P, x_Q, y_Q) and (x_Q, y_Q, x_P,
+           y_P) are duplicate cases.
 */
 
 #include <vector>

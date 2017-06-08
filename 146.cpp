@@ -26,9 +26,10 @@
     to and including p exceeds 150M.
 
     We can set up systems of linear congruence equations for each residue
-    combinations across the prime modulus and for each combination, determine the
-    required residue modulo 2 * 3 * ... * 23. For each solution n less than 150M,
-    we check if it satisfies the required conditions and list it as a hit if so.
+    combinations across the prime modulus and for each combination, determine
+    the required residue modulo 2 * 3 * ... * 23. For each solution n less than
+    150M, we check if it satisfies the required conditions and list it as a hit
+    if so.
 
     First, we see how we can solve a system of two linear equation,
 
@@ -56,35 +57,37 @@
     Notice that there is room for dynamic programming here.
 
     To check if n^2 + {1, 3, 7, 9, 13, 27} are consecutive primes, we only need
-    to verify if n^2 + {1, 3, 7, 9, 13, 27} are primes, and n^2 + {15, 19, 21, 25}
-    are not primes. This is because all primes can be written in the form 6k \pm 1.
+    to verify if n^2 + {1, 3, 7, 9, 13, 27} are primes, and n^2 + {15, 19, 21,
+    25} are not primes. This is because all primes can be written in the form 6k
+    \pm 1.
 
-    There are various variations of this method. For example, instead of considering
-    p = 2, 3, 5, ..., 23, we can consider simply p = 2, 3, 5, 7, in which case
-    the density of necessary residues modulo 2 * 3 * 5 * 7 = 210 is very low - there
-    are only 4 necessary residues. Then we loop through n as multiples of these
-    residues less than 150M.
+    There are various variations of this method. For example, instead of
+    considering p = 2, 3, 5, ..., 23, we can consider simply p = 2, 3, 5, 7, in
+    which case the density of necessary residues modulo 2 * 3 * 5 * 7 = 210 is
+    very low - there are only 4 necessary residues. Then we loop through n as
+    multiples of these residues less than 150M.
 
-    This allows us to reduce the search space with respect to n by around 50 times
-    so that we only need search around 3M values of n. One can bring this futher
-    by finding the optimal combination of prime modulus such that the density is
-    minimized (if it is not already minimal at 2 * 3 * 5 * 7). These variations
-    may or may not be faster than the solution here.
+    This allows us to reduce the search space with respect to n by around 50
+    times so that we only need search around 3M values of n. One can bring this
+    futher by finding the optimal combination of prime modulus such that the
+    density is minimized (if it is not already minimal at 2 * 3 * 5 * 7). These
+    variations may or may not be faster than the solution here.
 
-    I took some time to realize that this problem can be solved rather efficiently
-    by simply considering non-residues modulo primes, and then using C.R.T.
+    I took some time to realize that this problem can be solved rather
+    efficiently by simply considering non-residues modulo primes, and then using
+    C.R.T.
 
-    Initially I went to read up on twin primes and prime constellations, and primes
-    of the form 6k \pm 1, which is where I got the idea for the consecutive primes
-    check. Then I thought about quadratic residues which led to, after some
-    simplifications, the current solution.
+    Initially I went to read up on twin primes and prime constellations, and
+    primes of the form 6k \pm 1, which is where I got the idea for the
+    consecutive primes check. Then I thought about quadratic residues which led
+    to, after some simplifications, the current solution.
 
-    Also I found out irrelevantly that there's such a thing called Euler's 6n + 1
-    Theorem: It turns out that every prime of the form 6n + 1 can be written as
-    x^2 + 3y^2 for some positive integers x, y. I had wanted to use this idea to
-    generate possible n^2 + {3, 9}, because the larger of twin primes are always
-    in the form 6k + 1, but realized this would be too slow. Nonethless this
-    theorem is good to know :>.
+    Also I found out irrelevantly that there's such a thing called Euler's 6n +
+    1 Theorem: It turns out that every prime of the form 6n + 1 can be written
+    as x^2 + 3y^2 for some positive integers x, y. I had wanted to use this idea
+    to generate possible n^2 + {3, 9}, because the larger of twin primes are
+    always in the form 6k + 1, but realized this would be too slow. Nonethless
+    this theorem is good to know :>.
 */
 
 #include <iostream>

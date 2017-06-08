@@ -1,13 +1,14 @@
 /*
     We group parts of the decimal digits according to their number of digits:
+    
         k = 1 : 1, 2, ..., 9,         -> 1 * (9 - 1 + 1) digits total.
         k = 2 : 10, 11, ..., 99,      -> 2 * (99 - 10 + 1) digits total.
         k = 3 : 100, 101, ..., 999,   -> 3 * (999 - 100 + 1) digits total.
         etc.
 
     We look for the group that contains d_n. Afterwards, we look for the item in
-    that group that contains d_n. Finally, we look for the digit of that item that
-    contains the d_n.
+    that group that contains d_n. Finally, we look for the digit of that item
+    that contains the d_n.
 */
 
 #include <iostream>

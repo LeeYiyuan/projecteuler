@@ -6,8 +6,8 @@
     At depth 1, we select the ending hit, which must be a double. These cases
     check out with one hit.
 
-    At depth 2, we select the second hit, which can be anything. These cases check
-    out with two hits.
+    At depth 2, we select the second hit, which can be anything. These cases
+    check out with two hits.
 
     At depth 3, we select the final hit, which we take to be the element that is
     at least at the same position as the previously selected hit in some ordered

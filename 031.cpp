@@ -1,9 +1,11 @@
 /*
-    Let p(n, k) be the number of ways to partition n into parts that are at most k.
-    Additionally, each part must be an element of C = {1, 2, 5, 10, 20, 50, 100, 200}.
+    Let p(n, k) be the number of ways to partition n into parts that are at most
+    k. Additionally, each part must be an element of C = {1, 2, 5, 10, 20, 50,
+    100, 200}.
 
     Each partition must have a maximum value. This maximum value must be an
-    element of C (because all parts are in C). We count each possible case to get:
+    element of C (because all parts are in C). We count each possible case to
+    get:
 
         p(n, k) = \sum_{c in C | c <= min(n, k)} p(n - c, c)
 

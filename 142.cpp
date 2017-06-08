@@ -15,10 +15,10 @@
            x - y = a^2 - b^2 being a perfect square.
 
     If, for every candidate (a^2, b^2, c^2) we have that x, y, z are positive
-    integers, then we have a sum s = x + y + z or 2s = a^2 + b^2 + c^2. We search
-    until a^2 + 2^2 + 1^2 is no less than the smallest 2s found, because any a
-    beyond this point will never lead to a 2s smaller than the smallest of the
-    previous ones found.
+    integers, then we have a sum s = x + y + z or 2s = a^2 + b^2 + c^2. We
+    search until a^2 + 2^2 + 1^2 is no less than the smallest 2s found, because
+    any a beyond this point will never lead to a 2s smaller than the smallest of
+    the previous ones found.
 */
 
 #include <cmath>

@@ -1,7 +1,7 @@
 /*
-    To make life easier for future Pell equation realted problems, I've implemented
-    a generalized Pell solver algorithm for x^2 - Dy^2 = N with D not a square
-    based on a paper (refer to utils/pell_util.cpp).
+    To make life easier for future Pell equation realted problems, I've
+    implemented a generalized Pell solver algorithm for x^2 - Dy^2 = N with D
+    not a square based on a paper (refer to utils/pell_util.cpp).
 */
 
 #include <iostream>

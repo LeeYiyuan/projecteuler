@@ -1,7 +1,7 @@
 /*
-    Similar to #132. We need to look for factors q of \phi(9p) of the form q = 2^a5^b
-    such that 9n | 10^q. Unlike #132, the restriction that 0 <= a, b <= 9 is removed
-    here.
+    Similar to #132. We need to look for factors q of \phi(9p) of the form q =
+    2^a5^b such that 9n | 10^q. Unlike #132, the restriction that 0 <= a, b <= 9
+    is removed here.
 */
 
 #include <iostream>

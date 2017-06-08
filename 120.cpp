@@ -7,9 +7,9 @@
         (a \pm 1) ^ {\phi(a^2)} \equiv 1 \pmod a^2
         (a \pm 1) ^2 {a\phi(a^2)} \equiv 1 \pmod a^2
 
-    Hence, for each a, the residues of (a - 1)^n + (a + 1)^n modulo a^2 are exactly
-    those of n = 0, 1, ..., a\phi(a) - 1. Therefore, for each a, we can impose
-    an upper bound for our search for the maximum residue modulo a^2.
+    Hence, for each a, the residues of (a - 1)^n + (a + 1)^n modulo a^2 are
+    exactly those of n = 0, 1, ..., a\phi(a) - 1. Therefore, for each a, we can
+    impose an upper bound for our search for the maximum residue modulo a^2.
 
     It may be possible that a \pm 1 has a fixed order modulo a^2, in which case
     it could be possible for one to reduce the upper bound of the search for

@@ -1,16 +1,17 @@
 /*
-    Similar to #114, #115, #116, let b_i be the number of ways to fill a length i
-    row such that the last tile is black. Let c_i be the number of ways such that
-    the last tile is colored either red, green or blue.
+    Similar to #114, #115, #116, let b_i be the number of ways to fill a length
+    i row such that the last tile is black. Let c_i be the number of ways such
+    that the last tile is colored either red, green or blue.
 
-    At position i, the previous tile is either colored or not colored. This gives
+    At position i, the previous tile is either colored or not colored. This
+    gives
 
         b_i = b_{i - 1} + c_{i - 1}
 
-    If the last tile is colored, it is either red, green or blue with lengths
-    2, 3, 4 respectively. To make it colored, the tiles up to position
-    i - 2, i - 3 and i - 4 respectively must end uncolored (b_{i - 2}, b_{i - 3},
-    b_{i - 4}) or colored (c_{i - 2}, c_{i - 3}, c_{i - 4}). This gives
+    If the last tile is colored, it is either red, green or blue with lengths 2,
+    3, 4 respectively. To make it colored, the tiles up to position i - 2, i - 3
+    and i - 4 respectively must end uncolored (b_{i - 2}, b_{i - 3}, b_{i - 4})
+    or colored (c_{i - 2}, c_{i - 3}, c_{i - 4}). This gives
 
         c_i = b_{i - 2} + b_{i - 3} + b_{i - 4} + c_{i - 2} + c_{i - 3} + c_{i - 4}
 

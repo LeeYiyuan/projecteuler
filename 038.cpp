@@ -1,8 +1,9 @@
 /*
-    We are considering the concatenated product of an integer a with (1, 2, ..., n)
-    with n > 1, i.e. n >= 2. If a >= 10000, then 2a >= 20000. As such, the
-    concatenated product will have at least 10 digits. By the pigeonhole principle,
-    one of the digit will occur at least twice, making it non pandigital.
+    We are considering the concatenated product of an integer a with (1, 2, ...,
+    n) with n > 1, i.e. n >= 2. If a >= 10000, then 2a >= 20000. As such, the
+    concatenated product will have at least 10 digits. By the pigeonhole
+    principle, one of the digit will occur at least twice, making it non
+    pandigital.
 
     As such we only need consider a < 10000.
 

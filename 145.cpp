@@ -8,20 +8,20 @@
 
         a_l,    a_{l - 1},  ...,    a_1,        a_0
 
-    Instead of enumerating all possible a_0, a_1, ..., a_l, we only need
-    to enumerate the possible valid sums a_0 + a_1, a_1 + a_{l - 1} + ..., which
-    we can do using breadth first expansion. For each digit sum a_i + a_{k - i - 1}
+    Instead of enumerating all possible a_0, a_1, ..., a_l, we only need to
+    enumerate the possible valid sums a_0 + a_1, a_1 + a_{l - 1} + ..., which we
+    can do using breadth first expansion. For each digit sum a_i + a_{k - i - 1}
     we can count directly the number of cases.
 
     Of course, there are some exceptions we must account for.
 
     Firstly, the number of cases for the first and last digits differ from the
-    other digits, because the first and last digits cannot be zero while the others
-    can.
+    other digits, because the first and last digits cannot be zero while the
+    others can.
 
-    Secondly, if the length is odd, then the central sum a_{l / 2} + a{l / 2} must
-    be even, because it is the sum of the same two numbers. Furthermore, there will
-    for a_{l / 2} + a{l / 2} there will only be one case per sum.
+    Secondly, if the length is odd, then the central sum a_{l / 2} + a{l / 2}
+    must be even, because it is the sum of the same two numbers. Furthermore,
+    there will for a_{l / 2} + a{l / 2} there will only be one case per sum.
 */
 
 #include <vector>

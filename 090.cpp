@@ -8,8 +8,8 @@
         3: n is in only B.
         4: n is in neither A nor B.
 
-    We get a decision tree with branching factor 4 and depth 10. It is not hard to
-    brute force our way through since there are only 4^10 = 1048576 cases.
+    We get a decision tree with branching factor 4 and depth 10. It is not hard
+    to brute force our way through since there are only 4^10 = 1048576 cases.
 */
 
 #include <iostream>

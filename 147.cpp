@@ -1,6 +1,7 @@
 /*
     We start with a (r - 1) x c grid. We consider the additional number of
-    rectangles that can be formed by extending the grid by either one row or one column.
+    rectangles that can be formed by extending the grid by either one row or one
+    column.
 
     Suppose we extend by one row to get a r) x c grid. The additional rectangles
     that can be formed are those that overlaps with the r th row. There are
@@ -9,31 +10,31 @@
 
     such cases.
 
-    Now comes the tedious part: Diagonal rectangles. Each diagonal rectangle must
-    end at the bottom most squares (the ones touching the bottom most edge of
-    the grid), or at the horizontal array of squares above this.
+    Now comes the tedious part: Diagonal rectangles. Each diagonal rectangle
+    must end at the bottom most squares (the ones touching the bottom most edge
+    of the grid), or at the horizontal array of squares above this.
 
-    For each bottom, we loop through the possible left, right and top coordinates
-    of every possible diagonal rectangle and count how many there are. The loop
-    can be done by sliding.
+    For each bottom, we loop through the possible left, right and top
+    coordinates of every possible diagonal rectangle and count how many there
+    are. The loop can be done by sliding.
 
-    First we fix the bottom position. Then, we slide out towards the top left one
-    square at a time until the left most square exceeds the left border of the
-    grid. For each bottom and left position, we slide out towards the top right
-    until either the top most square exceeds the top border of the grid, or until
-    the right most square exceeded the right border of the grid.
+    First we fix the bottom position. Then, we slide out towards the top left
+    one square at a time until the left most square exceeds the left border of
+    the grid. For each bottom and left position, we slide out towards the top
+    right until either the top most square exceeds the top border of the grid,
+    or until the right most square exceeded the right border of the grid.
 
-    It will be very helpful indeed to draw out a sufficiently large grid, say
-    6 x 10, to visualize what happens if you extend the rows. You can cover up
-    the unnecessary parts with pieces of paper if you only want to see what
-    happens when you extend a grid to dimensions r x c with r <= 6, c <= 10.
+    It will be very helpful indeed to draw out a sufficiently large grid, say 6
+    x 10, to visualize what happens if you extend the rows. You can cover up the
+    unnecessary parts with pieces of paper if you only want to see what happens
+    when you extend a grid to dimensions r x c with r <= 6, c <= 10.
 
     The number of cases from sliding is summed up to give the number of new
     diagonal rectangles that overlaps with the new row.
 
-    Extending a r x (c - 1) grid by one column is equivalent to extending a
-    (c - 1) x r grid by one row, so we can use the same procedure for extending
-    along the other perpendicular direction by transposing the dimensions.
+    Extending a r x (c - 1) grid by one column is equivalent to extending a (c -
+    1) x r grid by one row, so we can use the same procedure for extending along
+    the other perpendicular direction by transposing the dimensions.
 */
 
 #include <iostream>

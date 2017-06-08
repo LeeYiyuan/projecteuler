@@ -1,7 +1,7 @@
 /*
-    There are two ways to do this : We loop through the primes and check if there
-    exists a square that satisfies the requirement, or we loop through the squares
-    and check if there exists a prime which satisfies the requirement.
+    There are two ways to do this : We loop through the primes and check if
+    there exists a square that satisfies the requirement, or we loop through the
+    squares and check if there exists a prime which satisfies the requirement.
 
     Because there are asymptotically less squares than primes below n, as we can
     tell by comparing sqrt(n / 2) with n / ln n, we loop through the squares
