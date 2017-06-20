@@ -46,7 +46,7 @@
         P(n) = P(n % 10^5) % 10^5
 
     Note that we can use a precomputed table for n -> P(n) for n = 1, ..., 10^5
-    - 1.
+    - 1 to speed things up.
 */
 
 #include <iostream>
@@ -99,5 +99,6 @@ int main()
         // Removes a factor of 2 from set with at least one factor of 2.
         n /= 2;
     }
+    
     std::cout << residue;
 }
