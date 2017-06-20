@@ -1,6 +1,6 @@
 /*
-    Let a be the highest power of 2 such that 2^a | n! where n = 10^12. Let b
-    be the highest power of 5 such that 5^b | n!. Then we need
+    Let a be the highest power of 2 such that 2^a | n! where n = 10^12. Let b be
+    the highest power of 5 such that 5^b | n!. Then we need
 
         (n! / (2^a * 5^b)) * 2^{a - b} \pmod 10^5
 
@@ -35,8 +35,8 @@
 
     Let P(n) be the product modulo 10^5 of 1 through n inclusive and exlcluding
     all multiples of 2 and 5. This is exactly the product modulo 10^5 of the set
-    characterized by n, the inclusive upper limit of the set. By periodicity,
-    we have
+    characterized by n, the inclusive upper limit of the set. By periodicity, we
+    have
 
         P(n) = (P(10^5)^\floor(n / 10^5) * P(n % 10^5)) % 10^5
 
@@ -99,6 +99,6 @@ int main()
         // Removes a factor of 2 from set with at least one factor of 2.
         n /= 2;
     }
-    
+
     std::cout << residue;
 }
