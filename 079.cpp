@@ -18,7 +18,7 @@
 #include "io_util.h"
 #include "string_util.h"
 
-bool check_key(std::vector<int> &permutation, std::vector<int> &key)
+bool check_key(std::vector<int> const &permutation, std::vector<int> const &key)
 {
     for (int i = 0; i < permutation.size(); i++)
     {
