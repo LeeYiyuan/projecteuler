@@ -15,7 +15,7 @@
     Kadane's algorithm, taken from https://en.wikipedia.org/wiki/Maximum_subarray_problem
     but modified to use iterators;
 */
-int get_max_subarray_sum(std::vector<int> &A)
+int get_max_subarray_sum(std::vector<int> const &A)
 {
     auto it = A.begin();
     int max_ending_here;

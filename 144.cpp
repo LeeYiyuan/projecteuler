@@ -54,7 +54,7 @@ double mod(double n, double m)
     return result;
 }
 
-step_struct get_next(step_struct &step)
+step_struct get_next(step_struct const &step)
 {
     double x = step.x;
     double y = step.y;
