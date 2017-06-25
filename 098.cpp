@@ -27,7 +27,7 @@
 
 typedef signed long long ll;
 
-ll get_number(std::pair<std::string, std::string> p, ll n_A)
+ll get_number(std::pair<std::string, std::string> const &p, ll n_A)
 {
     std::unordered_map<char, int> letter_to_digit;
     for (int i = 0; i < p.first.length(); i++)
