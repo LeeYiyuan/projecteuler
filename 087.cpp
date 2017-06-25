@@ -15,9 +15,9 @@
 
 void search(
     int N,
-    std::vector<int> &primes,
-    std::vector<std::vector<int>> &powers,
-    std::vector<int> &solution,
+    std::vector<int> const &primes,
+    std::vector<std::vector<int>> const &powers,
+    std::vector<int> const &solution,
     int sum_solution,
     int index,
     std::unordered_set<int> &results)
@@ -28,7 +28,7 @@ void search(
         return;
     }
 
-    for (int &power : powers[index])
+    for (int const &power : powers[index])
     {
         if (sum_solution + power >= N)
             break;
