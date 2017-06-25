@@ -24,15 +24,15 @@
 
 typedef std::pair<std::string, int> hit_type;
 
-int get_value(hit_type &hit)
+int get_value(hit_type const &hit)
 {
     return (hit.first == "S" ? 1 : hit.first == "D" ? 2 : 3) * hit.second;
 }
 
-int get_score(std::vector<hit_type> &combination)
+int get_score(std::vector<hit_type> const &combination)
 {
     int sum = 0;
-    for (hit_type &hit : combination)
+    for (hit_type const &hit : combination)
         sum +=  get_value(hit);
     return sum;
 }
