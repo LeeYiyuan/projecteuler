@@ -4,5 +4,5 @@
 
 namespace util
 {
-    std::string read_file(std::string file_name);
+    std::string read_file(std::string const &file_name);
 }
