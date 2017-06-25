@@ -27,7 +27,7 @@
 
 typedef std::pair<int, int> node_type;
 
-int get_length(std::vector<std::vector<int>> &M, node_type u, node_type v)
+int get_length(std::vector<std::vector<int>> const &M, node_type const &u, node_type const &v)
 {
     return M[v.first][v.second];
 }
@@ -48,7 +48,7 @@ int compare_dist(int a, int b)
         return -1;
 }
 
-std::vector<node_type> get_neighbours(std::vector<std::vector<int>> &M, node_type v)
+std::vector<node_type> get_neighbours(std::vector<std::vector<int>> const &M, node_type const &v)
 {
     int r = v.first;
     int c = v.second;
