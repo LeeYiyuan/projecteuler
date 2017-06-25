@@ -22,7 +22,7 @@
 typedef std::pair<int, int> coord_class;
 typedef std::pair<coord_class, coord_class> result_class;
 
-bool is_perpendicular(coord_class A, coord_class B)
+bool is_perpendicular(coord_class const &A, coord_class const &B)
 {
     return A.first * B.first + A.second * B.second == 0;
 }
