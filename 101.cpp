@@ -39,7 +39,7 @@ struct term_struct
     mpz_class denominator = 1;
 };
 
-std::vector<term_struct> interpolate(std::vector<mpz_class> values)
+std::vector<term_struct> interpolate(std::vector<mpz_class> const &values)
 {
     std::vector<term_struct> terms;
 
@@ -63,13 +63,13 @@ std::vector<term_struct> interpolate(std::vector<mpz_class> values)
     return terms;
 }
 
-mpz_class evaluate(std::vector<term_struct> terms, int n)
+mpz_class evaluate(std::vector<term_struct> const &terms, int n)
 {
     mpz_class s = 0;
-    for (term_struct &term : terms)
+    for (term_struct const &term : terms)
     {
         mpz_class _s = term.value;
-        for (int &offset : term.offsets)
+        for (int const &offset : term.offsets)
             _s *= n - offset;
         _s /= term.denominator;
         s += _s;
