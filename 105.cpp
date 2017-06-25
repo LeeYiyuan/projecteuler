@@ -39,7 +39,7 @@ bool check(std::vector<int> const &A)
             for (std::vector<int> &subset : subsets)
             {
                 bool is_disjoint = true;
-                for (const int &n : _subset)
+                for (int const &n : _subset)
                 {
                     if (std::binary_search(subset.begin(), subset.end(), n))
                     {

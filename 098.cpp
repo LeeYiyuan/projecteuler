@@ -50,7 +50,7 @@ ll get_number(std::pair<std::string, std::string> const &p, ll n_A)
         letter_to_digit[letter] = digit;
     }
     std::string result = "";
-    for (char &letter : p.second)
+    for (char const &letter : p.second)
         result += letter_to_digit[letter] + '0';
     return std::stoll(result);
 }
