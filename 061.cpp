@@ -32,14 +32,14 @@ std::vector<std::function<int(int)>> formulas =
     [](int n){ return n * (3 * n - 2); }
 };
 
-int recurse(std::vector<int> &selected_numbers, std::vector<int> &remaining_figure_indexes)
+int recurse(std::vector<int> const &selected_numbers, std::vector<int> const &remaining_figure_indexes)
 {
     if (remaining_figure_indexes.size() == 0)
     {
         if (selected_numbers.back() % 100 == selected_numbers[0] / 100)
         {
             int sum = 0;
-            for (int &n : selected_numbers)
+            for (int const &n : selected_numbers)
                 sum += n;
             return sum;
         }
@@ -47,7 +47,7 @@ int recurse(std::vector<int> &selected_numbers, std::vector<int> &remaining_figu
     }
 
     int trailing_digits = selected_numbers.back() % 100;
-    for (int &figure_index : remaining_figure_indexes)
+    for (int const &figure_index : remaining_figure_indexes)
     {
         if (numbers_map[figure_index].find(trailing_digits) != numbers_map[figure_index].end())
         {
