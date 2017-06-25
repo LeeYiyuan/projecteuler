@@ -104,12 +104,12 @@ struct group_struct
     }
 };
 
-std::vector<group_struct> get_eliminating_groups(std::vector<int> &available_terms, mpq_class fraction, int polarity, int p, int e)
+std::vector<group_struct> get_eliminating_groups(std::vector<int> const &available_terms, mpq_class fraction, int polarity, int p, int e)
 {
     std::vector<group_struct> groups;
 
     std::vector<int> terms;
-    for (int &term : available_terms)
+    for (int const &term : available_terms)
         if (term % util::pow(p, e) == 0)
             terms.emplace_back(term);
     for (int length = 0; length <= terms.size(); length++)
@@ -128,10 +128,10 @@ std::vector<group_struct> get_eliminating_groups(std::vector<int> &available_ter
 }
 
 // Same as above, but short circuits when the first eliminating group is found.
-bool check_eliminating_groups(std::vector<int> &available_terms, mpq_class fraction, int polarity, int p, int e)
+bool check_eliminating_groups(std::vector<int> const &available_terms, mpq_class fraction, int polarity, int p, int e)
 {
     std::vector<int> terms;
-    for (int &term : available_terms)
+    for (int const &term : available_terms)
         if (term % util::pow(p, e) == 0)
             terms.emplace_back(term);
     for (int length = 0; length <= terms.size(); length++)
@@ -149,9 +149,9 @@ bool check_eliminating_groups(std::vector<int> &available_terms, mpq_class fract
     return false;
 }
 
-bool is_allowed(std::vector<int> &primes, std::vector<int> &available_terms, int term)
+bool is_allowed(std::vector<int> const &primes, std::vector<int> const &available_terms, int term)
 {
-    for (int &p : primes)
+    for (int const &p : primes)
     {
         if (term % p == 0)
         {
@@ -164,7 +164,7 @@ bool is_allowed(std::vector<int> &primes, std::vector<int> &available_terms, int
             }
 
             std::vector<int> _available_terms;
-            for (int &t : available_terms)
+            for (int const &t : available_terms)
                 if (t != term)
                     _available_terms.emplace_back(t);
             if (!check_eliminating_groups(_available_terms, mpq_class(1, term * term), 1, p, e))
@@ -174,16 +174,16 @@ bool is_allowed(std::vector<int> &primes, std::vector<int> &available_terms, int
     return true;
 }
 
-std::vector<int> reduce(std::vector<int> &primes, std::vector<int> &terms)
+std::vector<int> reduce(std::vector<int> const &primes, std::vector<int> const &terms)
 {
     std::vector<int> _terms;
-    for (int &term : terms)
+    for (int const &term : terms)
         if (is_allowed(primes, terms, term))
             _terms.emplace_back(term);
     return _terms;
 }
 
-void search(std::vector<int> &available_terms, mpq_class fraction, std::vector<int> &primes, std::vector<mpq_class> &results)
+void search(std::vector<int> const &available_terms, mpq_class fraction, std::vector<int> const &primes, std::vector<mpq_class> &results)
 {
     if (primes.size() == 0)
     {
@@ -197,7 +197,7 @@ void search(std::vector<int> &available_terms, mpq_class fraction, std::vector<i
     for (group_struct &group : get_eliminating_groups(available_terms, fraction, -1, p, 1))
     {
         std::vector<int> _available_terms;
-        for (int &t : available_terms)
+        for (int const &t : available_terms)
             if (t % p != 0)
                 _available_terms.emplace_back(t);
         mpq_class _fraction = group.s;
