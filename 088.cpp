@@ -21,7 +21,7 @@
 
 int k_limit = 12000;
 
-void search(int n, std::vector<int> &factorization, int product, std::unordered_map<int, int> &results)
+void search(int n, std::vector<int> const &factorization, int product, std::unordered_map<int, int> &results)
 {
     if (product == n)
     {
