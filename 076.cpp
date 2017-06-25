@@ -24,7 +24,7 @@
 #include <vector>
 #include <algorithm>
 
-int get_partitions(std::vector<std::vector<int>> &p, int n, int k)
+int get_partitions(std::vector<std::vector<int>> const &p, int n, int k)
 {
     int sum = 0;
     for (int c = 1; c <= std::min(n, k); c++)
