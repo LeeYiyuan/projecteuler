@@ -21,7 +21,7 @@
 #include <vector>
 #include <string>
 
-bool is_magic(std::vector<int> &outer, std::vector<int> &inner)
+bool is_magic(std::vector<int> const &outer, std::vector<int> const &inner)
 {
     int total = outer[0] + inner[0] + inner[1];
     for (int i = 1; i < 5; i++)
@@ -29,7 +29,7 @@ bool is_magic(std::vector<int> &outer, std::vector<int> &inner)
     return true;
 }
 
-std::string get_string(std::vector<int> &outer, std::vector<int> &inner)
+std::string get_string(std::vector<int> const &outer, std::vector<int> const &inner)
 {
     std::string s;
     for (int i = 0; i < 5; i++){
