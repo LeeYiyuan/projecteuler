@@ -3,7 +3,7 @@
 #include <set>
 #include "prime_util.h"
 
-int get_longest_length(std::vector<int> &primes, int i_p)
+int get_longest_length(std::vector<int> const &primes, int i_p)
 {
     int s = 0;
     int l = 0;
