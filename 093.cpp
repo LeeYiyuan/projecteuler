@@ -83,10 +83,10 @@ std::vector<std::string> get_exprs(std::string op, int length)
     }
 }
 
-std::string substitute(std::string expr, std::vector<int> &digits)
+std::string substitute(std::string expr, std::vector<int> const &digits)
 {
     std::string _expr = expr;
-    for (int &d : digits)
+    for (int const &d : digits)
         _expr.replace(_expr.find('.'), 1, 1, (char)(d + '0'));
     return _expr;
 }
