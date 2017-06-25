@@ -51,7 +51,7 @@
 
 std::vector<std::string> ops = { ".", "+", "-", "/", "*" };
 
-std::vector<std::string> get_exprs(std::string op, int length)
+std::vector<std::string> get_exprs(std::string const &op, int length)
 {
     std::vector<std::string> exprs;
 
@@ -83,7 +83,7 @@ std::vector<std::string> get_exprs(std::string op, int length)
     }
 }
 
-std::string substitute(std::string expr, std::vector<int> const &digits)
+std::string substitute(std::string const &expr, std::vector<int> const &digits)
 {
     std::string _expr = expr;
     for (int const &d : digits)
