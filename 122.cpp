@@ -19,7 +19,7 @@
 #include <climits>
 #include <algorithm>
 
-void search(std::vector<int> &exponents, int target_exponent, int &length_limit, std::vector<std::vector<int>> &results)
+void search(std::vector<int> const &exponents, int target_exponent, int &length_limit, std::vector<std::vector<int>> &results)
 {
     if (exponents.size() >= length_limit)
         return;
