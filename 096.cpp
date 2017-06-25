@@ -11,7 +11,7 @@
 
 typedef std::vector<std::vector<int>> grid_type;
 
-bool is_valid(grid_type &grid, int r, int c)
+bool is_valid(grid_type const &grid, int r, int c)
 {
     // Check row.
     for (int _c = 0; _c < 9; _c++)
