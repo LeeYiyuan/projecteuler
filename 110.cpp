@@ -37,15 +37,15 @@
 
 std::vector<int> primes = util::get_primes(1000);
 
-int count_factor_pairs(std::vector<int> &exponents)
+int count_factor_pairs(std::vector<int> const &exponents)
 {
     int product = 1;
-    for (int &exponent : exponents)
+    for (int const &exponent : exponents)
         product *= 2 * exponent + 1;
     return (product + 1) / 2;
 }
 
-mpz_class get_number(std::vector<int> &exponents)
+mpz_class get_number(std::vector<int> const &exponents)
 {
     mpz_class n = 1;
     for (int i = 0; i < exponents.size(); i++)
@@ -53,7 +53,7 @@ mpz_class get_number(std::vector<int> &exponents)
     return n;
 }
 
-void search(std::vector<int> &exponents, int factor_pairs_minimum_count, mpz_class &number_limit, std::vector<mpz_class> &results)
+void search(std::vector<int> const &exponents, int factor_pairs_minimum_count, mpz_class &number_limit, std::vector<mpz_class> &results)
 {
     int exponent = 1;
     int exponent_limit = exponents.size() == 0 ? INT_MAX : exponents.back();
