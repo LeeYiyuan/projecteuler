@@ -26,12 +26,12 @@
 typedef unsigned long long ull;
 typedef std::pair<int, int> point_type;
 
-ull get_distance2(point_type A, point_type B)
+ull get_distance2(point_type const &A, point_type const &B)
 {
     return (A.first - B.first) * (A.first - B.first) + (A.second - B.second) * (A.second - B.second);
 }
 
-double get_area(point_type A, point_type B, point_type C)
+double get_area(point_type const &A, point_type const &B, point_type const &C)
 {
     ull la2 = get_distance2(A, B);
     ull lb2 = get_distance2(A, C);
@@ -39,7 +39,7 @@ double get_area(point_type A, point_type B, point_type C)
     return std::sqrt(4 * la2 * lb2 - (la2 + lb2 - lc2) * (la2 + lb2 - lc2)) / 4;
 }
 
-bool is_in_triangle(point_type A, point_type B, point_type C, point_type P)
+bool is_in_triangle(point_type const &A, point_type const &B, point_type const &C, point_type const &P)
 {
     double total_area = get_area(A, B, P) + get_area(A, C, P) + get_area(B, C, P);
     double triangle_area = get_area(A, B, C);

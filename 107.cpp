@@ -16,7 +16,7 @@
 typedef std::vector<std::vector<int>> matrix_type;
 typedef std::pair<int, int> edge_type;
 
-bool is_connected(matrix_type &matrix)
+bool is_connected(matrix_type const &matrix)
 {
     std::vector<int> vertices(matrix.size());
     std::iota(vertices.begin(), vertices.end(), 0);
@@ -46,17 +46,17 @@ bool is_connected(matrix_type &matrix)
     return S.size() == matrix.size();
 }
 
-int get_weight(matrix_type &matrix)
+int get_weight(matrix_type const &matrix)
 {
     int s = 0;
-    for (std::vector<int> &row : matrix)
-        for (int &element : row)
+    for (std::vector<int> const &row : matrix)
+        for (int const &element : row)
             if (element != -1)
                 s += element;
     return s / 2;
 }
 
-int find_minimum_weight(matrix_type &matrix, std::vector<edge_type> &edges, int index)
+int find_minimum_weight(matrix_type const &matrix, std::vector<edge_type> const &edges, int index)
 {
     int weight = get_weight(matrix);
     for (int i = index; i < edges.size(); i++)

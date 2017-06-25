@@ -75,17 +75,17 @@
 #include <algorithm>
 #include <numeric>
 
-bool check_end(std::vector<int> &A, std::vector<std::pair<int, int>> &end_checks, int length_check, int n)
+bool check_end(std::vector<int> const&A, std::vector<std::pair<int, int>> const &end_checks, int length_check, int n)
 {
-    for (std::pair<int, int> &end_check : end_checks)
+    for (std::pair<int, int> const &end_check : end_checks)
         if (end_check.first * n + end_check.second > std::accumulate(A.begin(), A.begin() + length_check + 1, 0))
             return false;
     return true;
 }
 
-bool check_subsets(std::vector<std::vector<int>> &subsets, int n, std::vector<std::vector<int>> &_subsets)
+bool check_subsets(std::vector<std::vector<int>> const &subsets, int n, std::vector<std::vector<int>> &_subsets)
 {
-    for (std::vector<int> &subset : subsets)
+    for (std::vector<int> const &subset : subsets)
     {
         _subsets.emplace_back(subset);
         _subsets.back().emplace_back(n);
@@ -93,10 +93,10 @@ bool check_subsets(std::vector<std::vector<int>> &subsets, int n, std::vector<st
     for (std::vector<int> &_subset : _subsets)
     {
         int _subset_sum = std::accumulate(_subset.begin(), _subset.end(), 0);
-        for (std::vector<int> &subset : subsets)
+        for (std::vector<int> const &subset : subsets)
         {
             bool is_disjoint = true;
-            for (const int &n : _subset)
+            for (int const &n : _subset)
             {
                 if (std::binary_search(subset.begin(), subset.end(), n))
                 {

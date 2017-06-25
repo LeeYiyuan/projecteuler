@@ -11,7 +11,7 @@
 #include "io_util.h"
 #include "string_util.h"
 
-bool check(std::vector<int> &A)
+bool check(std::vector<int> const &A)
 {
     std::vector<std::vector<int>> subsets = {
         { },
