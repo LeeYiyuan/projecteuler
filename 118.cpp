@@ -12,7 +12,7 @@
 #include <numeric>
 #include "prime_util.h"
 
-int get_number(std::vector<int> &digits, int start, int end)
+int get_number(std::vector<int> const &digits, int start, int end)
 {
     int n = 0;
     for (int i = start; i < end; i++)
@@ -20,7 +20,7 @@ int get_number(std::vector<int> &digits, int start, int end)
     return n;
 }
 
-std::vector<std::vector<int>> search(std::vector<int> &digits, std::vector<int> &slices)
+std::vector<std::vector<int>> search(std::vector<int> const &digits, std::vector<int> const &slices)
 {
     std::vector<std::vector<int>> results;
 

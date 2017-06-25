@@ -22,7 +22,7 @@
 #include <numeric>
 #include "prime_util.h"
 
-int get_r_max(std::vector<int> &totients, int a)
+int get_r_max(std::vector<int> const &totients, int a)
 {
     int exponent_end = a * totients[a];
     int r_max = -1;
