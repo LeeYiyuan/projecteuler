@@ -22,7 +22,7 @@ typedef std::pair<std::vector<int>, std::vector<int>> case_type;
 typedef std::pair<int, int> combination_type;
 
 template <typename T>
-bool contains(std::vector<T> &v, T const &n)
+bool contains(std::vector<T> const &v, T const &n)
 {
     return std::find(v.begin(), v.end(), n) != v.end();
 }
