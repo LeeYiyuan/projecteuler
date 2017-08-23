@@ -2,7 +2,6 @@
 
 #include <vector>
 #include <algorithm>
-#include <numeric>
 
 namespace util
 {
@@ -13,7 +12,7 @@ namespace util
 
         int n = std::distance(first, last);
         std::vector<bool> flags(n);
-        std::iota(flags.end() - r, flags.end(), true);
+        std::fill(flags.end() - r, flags.end(), true);
         do
         {
             combinations_it.emplace_back();
