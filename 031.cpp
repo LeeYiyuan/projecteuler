@@ -25,7 +25,7 @@ int partitions(int n, int k)
     if (n == 0)
         return 1;
     int sum = 0;
-    for (int i = 0; i < C.size() and C[i] <= std::min(n, k); i++)
+    for (int i = 0; i < C.size() && C[i] <= std::min(n, k); i++)
         sum += partitions(n - C[i], C[i]);
     return sum;
 }

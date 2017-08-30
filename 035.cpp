@@ -37,7 +37,7 @@ int main()
               rotations (i.e. equal permutations) will be considered twice during
               the subsequenct subset check which can lead to unexpected results.
             */
-            if (_prime != prime and std::find(rotations.begin(), rotations.end(), _prime) == rotations.end())
+            if (_prime != prime && std::find(rotations.begin(), rotations.end(), _prime) == rotations.end())
                 rotations.emplace_back(_prime);
         }
 

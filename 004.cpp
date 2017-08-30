@@ -10,7 +10,7 @@ int main()
         for (int b = 900; b < 1000; b++)
         {
             int n = a * b;
-            if (util::is_palindrome(std::to_string(n)) and n > largest)
+            if (util::is_palindrome(std::to_string(n)) && n > largest)
                 largest = n;
         }
     }

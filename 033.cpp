@@ -14,12 +14,12 @@ bool cancel(int &n, int &d)
     if (n1 == d0){ n1 = -1; d0 = -1;}
     else if (n1 == d1){ n1 = -1; d1 = -1; }
 
-    if (n0 == -1 and n1 == -1) n = 0;
+    if (n0 == -1 && n1 == -1) n = 0;
     else if (n0 == -1) n = n1;
     else if (n1 == -1) n = n0;
     else return false;
 
-    if (d0 == -1 and d1 == -1) d = 0;
+    if (d0 == -1 && d1 == -1) d = 0;
     else if (d0 == -1) d = d1;
     else if (d1 == -1) d = d0;
     else return false;

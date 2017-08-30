@@ -34,7 +34,7 @@ int main()
 
     int b = 2;
     int p_b = get_pentagonal(b);
-    while (min_diff == INT_MAX or p_b - get_pentagonal(b - 1) > min_diff)
+    while (min_diff == INT_MAX || p_b - get_pentagonal(b - 1) > min_diff)
     {
         for (int a = 1; a < b; a++)
         {
