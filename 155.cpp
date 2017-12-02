@@ -59,10 +59,18 @@ int main()
                     int v = a.n * b.d + a.d * b.n;
                     q_type parallel(v, a.d * b.d);
                     q_type series(a.n * b.n, v);
-                    values.back().emplace(parallel);
-                    values.back().emplace(series);
-                    all_values.emplace(parallel);
-                    all_values.emplace(series);
+                    
+                    if (all_values.find(parallel) == all_values.end())
+                    {
+                        values.back().emplace(parallel);
+                        all_values.emplace(parallel);
+                    }
+
+                    if (all_values.find(series) == all_values.end())
+                    {
+                        values.back().emplace(series);
+                        all_values.emplace(series);
+                    }
                 }
             }
             i--;
