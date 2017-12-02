@@ -23,7 +23,6 @@
     n_max, which is 999999 in this case.
 */
 
-#include <cmath>
 #include <iostream>
 #include <unordered_map>
 
@@ -33,7 +32,7 @@ int main()
     std::unordered_map<int, int> solution_counts;
     for (int y = 0; y < n_max; y++)
     {
-        int x = std::ceil(y * 1.25);
+        int x = y * 5 / 4 + 1;
         int n = y * (4 * x - 5 * y);
         while (n < n_max && x < 2 * y)
         {
