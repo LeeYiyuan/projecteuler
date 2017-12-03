@@ -24,12 +24,12 @@
 */
 
 #include <iostream>
-#include <unordered_map>
+#include <vector>
 
 int main()
 {
     int n_max = 1000000;
-    std::unordered_map<int, int> solution_counts;
+    std::vector<int> solution_counts(n_max);
     for (int y = 0; y < n_max; y++)
     {
         int x = y * 5 / 4 + 1;
@@ -43,8 +43,8 @@ int main()
     }
 
     int count = 0;
-    for (auto &pair : solution_counts)
-        if (pair.second == 10)
+    for (int c : solution_counts)
+        if (c == 10)
             count++;
 
     std::cout << count;
