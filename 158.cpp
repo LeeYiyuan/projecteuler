@@ -1,8 +1,8 @@
 /*
     Fix some number of digits n >= 2.
 
-    We pick the characters in the length n string - There are (26 C n) ways to
-    do this.
+    We pick the characters in the length n string - There are \binom{26}{n} ways 
+    to do this.
 
     For each combination of characters, we label the characters 1 ... n in
     ascending order. We need to determine the number of permutations such that
@@ -35,7 +35,7 @@
 
     to give a closed form expression for p(n),
 
-        p(n) = (26 C n)(2^n - n - 1)
+        p(n) = \binom{26}{n}(2^n - n - 1)
 */
 
 #include <vector>
