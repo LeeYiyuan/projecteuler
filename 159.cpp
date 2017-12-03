@@ -1,7 +1,7 @@
 /*
     For n, consider factors d >= 2. Then
 
-        mdrs(n) = \mad(drs(n), \max(drs(d) + mdrs(n / d)))
+        mdrs(n) = \max(drs(n), drs(d) + mdrs(n / d))
 
     Additionally, we only need to consider up to d <= \sqrt{n} because for d >
     \sqrt{n}, we can swap d with the other factor d' < \sqrt{n}, and (d', d)
