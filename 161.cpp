@@ -7,7 +7,7 @@
 
     The DFS involved is such that repeated cases are not considered. This is 
     done by noticing that we can set up some sort of partial order on the set of
-    {T, L} where T is a tile and L is a location.
+    (T, L) where T is a tile and L is a location.
 */
 
 #include <iostream>
