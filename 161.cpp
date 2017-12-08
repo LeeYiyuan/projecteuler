@@ -71,7 +71,7 @@ int main()
     generate(rows, columns, 0, initial_blocks, 0, counts);
 
     // Computes count for number of columns = 3, 4, ..., 11 using dynamic programming.
-    for (int i = 2; i < 11; i++)
+    for (int i = 2; i < columns; i++)
     {
         std::vector<ull> _counts(1 << (2 * rows));
         for (ull j = 0; j < (1 << 2 * rows); j++)
