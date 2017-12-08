@@ -77,7 +77,7 @@ int main()
         for (auto &pair : probabilities)
             for (auto &pair_next : transition_probabilities[pair.first])
                 _probabilities[pair_next.first] += pair.second * pair_next.second;
-        probabilities = _probabilities;
+        probabilities = std::move(_probabilities);
     }
 
     std::cout << std::setprecision(6) << expected;
