@@ -70,8 +70,8 @@ int main()
     std::vector<ull> counts(1 << (2 * rows)), _counts(1 << (2 * rows));
     generate(rows, columns, 0, initial_blocks, 0, counts);
 
-    // Computes count for number of columns = 3, 4, ..., 11 using dynamic programming.
-    for (int i = 2; i < columns; i++)
+    // Computes count for number of columns = 3, 4, ..., columns - 1 using dynamic programming.
+    for (int i = 2; i < columns - 1; i++)
     {
         std::vector<ull> _counts(1 << (2 * rows));
         for (ull j = 0; j < (1 << 2 * rows); j++)
@@ -80,6 +80,6 @@ int main()
         std::swap(counts, _counts);
     }
 
-    // Computes count for filled case for number of columns = 12.
+    // Computes count for filled case for required number of columns.
     std::cout << transform(rows, columns, (1 << (3 * rows)) - 1, blocks, 0, counts);
 }
