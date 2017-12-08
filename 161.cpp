@@ -20,13 +20,8 @@ void generate(int rows, int columns, ull map, std::vector<ull> const& blocks, in
 {
     counts[map]++; // Assume there is one way to arrange nothing.
     for (int i = block_index; i < blocks.size(); i++)
-    {
-        ull block = blocks[i];
-        if ((map & block) == 0)
-        {
-            generate(rows, columns, map | block, blocks, i + 1, counts);
-        }
-    }
+        if ((map & blocks[i]) == 0)
+            generate(rows, columns, map | blocks[i], blocks, i + 1, counts);
 }
 
 // Linear transformation underlying the dynamic programming part.
