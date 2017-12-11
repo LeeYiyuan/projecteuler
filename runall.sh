@@ -5,7 +5,7 @@ make utils > /dev/null
 
 tts=$(date +%s%N)
 err=0
-for i in {1..162}
+for i in {001..162}
 do
     ts=$(date +%s%N)
     make $i > /dev/null
