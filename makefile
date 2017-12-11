@@ -1,6 +1,7 @@
 CC=g++ -std=c++17 -O -lgmp -lgmpxx -lm -Wfatal-errors
+MAKEFLAGS += --no-builtin-rules
 
-%.run: ./%.cpp ./utils
+./%.run: ./%.cpp ./utils
 	$(CC) -o $@ ./$(basename $@).cpp ./utils/*.o -Iutils/
 
 .PHONY: utils
