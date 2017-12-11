@@ -78,5 +78,5 @@ int main()
         }
     }
 
-    std::cout << all_values.size() << std::endl;
+    std::cout << all_values.size();
 }
