@@ -211,5 +211,5 @@ int main()
             d = d_base * m;
         }
     }
-    std::cout << sum << std::endl;
+    std::cout << sum;
 }

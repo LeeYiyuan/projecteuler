@@ -44,5 +44,5 @@ int main()
             if (get_period(n) % 2 == 1)
                 hits++;
 
-    std::cout << hits << std::endl;
+    std::cout << hits;
 }
