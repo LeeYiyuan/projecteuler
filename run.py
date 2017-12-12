@@ -7,6 +7,7 @@ import re
 import threading
 import time
 import subprocess
+import sys
 
 devnull = open(os.devnull, 'w')
 
@@ -55,11 +56,11 @@ def worker():
         popen.wait()
         output = popen.stdout.read().decode('utf-8')
         subprocess.call(['rm', '{0}.run'.format(solution)])
-
         elapsed = time.perf_counter() - start
         results.append((solution, int(round(1000 * elapsed, 0)), output))
-        print(' ' * 30, end='\r')
-        print('{0} / {1}'.format(len(results), solutions_count), end='\r')
+        
+        sys.stdout.write("\033[K\r")
+        print('Completed {0} / {1} solutions.'.format(len(results), solutions_count), end='\r')
 
         solutions_queue.task_done()
 
@@ -80,6 +81,7 @@ global_elapsed = time.perf_counter() - global_start
 
 subprocess.call(['make', 'clean'], stdout=devnull, stderr=devnull)
 
+sys.stdout.write("\033[K\r")
 for result in sorted(results, key=lambda x: x[0]):
     print('{0: >4s} | {1: >6d} ms | {2}'.format(*result))
 
