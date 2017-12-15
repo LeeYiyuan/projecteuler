@@ -134,12 +134,17 @@ int main()
         int point = pair.first;
         std::unordered_set<int> const &adjacent_points = pair.second;
 
-        for (auto it1 = adjacent_points.begin(), it2 = it1; it1 != adjacent_points.end(); it2 = ++it1)
-            for (; it2 != adjacent_points.end(); ++it2)
-                if (adjacency[*it1].find(*it2) != adjacency[*it1].end() && adjacency[*it2].find(*it1) != adjacency[*it2].end())
-                    if ((get_y(point) - get_y(*it1)) * (get_x(point) - get_x(*it2)) != (get_y(point) - get_y(*it2)) * (get_x(point) - get_x(*it1)))
+        for (auto it1 = adjacent_points.begin(); it1 != adjacent_points.end(); ++it1)
+        {
+            auto it2 = it1;
+            ++it2;
+            for (; it2 != adjacent_points.end(); adjacency[*(it2++)].erase(point))
+                if ((get_y(point) - get_y(*it1)) * (get_x(point) - get_x(*it2)) != (get_y(point) - get_y(*it2)) * (get_x(point) - get_x(*it1)))
+                    if (adjacency[*it1].find(*it2) != adjacency[*it1].end() && adjacency[*it2].find(*it1) != adjacency[*it2].end())
                         count++;
+            adjacency[*it1].erase(point);
+        }
     }
 
-    std::cout << count / 3;
+    std::cout << count;
 }
