@@ -3,7 +3,6 @@
 #include <vector>
 #include <algorithm>
 #include "number_util.h"
-#include <iostream>
 
 namespace util
 {
