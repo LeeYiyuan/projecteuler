@@ -53,14 +53,14 @@
     The generation of the adjacency list is relatively trivial afterwards. I
     used the first method I could think of. You only need to consider one of the 
     three grids, because if M^Y and N^Y are adjacent, then so is M^Z and N^Z for 
-    the other Z's. 
+    the other Z's. You can use T_{RB} to find (M^Z)_Y, (N^Z)_Y.
     
     For the search, I went through each point A, and for each point A, I went 
     through distinct pairs of adjacent points (B, C) such that A, B, C are
     not collinear. This is to exclude straight lines. If B and C are adjacent, 
     then we have a hit.
 
-    As an optimization, note that all coordinates have fractional part dividing
+    As an optimization, note that all coordinates have denominator dividing
     6, so we can scale everything by 6 and use integers instead of having to
     deal with fractions.
 */
