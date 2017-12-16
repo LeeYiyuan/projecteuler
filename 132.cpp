@@ -52,7 +52,7 @@ bool is_factor(int p)
         for (int b = 0; b <= b_max; b++)
         {
             unsigned long long q = std::pow(2, a) * std::pow(5, b);
-            if (util::pow_mod(mpz_class(10), q, mpz_class(9 * p)) == 1)
+            if (util::pow_mod(10, q, 9 * p) == 1)
                 return true;
         }
     }

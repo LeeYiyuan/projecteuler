@@ -94,6 +94,7 @@
 #include <vector>
 #include <utility>
 #include <algorithm>
+#include <gmpxx.h>
 #include "prime_util.h"
 #include "number_util.h"
 
@@ -154,6 +155,6 @@ int main()
             sum += n;
         }
     }
-
+    
     std::cout << sum;
 }

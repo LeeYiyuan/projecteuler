@@ -18,6 +18,18 @@ namespace util
     }
 
     template <typename T>
+    T mul_mod(T a, T b, T m)
+    {
+        T res = 0;
+        while (a != 0) {
+            if ((a & 1) == 1) res = (res + b) % m;
+            a >>= 1;
+            b = (b << 1) % m;
+        }
+        return res;
+    }
+
+    template <typename T>
     T inv_mod(T n, T m)
     {
         T m0 = m, t, q;
@@ -40,12 +52,12 @@ namespace util
 
         while (b != 0)
         {
-            if (b % 2 == 1) result = (result * multiplier) % m;;
-            multiplier = (multiplier * multiplier) % m;
+            if (b % 2 == 1) result = mul_mod(result, multiplier, m);
+            multiplier = mul_mod(multiplier, multiplier, m);
             b >>= 1;
         }
 
-        return result % m;
+        return result;
     }
 
     template <typename Ta, typename Tb>
