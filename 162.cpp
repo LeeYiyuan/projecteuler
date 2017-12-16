@@ -18,7 +18,15 @@
                       + (15 * 16^{d - 1} - 14 * 15^{d - 1})
                     = 15 * 16^{d - 1} - 13^d + 41 * 14^{d - 1} - 43 * 15^{d - 1}
     
-    and we simply sum the values of |A & B & C| across d = 3, ..., 16.
+    and we simply sum the values of |A & B & C| across d = 3, ..., 16. We use
+    the formula for the sum of a geometric series to obtain a closed form,
+
+        |A & B & C| = 15 * (16^n - 16^2) / (16 - 1) - 
+                      (13^{n + 1} - 13^3) / (13 - 1) +
+                      41 * (14^n - 14^2) / (14 - 1) -
+                      43 * (15^n - 15^2) / (15 - 1)
+    
+    where n is the number of digits in the string.
 */
 
 #include <iostream>
@@ -28,9 +36,13 @@
 
 int main()
 {
-    mpz_class count = 0;
-    for (int d = 3; d <= 16; d++)
-        count += 15 * util::pow(16, d - 1) - util::pow(13, d) + 41 * util::pow(14, d - 1) - 43 * util::pow(15, d - 1);
+    int n = 16;
+
+    mpz_class count = 
+        15 * (util::pow(16, n) - util::pow(16, 2)) / (16 - 1) -
+        (util::pow(13, n + 1) - util::pow(13, 3)) / (13 - 1) +
+        41 * (util::pow(14, n) - util::pow(14, 2)) / (14 - 1) -
+        43 * (util::pow(15, n) - util::pow(15, 2)) / (15 - 1);
     
     std::string result = count.get_str(16);
     std::transform(result.begin(), result.end(), result.begin(), ::toupper);
