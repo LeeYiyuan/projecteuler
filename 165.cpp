@@ -13,9 +13,9 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include <number_util.h>
 
 int sign(int x) { return (x > 0) - (x < 0); }
-int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
 
 bool get_intersection(int x1, int y1, int x2, int y2, int x1_, int y1_, int x2_, int y2_, std::vector<int> &result)
 {
@@ -42,8 +42,8 @@ bool get_intersection(int x1, int y1, int x2, int y2, int x1_, int y1_, int x2_,
     if (g == x1_ * det && h == y1_ * det) return false;
     if (g == x2_ * det && h == y2_ * det) return false;
 
-    int zg = gcd(g, det);
-    int zh = gcd(h, det);
+    int zg = util::gcd(g, det);
+    int zh = util::gcd(h, det);
 
     result[0] = g / zg;
     result[1] = det / zg;

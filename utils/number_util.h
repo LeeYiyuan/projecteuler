@@ -32,7 +32,7 @@ namespace util
     template <typename T>
     T gcd(T a, T b)
     {
-        return mpz_to<T>(::gcd(util::to_mpz(a), util::to_mpz(b)));
+        return b == T(0) ? a : gcd(b, a % b);
     }
 
     template <typename Tn, typename Tm>
