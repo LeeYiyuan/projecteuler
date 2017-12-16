@@ -16,14 +16,14 @@ int main()
 {
     mpz_class p = 2;
     int n = 1;
-    mpz_class r = (util::pow(p - 1, n) + util::pow(p + 1, n)) % (p * p);
+    mpz_class r = (util::pow_mod(mpz_class(p - 1), n, mpz_class(p * p)) + util::pow_mod(mpz_class(p + 1), n, mpz_class(p * p))) % (p * p);
 
     while (r <= util::pow(10, 10))
     {
         p = util::get_next_prime(p);
         p = util::get_next_prime(p);
         n += 2;
-        r = (util::pow(p - 1, n) + util::pow(p + 1, n)) % (p * p);
+        r = (util::pow_mod(mpz_class(p - 1), n, mpz_class(p * p)) + util::pow_mod(mpz_class(p + 1), n, mpz_class(p * p))) % (p * p);
     }
 
     std::cout << n;
