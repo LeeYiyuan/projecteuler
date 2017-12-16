@@ -44,7 +44,7 @@
     where we exploit the fact that the inradius of an equilateral triangle is
     1/3 that of its altitude. This gives us
 
-        T_{RB} = [-1 1;-1 -1/3] * [1/2 0;0 1/c]
+        T_{RB} = [-1 1;-1 -1/3] * [1/2 0;0 3/2]
                = [-1 3;-1 -1] / 2
     
     Note also that T_{RB} = T_{GR} = T_{BG}. This gives us a very clean way
