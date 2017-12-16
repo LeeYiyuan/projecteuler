@@ -46,6 +46,7 @@
 #include <utility>
 #include <vector>
 #include <set>
+#include "gmp_util.h"
 #include "number_util.h"
 #include "prime_util.h"
 
@@ -59,7 +60,7 @@ std::vector<std::pair<ull, ull>> get_factors(int n)
 
     // std::pow returns a double with mantissa 53 bits effective which I don't
     // think has enough precision for 10^{2n} <= 10^{18}.
-    ull p = util::mpz_to<ull>(util::pow(10, 2 * n));
+    ull p = util::pow(ull(10), 2 * n);
 
     for (ull e2 = 0, p2 = 1; e2 <= 2 * n; e2++, p2 *= 2)
         for (ull e5 = 0, p5 = 1; p2 * p5 <= p / (p2 * p5); e5++, p5 *= 5)
@@ -72,8 +73,8 @@ void get_solutions(int n, std::set<std::vector<ull>> &solutions)
 {
     for (std::pair<ull, ull> &factor : get_factors(n))
     {
-        ull f = util::mpz_to<ull>(util::pow(10, n)) + factor.first;
-        ull g = util::mpz_to<ull>(util::pow(10, n)) + factor.second;
+        ull f = util::pow(ull(10), n) + factor.first;
+        ull g = util::pow(ull(10), n) + factor.second;
         ull d = util::gcd(f, g);
         ull step_a = f / d, step_b = g / d;
 

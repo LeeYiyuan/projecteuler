@@ -17,6 +17,7 @@
 #include <cmath>
 #include <gmpxx.h>
 #include <algorithm>
+#include "gmp_util.h"
 #include "number_util.h"
 
 int digit_sum(mpz_class n)
@@ -37,7 +38,7 @@ int main()
     {
         for (int e = 1; e <= b; e++)
         {
-            mpz_class n = util::pow(b, e);
+            mpz_class n = util::pow(mpz_class(b), e);
             if (n >= 100 && digit_sum(n) == b)
                 results.emplace_back(n);
         }

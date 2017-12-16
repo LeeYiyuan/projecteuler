@@ -1,84 +1,77 @@
 #pragma once
 
-#include <gmp.h>
-#include <gmpxx.h>
-
 namespace util
 {
-    template <typename T>
-    mpz_class to_mpz(T n)
-    {
-        return mpz_class(n);
-    }
-
-    template <>
-    mpz_class to_mpz(signed long long n);
-
-    template <>
-    mpz_class to_mpz(unsigned long long n);
-
-    template <typename T>
-    T mpz_to(mpz_class n)
-    {
-        T result;
-        mpz_export(&result, 0, -1, sizeof result, 0, 0, n.get_mpz_t());
-        result *= n > 0 ? T(1) : n == 0 ? T(0) : T(-1);
-        return result;
-    }
-
-    template <>
-    mpz_class mpz_to(mpz_class n);
-
     template <typename T>
     T gcd(T a, T b)
     {
         return b == T(0) ? a : gcd(b, a % b);
     }
 
-    template <typename Tn, typename Tm>
-    Tm mod(Tn n, Tm m)
+    template <typename T>
+    T mod(T n, T m)
     {
-        Tm result = n % m;
+        T result = n % m;
         if (result < 0)
             result += m;
         return result;
     }
 
-    template <typename Tn, typename Tm>
-    Tm inv_mod(Tn n, Tm m)
+    template <typename T>
+    T inv_mod(T n, T m)
     {
-        return mpz_to<Tm>(util::inv_mod(util::to_mpz(n), util::to_mpz(m)));
+        T m0 = m, t, q;
+        T x0(0), x1(1);
+        if (m == 1) return T(1);
+        while (n > 1) {
+            q = n / m;
+            t = m, m = n % m, n = t;
+            t = x0, x0 = x1 - q * x0, x1 = t;
+        }
+        if (x1 < 0) x1 += m0;
+        return x1;
     }
 
-    template <>
-    mpz_class inv_mod(mpz_class n, mpz_class m);
-
-    template <typename Ta, typename Tb, typename Tm>
-    Tm pow_mod(Ta a, Tb b, Tm m)
+    template <typename T, typename Tb>
+    T pow_mod(T a, Tb b, T m)
     {
-        return mpz_to<Tm>(util::pow_mod(util::to_mpz(a), util::to_mpz(b), util::to_mpz(m)));
-    }
+        T result(1);
+        T multiplier(a);
 
-    template <>
-    mpz_class pow_mod(mpz_class a, mpz_class b, mpz_class m);
+        while (b != 0)
+        {
+            if (b % 2 == 1) result = (result * multiplier) % m;;
+            multiplier = (multiplier * multiplier) % m;
+            b >>= 1;
+        }
+
+        return result % m;
+    }
 
     template <typename Ta, typename Tb>
-    mpz_class pow(Ta a, Tb b)
+    Ta pow(Ta a, Tb b)
     {
-        return util::pow(util::to_mpz(a), util::to_mpz(b));
-    }
+        Ta result(1);
+        Ta multiplier(a);
 
-    template <>
-    mpz_class pow(mpz_class a, mpz_class b);
+        while (b != 0)
+        {
+            if (b % 2 == 1) result *= multiplier;
+            multiplier *= multiplier;
+            b >>= 1;
+        }
+
+        return result;
+    }
 
     template <typename T>
     T concat(T a, T b)
     {
-        return mpz_to<T>(util::concat(util::to_mpz(a), util::to_mpz(b)));
+        if (b == 0) return a * 10;
+        T _b(b);
+        do { a *= 10; } while ((_b /= 10) > 0);
+        return a + b;
     }
-
-    template <>
-    mpz_class concat(mpz_class a, mpz_class b);
 
     template <typename T>
     T factorial (T n)
@@ -92,9 +85,12 @@ namespace util
     template <typename T>
     T binom(T n, T k)
     {
-        return mpz_to<T>(util::binom(util::to_mpz(n), util::to_mpz(k)));
+        T numerator = 1, denominator = 1;
+        for (T i(0); i < k; i++)
+        {
+            numerator *= n - i;
+            denominator *= k - i;
+        }
+        return numerator / denominator;
     }
-
-    template <>
-    mpz_class binom(mpz_class n, mpz_class k);
 }

@@ -40,13 +40,15 @@
 
 #include <vector>
 #include <iostream>
+#include <gmpxx.h>
+#include "gmp_util.h"
 #include "number_util.h"
 
 typedef unsigned long long ull;
 
 ull p(int n)
 {
-    return util::binom(26, n) * ((ull(1) << n) - n - 1);
+    return util::mpz_to<ull>(util::binom(mpz_class(26), mpz_class(n))) * ((ull(1) << n) - n - 1);
 }
 
 int main()

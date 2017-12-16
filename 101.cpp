@@ -79,7 +79,7 @@ mpz_class evaluate(std::vector<term_struct> const &terms, int n)
 
 mpz_class evaluate_U(int n)
 {
-    return (util::pow(n, 11) + 1) / (n + 1);
+    return (util::pow(mpz_class(n), 11) + 1) / (n + 1);
 }
 
 int main()

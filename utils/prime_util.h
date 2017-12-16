@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "gmp_util.h"
 #include "number_util.h"
 
 namespace util

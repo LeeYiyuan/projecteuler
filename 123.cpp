@@ -10,15 +10,16 @@
 
 #include <iostream>
 #include <gmpxx.h>
+#include "number_util.h"
 #include "prime_util.h"
 
 int main()
 {
     mpz_class p = 2;
     int n = 1;
-    mpz_class r = (util::pow_mod(p - 1, n, mpz_class(p * p)) + util::pow_mod(mpz_class(p + 1), n, mpz_class(p * p))) % (p * p);
+    mpz_class r = (util::pow_mod(mpz_class(p - 1), n, mpz_class(p * p)) + util::pow_mod(mpz_class(p + 1), n, mpz_class(p * p))) % (p * p);
 
-    while (r <= util::pow(10, 10))
+    while (r <= util::pow(mpq_class(10), 10))
     {
         p = util::get_next_prime(p);
         p = util::get_next_prime(p);

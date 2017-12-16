@@ -12,7 +12,7 @@ int main()
     mpz_class remainder = 0;
 
     for (int i = 1; i <= 1000; i++)
-        remainder = (remainder + util::pow_mod(i, i, modulo)) % modulo;
+        remainder = (remainder + util::pow_mod(mpz_class(i), i, modulo)) % modulo;
 
     std::cout << remainder;
 }

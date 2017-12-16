@@ -49,7 +49,7 @@ mpz_class get_number(std::vector<int> const &exponents)
 {
     mpz_class n = 1;
     for (int i = 0; i < exponents.size(); i++)
-        n *= util::pow(primes[i], exponents[i]);
+        n *= util::pow(mpz_class(primes[i]), exponents[i]);
     return n;
 }
 

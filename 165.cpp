@@ -13,7 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <set>
-#include <number_util.h>
+#include "number_util.h"
 
 int sign(int x) { return (x > 0) - (x < 0); }
 

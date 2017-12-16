@@ -35,7 +35,7 @@
 
 int main()
 {
-    mpz_class limit = util::pow(10, 12);
+    mpz_class limit = util::pow(mpz_class(10), 12);
     util::pell_solver solver(8, 1);
     while (solver.move_next())
     {

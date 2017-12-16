@@ -42,7 +42,7 @@ int main()
         int k = 0;
         while ((++k) * std::log10(a) + 1 >= k)
         {
-            mpz_class power = util::pow(a, k);
+            mpz_class power = util::pow(mpz_class(a), k);
 
             if (power.get_str().length() == k)
                 hits++;

@@ -82,7 +82,7 @@ int main()
     }
 
     ull n = 1000000000000;
-    ull residue = util::pow_mod(2, get_exponent(n, 2) - get_exponent(n, 5), modulus);
+    ull residue = util::pow_mod(ull(2), get_exponent(n, 2) - get_exponent(n, 5), ull(modulus));
     while (n > 0)
     {
         // Processes current set with no factor of 2.

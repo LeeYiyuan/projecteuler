@@ -30,19 +30,19 @@
 */
 
 #include <iostream>
-#include <number_util.h>
-#include <gmpxx.h>
 #include <cctype>
+#include <gmpxx.h>
+#include "number_util.h"
 
 int main()
 {
     int n = 16;
 
     mpz_class count = 
-        15 * (util::pow(16, n) - util::pow(16, 2)) / (16 - 1) -
-        (util::pow(13, n + 1) - util::pow(13, 3)) / (13 - 1) +
-        41 * (util::pow(14, n) - util::pow(14, 2)) / (14 - 1) -
-        43 * (util::pow(15, n) - util::pow(15, 2)) / (15 - 1);
+        15 * (util::pow(mpz_class(16), n) - util::pow(mpz_class(16), 2)) / (16 - 1) -
+        (util::pow(mpz_class(13), n + 1) - util::pow(mpz_class(13), 3)) / (13 - 1) +
+        41 * (util::pow(mpz_class(14), n) - util::pow(mpz_class(14), 2)) / (14 - 1) -
+        43 * (util::pow(mpz_class(15), n) - util::pow(mpz_class(15), 2)) / (15 - 1);
     
     std::string result = count.get_str(16);
     std::transform(result.begin(), result.end(), result.begin(), ::toupper);

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <gmpxx.h>
 #include <gmp.h>
+#include "gmp_util.h"
 #include "number_util.h"
 
 int main()

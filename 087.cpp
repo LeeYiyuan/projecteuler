@@ -10,8 +10,9 @@
 #include <cmath>
 #include <numeric>
 #include <unordered_set>
-#include "prime_util.h"
+#include "gmp_util.h"
 #include "number_util.h"
+#include "prime_util.h"
 
 void search(
     int N,
@@ -48,7 +49,7 @@ int main()
     {
         for (int &prime : primes)
         {
-            int power = util::mpz_to<int>(util::pow(prime, e));
+            int power = util::pow(prime, e);
             if (power > N)
                 break;
             powers[e - 2].emplace_back(power);

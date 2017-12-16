@@ -31,7 +31,7 @@
 #include "prime_util.h"
 #include "number_util.h"
 
-typedef unsigned long long ull;
+typedef long long ll;
 
 int main()
 {
@@ -41,21 +41,21 @@ int main()
     // For when p1 is the largest prime such that p1 <= 1000000.
     primes.emplace_back(util::get_next_prime(primes.back()));
 
-    ull sum_S = 0;
+    ll sum_S = 0;
     for (int i = 0; i < primes.size() - 1; i++)
     {
         int p1 = primes[i];
         int p2 = primes[i + 1];
 
         int _p1 = p1;
-        ull m = 1;
+        ll m = 1;
         while (_p1 > 0)
         {
             m *= 10;
             _p1 /= 10;
         }
-        ull k = (p1 * util::inv_mod(p2, m)) % m;
-        ull S = k * p2;
+        ll k = (p1 * util::inv_mod(ll(p2), m)) % m;
+        ll S = k * p2;
         sum_S += S;
     }
 

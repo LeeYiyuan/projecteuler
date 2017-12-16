@@ -11,7 +11,7 @@ int main()
     {
         for (int b = 0; b < 100; b++) // Exponent can be zero for a^b to be natural (a^0 = 1).
         {
-            mpz_class v = util::pow(a, b);
+            mpz_class v = util::pow(mpz_class(a), b);
 
             std::string v_string = v.get_str();
             int s = 0;
