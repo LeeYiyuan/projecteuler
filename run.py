@@ -84,9 +84,6 @@ def worker():
 
         solutions_queue.task_done()
 
-
-sys.stderr = devnull
-
 try:
     subprocess.call(['make', 'clean'], stdout=devnull, stderr=devnull)
 
@@ -97,6 +94,7 @@ try:
     jobs = []
     for i in range(args.jobs):
         j = threading.Thread(target=worker)
+        j.setDaemon(True)
         j.start()
         jobs.append(j)
 
