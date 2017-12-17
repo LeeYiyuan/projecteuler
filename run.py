@@ -67,6 +67,7 @@ def worker():
             else:
                 output = run_process.stdout.read().decode('utf-8').rstrip('\n')
                 outcome = '?'
+                print(answers is None)
                 if answers is not None:
                     if len(answers) >= int(solution):
                         if output == answers[int(solution) - 1].rstrip('\n'):
