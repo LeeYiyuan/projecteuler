@@ -85,15 +85,18 @@ def worker():
         solutions_stack.task_done()
 
 try:
-    print('Cleaning...')
+    sys.stdout.write('\033[K\r')
+    print('Cleaning...', end='\r')
     subprocess.call(['make', 'clean'], stdout=devnull, stderr=devnull)
 
     global_start = time.perf_counter()
 
-    print('Making utils...')
+    sys.stdout.write('\033[K\r')
+    print('Making utils...', end='\r')
     subprocess.call(['make', 'utils'], stdout=devnull, stderr=devnull)
 
-    print('Running...')
+    sys.stdout.write('\033[K\r')
+    print('Running...', end='\r')
     jobs = []
     for i in range(args.jobs):
         j = threading.Thread(target=worker)
@@ -105,9 +108,6 @@ try:
 except:
     pass
 finally:
-    print()
-    print('Cleaning up...')
-
     for i in range(args.jobs):
         solutions_stack.put(None)
     for j in jobs:
@@ -117,7 +117,6 @@ finally:
 
     subprocess.call(['make', 'clean'], stdout=devnull, stderr=devnull)
 
-    print()
     for result in sorted(results, key=lambda x: x[0]):
         if answers is None:
             print('{0: >4s} | {1: >6d} ms | {2}'.format(*result))
