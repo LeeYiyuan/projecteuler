@@ -75,5 +75,5 @@ int main()
         }
     }
 
-    std::cout << intersections.size() << std::endl;
+    std::cout << intersections.size();
 }
