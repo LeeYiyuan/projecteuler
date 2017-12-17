@@ -38,7 +38,7 @@ int main()
      // We need p >= 5.
     primes.erase(primes.begin(), primes.begin() + 2);
     // For when p1 is the largest prime such that p1 <= 1000000.
-    primes.emplace_back(util::get_next_prime(primes.back()));
+    primes.emplace_back(util::get_next_prime(uint64_t(primes.back())));
 
     int64_t sum_S = 0;
     for (int i = 0; i < primes.size() - 1; i++)
@@ -53,7 +53,7 @@ int main()
             m *= 10;
             _p1 /= 10;
         }
-        int64_t k = (p1 * util::inv_mod(ll(p2), m)) % m;
+        int64_t k = (p1 * util::inv_mod(int64_t(p2), m)) % m;
         int64_t S = k * p2;
         sum_S += S;
     }

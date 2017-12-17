@@ -88,7 +88,7 @@
 #include "prime_util.h"
 #include "number_util.h"
 
-typedef std::pair<ll, ll> node_type;
+typedef std::pair<int64_t, int64_t> node_type;
 
 int64_t get_number(int64_t r, int64_t i)
 {
@@ -141,7 +141,7 @@ int main()
     int64_t r = 2;
     while (true)
     {
-        std::vector<ll> values_i = { 0, 6 * r - 1 };
+        std::vector<int64_t> values_i = { 0, 6 * r - 1 };
         for (int64_t &i : values_i)
         {
             if (PD(r, i) == 3)

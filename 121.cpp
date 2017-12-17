@@ -50,5 +50,5 @@ int main()
         }
     }
 
-    std::cout << util::factorial(ull(turns + 1)) / numerator_sum;
+    std::cout << util::factorial(uint64_t(turns + 1)) / numerator_sum;
 }

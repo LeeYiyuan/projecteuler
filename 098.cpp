@@ -78,7 +78,7 @@ int main()
         }
     }
 
-    std::vector<std::vector<ll>> squares(max_word_length + 1, std::vector<ll>());
+    std::vector<std::vector<int64_t>> squares(max_word_length + 1, std::vector<int64_t>());
     int n = 0;
     double limit = std::pow(10, ((double)max_word_length) / 2);
     while ((++n) < limit)

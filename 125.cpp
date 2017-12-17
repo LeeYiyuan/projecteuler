@@ -18,7 +18,7 @@ uint64_t get_sum(int a, int b)
 
 int main()
 {
-    std::unordered_set<ull> numbers;
+    std::unordered_set<uint64_t> numbers;
     int a = 1;
     while (get_sum(a, a + 1) < std::pow(10, 8))
     {
@@ -34,5 +34,5 @@ int main()
         a++;
     }
 
-    std::cout << std::accumulate(numbers.begin(), numbers.end(), ull(0));
+    std::cout << std::accumulate(numbers.begin(), numbers.end(), uint64_t(0));
 }

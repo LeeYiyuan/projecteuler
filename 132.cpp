@@ -26,6 +26,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <cstdint>
 #include "number_util.h"
 #include "prime_util.h"
 
@@ -52,7 +53,7 @@ bool is_factor(int p)
         for (int b = 0; b <= b_max; b++)
         {
             unsigned long long q = std::pow(2, a) * std::pow(5, b);
-            if (util::pow_mod(10, q, 9 * p) == 1)
+            if (util::pow_mod(uint64_t(10), q, uint64_t(9 * p)) == 1)
                 return true;
         }
     }
@@ -73,7 +74,7 @@ int main()
             s += prime;
             count++;
         }
-        primes.emplace_back(util::get_next_prime(prime));
+        primes.emplace_back(util::get_next_prime(uint64_t(prime)));
     }
 
     std::cout << s;

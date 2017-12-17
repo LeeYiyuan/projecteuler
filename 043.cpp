@@ -24,7 +24,7 @@ std::vector<int> modulos = { 2, 3, 5, 7, 11, 13, 17 };
 
 // Selects d_{index + 4} given the previously selected digits, starting with
 // index = 0 => d_{index + 4} = d_4.
-void process(int index, std::vector<int> const &numbers, std::vector<int> const &selected_numbers, std::vector<ull> &results)
+void process(int index, std::vector<int> const &numbers, std::vector<int> const &selected_numbers, std::vector<uint64_t> &results)
 {
     if (index == 7) // d_10 has been selected in previous recursion.
     {
@@ -32,9 +32,9 @@ void process(int index, std::vector<int> const &numbers, std::vector<int> const 
         {
             uint64_t s = 0;
             for (int i = 0; i < numbers.size(); i++)
-                s += (ull)(std::pow(10, 10 - i - 1) * numbers[i]);
+                s += (uint64_t)(std::pow(10, 10 - i - 1) * numbers[i]);
             for (int j = 0; j < selected_numbers.size(); j++)
-                s += (ull)(std::pow(10, 10 - (numbers.size() + j) - 1) * selected_numbers[j]);
+                s += (uint64_t)(std::pow(10, 10 - (numbers.size() + j) - 1) * selected_numbers[j]);
             results.emplace_back(s);
         }
         return;
@@ -61,7 +61,7 @@ void process(int index, std::vector<int> const &numbers, std::vector<int> const 
 int main()
 {
     std::vector<int> numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    std::vector<ull> results;
+    std::vector<uint64_t> results;
     for (int &a : numbers)
     {
         for (int &b : numbers)

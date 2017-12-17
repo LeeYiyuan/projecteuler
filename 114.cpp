@@ -27,8 +27,8 @@
 
 int main()
 {
-    std::vector<ull> b = { 1, 1, 1 };
-    std::vector<ull> r = { 0, 0, 1 };
+    std::vector<uint64_t> b = { 1, 1, 1 };
+    std::vector<uint64_t> r = { 0, 0, 1 };
 
     for (int i = 3; i < 50; i++)
     {

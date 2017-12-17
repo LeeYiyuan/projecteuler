@@ -15,7 +15,7 @@
 #include <cstdint>
 
 // Generates counts via brute force, used only for base case.
-void generate(int rows, int columns, uint64_t map, std::vector<ull> const& blocks, int block_index, std::vector<ull> &counts)
+void generate(int rows, int columns, uint64_t map, std::vector<uint64_t> const& blocks, int block_index, std::vector<uint64_t> &counts)
 {
     counts[map]++; // Assume there is one way to arrange nothing.
     for (int i = block_index; i < blocks.size(); i++)
@@ -24,9 +24,9 @@ void generate(int rows, int columns, uint64_t map, std::vector<ull> const& block
 }
 
 // Linear transformation underlying the dynamic programming part.
-uint64_t transform(int rows, int columns, uint64_t map, std::vector<ull> const& blocks, int block_index, std::vector<ull> const &counts)
+uint64_t transform(int rows, int columns, uint64_t map, std::vector<uint64_t> const& blocks, int block_index, std::vector<uint64_t> const &counts)
 {
-    if ((map & ((ull(1) << rows) - 1)) == 0)
+    if ((map & ((uint64_t(1) << rows) - 1)) == 0)
         return counts[map >> rows];
 
     uint64_t result = 0;
@@ -40,7 +40,7 @@ uint64_t transform(int rows, int columns, uint64_t map, std::vector<ull> const& 
 int main()
 {
     int rows = 9, columns = 12;
-    std::vector<ull> initial_blocks, blocks;
+    std::vector<uint64_t> initial_blocks, blocks;
     
     // Generates blocks required for base case and dynamic programming.
     for (int c = 0; c < 2; c++)
@@ -66,13 +66,13 @@ int main()
         blocks.emplace_back(((0b1 << (2 * rows)) | (0b1 << rows) | 1) << r);
     
     // Computes count for base case.
-    std::vector<ull> counts(1 << (2 * rows)), _counts(1 << (2 * rows));
+    std::vector<uint64_t> counts(1 << (2 * rows)), _counts(1 << (2 * rows));
     generate(rows, columns, 0, initial_blocks, 0, counts);
 
     // Computes count for number of columns = 3, 4, ..., columns - 1 using dynamic programming.
     for (int i = 2; i < columns - 1; i++)
     {
-        std::vector<ull> _counts(1 << (2 * rows));
+        std::vector<uint64_t> _counts(1 << (2 * rows));
         for (uint64_t j = 0; j < (1 << 2 * rows); j++)
             _counts[j] = transform(rows, columns, j | (((1 << rows) - 1) << (2 * rows)), blocks, 0, counts);
         

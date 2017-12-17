@@ -2,6 +2,7 @@
 #include <string>
 #include <climits>
 #include <algorithm>
+#include <cstdint>
 #include "prime_util.h"
 
 int main()
@@ -31,7 +32,7 @@ int main()
                     multiplier *= 10;
                     _i >>= 1;
                 }
-                if (util::is_prime(_prime))
+                if (util::is_prime(uint64_t(_prime)))
                 {
                     family_size++;
                     family_smallest = std::min(family_smallest, _prime);
@@ -45,6 +46,6 @@ int main()
             }
         }
 
-        prime = util::get_next_prime(prime);
+        prime = util::get_next_prime(uint64_t(prime));
     }
 }

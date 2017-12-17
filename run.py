@@ -83,7 +83,6 @@ subprocess.call(['make', 'clean'], stdout=devnull, stderr=devnull)
 
 sys.stdout.write("\033[K\r")
 for result in sorted(results, key=lambda x: x[0]):
-    print(result[2])
-    #print('{0: >4s} | {1: >6d} ms | {2}'.format(*result))
+    print('{0: >4s} | {1: >6d} ms | {2}'.format(*result))
 
 print(' ALL | {0: >6d}  s |\n'.format(int(round(global_elapsed, 0))))

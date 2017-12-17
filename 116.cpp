@@ -26,8 +26,8 @@
 
 uint64_t count_ways(int m, int n)
 {
-    std::vector<ull> b(m, 1);
-    std::vector<ull> c(m, 0);
+    std::vector<uint64_t> b(m, 1);
+    std::vector<uint64_t> c(m, 0);
     c.back() = 1;
     for (int i = m; i < n; i++)
     {

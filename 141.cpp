@@ -36,7 +36,7 @@
 int main()
 {
     uint64_t n2_max = 1000000000000ull;
-    std::unordered_set<ull> set_n2;
+    std::unordered_set<uint64_t> set_n2;
     uint64_t x = 2;
     uint64_t x3 = 8;
     while (x3 < n2_max)
@@ -66,5 +66,5 @@ int main()
         x3 = x * x * x;
     }
 
-    std::cout << std::accumulate(set_n2.begin(), set_n2.end(), ull(0));
+    std::cout << std::accumulate(set_n2.begin(), set_n2.end(), uint64_t(0));
 }

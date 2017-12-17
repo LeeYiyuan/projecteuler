@@ -134,7 +134,7 @@ uint64_t f(uint64_t n, int digit)
             int _head_count = head_count;
             if (_d == digit)
                 _head_count++;
-            result += ((ull)std::pow(10, l - i - 2)) * (l- i - 1);
+            result += ((uint64_t)std::pow(10, l - i - 2)) * (l- i - 1);
             result += std::pow(10, l - i - 1) * _head_count;
         }
         if (d == digit)
@@ -145,7 +145,7 @@ uint64_t f(uint64_t n, int digit)
     return result;
 }
 
-void search(std::vector<ull> const &selected, uint64_t n_selected, int digit, uint64_t &sum)
+void search(std::vector<uint64_t> const &selected, uint64_t n_selected, int digit, uint64_t &sum)
 {
     if (selected.back() < 10)
     {
@@ -173,7 +173,7 @@ void search(std::vector<ull> const &selected, uint64_t n_selected, int digit, ui
 
         if (f(sub_n_min, digit) <= sub_n_max && f(sub_n_max, digit) >= sub_n_min)
         {
-            std::vector<ull> _selected(selected);
+            std::vector<uint64_t> _selected(selected);
             _selected.emplace_back(d);
             search(_selected, n_selected + d, digit, sum);
         }

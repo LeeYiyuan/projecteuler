@@ -27,8 +27,8 @@
 
 int main()
 {
-    std::vector<ull> b = { 1, 1, 2, 4 };
-    std::vector<ull> c = { 0, 1, 2, 4 };
+    std::vector<uint64_t> b = { 1, 1, 2, 4 };
+    std::vector<uint64_t> c = { 0, 1, 2, 4 };
 
     for (int i = 4; i < 50; i++)
     {

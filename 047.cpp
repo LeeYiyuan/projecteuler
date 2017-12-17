@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstdint>
 #include "prime_util.h"
 
 void get_prime_factors(int n, std::vector<int> const &primes, std::vector<int> &prime_factors)
@@ -33,7 +34,7 @@ int main()
             factorization of n + 3 when checking consecutive numbers.
         */
         while (primes.back() < n + 3)
-            primes.emplace_back(util::get_next_prime(primes.back()));
+            primes.emplace_back(util::get_next_prime(uint64_t(primes.back())));
 
         std::vector<std::vector<int>> prime_factors_list;
 

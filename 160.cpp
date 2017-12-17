@@ -69,7 +69,7 @@ uint64_t get_exponent(uint64_t n, uint64_t base)
 int main()
 {
     int modulus = 100000;
-    std::vector<ull> p_table(modulus);
+    std::vector<int64_t> p_table(modulus);
     p_table[0] = 1;
 
     uint64_t p = 1;
@@ -81,7 +81,7 @@ int main()
     }
 
     uint64_t n = 1000000000000;
-    uint64_t residue = util::pow_mod(ull(2), get_exponent(n, 2) - get_exponent(n, 5), ull(modulus));
+    uint64_t residue = util::pow_mod(int64_t(2), get_exponent(n, 2) - get_exponent(n, 5), int64_t(modulus));
     while (n > 0)
     {
         // Processes current set with no factor of 2.

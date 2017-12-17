@@ -23,11 +23,12 @@
 #include <algorithm>
 #include <iostream>
 #include <cstdint>
+#include <gmpxx.h>
 #include "prime_util.h"
 
-std::vector<ull> get_primes(int n, int d, int c)
+std::vector<uint64_t> get_primes(int n, int d, int c)
 {
-    std::vector<ull> primes;
+    std::vector<uint64_t> primes;
 
     std::vector<bool> positions(n);
     std::fill(positions.end() - c, positions.end(), true);
@@ -61,7 +62,7 @@ std::vector<ull> get_primes(int n, int d, int c)
             for (int i = 0; i < n; i++)
                 p = 10 * p + digits[i];
 
-            if (util::is_prime(p))
+            if (util::is_prime(mpz_class(p)))
                 primes.emplace_back(p);
         }
     } while (std::next_permutation(positions.begin(), positions.end()));

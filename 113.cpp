@@ -29,11 +29,11 @@
 
 int main()
 {
-    std::vector<std::vector<ull>> increasing_counts = {
+    std::vector<std::vector<uint64_t>> increasing_counts = {
         { },
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
     };
-    std::vector<std::vector<ull>> decreasing_counts = {
+    std::vector<std::vector<uint64_t>> decreasing_counts = {
         { },
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
     };

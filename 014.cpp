@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdint>
 
-uint64_tcollatz(uint64_tn)
+uint64_t collatz(uint64_t n)
 {
     return n % 2 == 0 ? n / 2 : 3 * n + 1;
 }
@@ -13,7 +13,7 @@ int main()
 
     for (int i = 0; i < 1000000; i++)
     {
-        uint64_tj = i;
+        uint64_t j = i;
         int length = 1;
         while (j > 1)
         {

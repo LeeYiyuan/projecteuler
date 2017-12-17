@@ -10,6 +10,7 @@
 #include <iostream>
 #include <set>
 #include <numeric>
+#include <cstdint>
 #include "prime_util.h"
 
 int get_number(std::vector<int> const &digits, int start, int end)
@@ -36,7 +37,7 @@ std::vector<std::vector<int>> search(std::vector<int> const &digits, std::vector
     {
         for (int index = slices.back() + 1; index < digits.size() + 1; index++)
         {
-            if (util::is_prime(get_number(digits, slices.back(), index)))
+            if (util::is_prime(uint64_t(get_number(digits, slices.back(), index))))
             {
                 std::vector<int> _slices(slices);
                 _slices.emplace_back(index);

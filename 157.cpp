@@ -51,15 +51,15 @@
 #include "number_util.h"
 #include "prime_util.h"
 
-std::vector<ull> primes = { 2 };
+std::vector<int64_t> primes = { 2 };
 
-std::vector<std::pair<ull, ull>> get_factors(int n)
+std::vector<std::pair<int64_t, int64_t>> get_factors(int n)
 {
-    std::vector<std::pair<ull, ull>> pairs;
+    std::vector<std::pair<int64_t, int64_t>> pairs;
 
     // std::pow returns a double with mantissa 53 bits effective which I don't
     // think has enough precision for 10^{2n} <= 10^{18}.
-    uint64_t p = util::pow(ull(10), 2 * n);
+    uint64_t p = util::pow(int64_t(10), 2 * n);
 
     for (uint64_t e2 = 0, p2 = 1; e2 <= 2 * n; e2++, p2 *= 2)
         for (uint64_t e5 = 0, p5 = 1; p2 * p5 <= p / (p2 * p5); e5++, p5 *= 5)
@@ -68,12 +68,12 @@ std::vector<std::pair<ull, ull>> get_factors(int n)
     return pairs;
 }
 
-void get_solutions(int n, std::set<std::vector<ull>> &solutions)
+void get_solutions(int n, std::set<std::vector<int64_t>> &solutions)
 {
-    for (std::pair<ull, ull> &factor : get_factors(n))
+    for (std::pair<int64_t, int64_t> &factor : get_factors(n))
     {
-        uint64_t f = util::pow(ull(10), n) + factor.first;
-        uint64_t g = util::pow(ull(10), n) + factor.second;
+        uint64_t f = util::pow(int64_t(10), n) + factor.first;
+        uint64_t g = util::pow(int64_t(10), n) + factor.second;
         uint64_t d = util::gcd(f, g);
         uint64_t step_a = f / d, step_b = g / d;
 
@@ -82,8 +82,8 @@ void get_solutions(int n, std::set<std::vector<ull>> &solutions)
         {
             if (d % k == 0)
             {
-                solutions.emplace(std::vector<ull>{ k * step_a, k * step_b, d / k, ull(n) });
-                solutions.emplace(std::vector<ull>{ (d / k) * step_a, (d / k) * step_b, k, ull(n) });
+                solutions.emplace(std::vector<int64_t>{ k * step_a, k * step_b, d / k, int64_t(n) });
+                solutions.emplace(std::vector<int64_t>{ (d / k) * step_a, (d / k) * step_b, k, int64_t(n) });
             }
         }
     }
@@ -91,7 +91,7 @@ void get_solutions(int n, std::set<std::vector<ull>> &solutions)
 
 int main()
 {
-    std::set<std::vector<ull>> solutions;
+    std::set<std::vector<int64_t>> solutions;
 
     for (int n = 1; n <= 9; n++)
         get_solutions(n, solutions);

@@ -30,12 +30,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include "number_util.h"
 #include "prime_util.h"
 
 bool is_concatenable(int a, int b)
 {
-    return util::is_prime(util::concat(a, b)) && util::is_prime(util::concat(b, a));
+    return util::is_prime(util::concat<uint64_t>(a, b)) && util::is_prime(util::concat<uint64_t>(b, a));
 }
 
 

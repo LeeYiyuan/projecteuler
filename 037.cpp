@@ -20,9 +20,10 @@
 
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <cstdint>
 #include "prime_util.h"
+#include "number_util.h"
 
 int main()
 {
@@ -42,14 +43,14 @@ int main()
         {
             for (int &prime : l_primes)
             {
-                int _prime = std::stoi(std::to_string(d) + std::to_string(prime));
-                if (util::is_prime(_prime)) _l_primes.emplace_back(_prime);
+                int _prime = util::concat(d, prime);
+                if (util::is_prime(uint64_t(_prime))) _l_primes.emplace_back(_prime);
             }
 
             for (int &prime : r_primes)
             {
                 int _prime = 10 * prime + d;
-                if (util::is_prime(_prime)) _r_primes.emplace_back(_prime);
+                if (util::is_prime(uint64_t(_prime))) _r_primes.emplace_back(_prime);
             }
         }
 

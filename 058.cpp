@@ -24,6 +24,7 @@
 */
 
 #include <iostream>
+#include <cstdint>
 #include "prime_util.h"
 
 int main()
@@ -44,7 +45,7 @@ int main()
         {
             step += 2 * (n - 1);
             if (i != 3) // Top right, top left or bottom left arm.
-                if (util::is_prime(step))
+                if (util::is_prime(uint64_t(step)))
                     prime_count++;
             diagonal_count++;
         }

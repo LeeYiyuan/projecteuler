@@ -47,7 +47,7 @@
 
 uint64_t p(int n)
 {
-    return util::mpz_to<ull>(util::binom(mpz_class(26), mpz_class(n))) * ((ull(1) << n) - n - 1);
+    return util::mpz_to<uint64_t>(util::binom(mpz_class(26), mpz_class(n))) * ((uint64_t(1) << n) - n - 1);
 }
 
 int main()
