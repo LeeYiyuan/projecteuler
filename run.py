@@ -32,7 +32,7 @@ parser.add_argument('solutions', metavar='SOLUTION', nargs='+', type=check_solut
 args = parser.parse_args()
 
 answers = None
-if args.answers_file != None:
+if args.answers_file is None:
     f = open(args.answers_file)
     answers = f.readlines()
 
@@ -67,7 +67,7 @@ def worker():
             else:
                 output = run_process.stdout.read().decode('utf-8').rstrip('\n')
                 outcome = '?'
-                if answers != None:
+                if answers is not None:
                     if len(answers) >= int(solution):
                         if output == answers[int(solution) - 1].rstrip('\n'):
                             outcome = ' '
@@ -112,12 +112,12 @@ finally:
 
     sys.stdout.write("\033[K\r")
     for result in sorted(results, key=lambda x: x[0]):
-        if answers == None:
+        if answers is None:
             print('{0: >4s} | {1: >6d} ms | {2}'.format(*result))
         else:
             print(' {3} | {0: >4s} | {1: >6d} ms | {2}'.format(*result))
 
-    if answers == None:
+    if answers is None:
         print(' ALL | {0: >6d}  s |\n'.format(int(round(global_elapsed, 0))))
     else:
         print('   |  ALL | {0: >6d}  s |\n'.format(int(round(global_elapsed, 0)))) 
