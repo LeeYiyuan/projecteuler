@@ -51,15 +51,14 @@
 
 #include <iostream>
 #include <vector>
+#include <cstdint>
 #include "number_util.h"
 
-typedef unsigned long long ull;
-
 // Legendre's Formula
-ull get_exponent(ull n, ull base)
+uint64_t get_exponent(uint64_t n, uint64_t base)
 {
-    ull e = 0;
-    ull b = base;
+    uint64_t e = 0;
+    uint64_t b = base;
     while (b <= n){
         e += n / b;
         b *= base;
@@ -73,7 +72,7 @@ int main()
     std::vector<ull> p_table(modulus);
     p_table[0] = 1;
 
-    ull p = 1;
+    uint64_t p = 1;
     for (int i = 1; i < modulus; i++)
     {
         if (i % 2 != 0 && i % 5 != 0)
@@ -81,12 +80,12 @@ int main()
         p_table[i] = p;
     }
 
-    ull n = 1000000000000;
-    ull residue = util::pow_mod(ull(2), get_exponent(n, 2) - get_exponent(n, 5), ull(modulus));
+    uint64_t n = 1000000000000;
+    uint64_t residue = util::pow_mod(ull(2), get_exponent(n, 2) - get_exponent(n, 5), ull(modulus));
     while (n > 0)
     {
         // Processes current set with no factor of 2.
-        ull m = n;
+        uint64_t m = n;
         while (m > 0)
         {
             // Processes current set with no factor of 5.

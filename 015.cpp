@@ -17,21 +17,20 @@
 */
 
 #include <iostream>
+#include <cstdint>
 #include "number_util.h"
-
-typedef unsigned long long ull;
 
 int main()
 {
-    ull numerator = 1;
-    ull denominator = 1;
+    uint64_t numerator = 1;
+    uint64_t denominator = 1;
 
     for (int i = 0; i < 10; i++)
     {
         numerator *= (21 + 2 * i) * 2;
         denominator *= i + 1;
 
-        ull d = util::gcd(numerator, denominator);
+        uint64_t d = util::gcd(numerator, denominator);
         numerator /= d;
         denominator /= d;
     }

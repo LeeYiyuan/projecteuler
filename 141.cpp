@@ -30,27 +30,26 @@
 #include <unordered_set>
 #include <numeric>
 #include <cmath>
+#include <cstdint>
 #include "number_util.h"
-
-typedef unsigned long long ull;
 
 int main()
 {
-    ull n2_max = 1000000000000ull;
+    uint64_t n2_max = 1000000000000ull;
     std::unordered_set<ull> set_n2;
-    ull x = 2;
-    ull x3 = 8;
+    uint64_t x = 2;
+    uint64_t x3 = 8;
     while (x3 < n2_max)
     {
-        ull y = 1;
-        ull y2 = 1;
+        uint64_t y = 1;
+        uint64_t y2 = 1;
         while (y < x && 1 * x3 * y + y2 < n2_max)
         {
             if (util::gcd(x, y) == 1)
             {
-                ull a = 1;
-                ull a2 = 1;
-                ull n2 = a2 * x3 * y + a * y2;
+                uint64_t a = 1;
+                uint64_t a2 = 1;
+                uint64_t n2 = a2 * x3 * y + a * y2;
                 while (n2 < n2_max)
                 {
                     if (std::fmod(std::sqrt(n2), 1) == 0)

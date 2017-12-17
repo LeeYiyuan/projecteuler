@@ -46,11 +46,10 @@
 #include <utility>
 #include <vector>
 #include <set>
+#include <cstdint>
 #include "gmp_util.h"
 #include "number_util.h"
 #include "prime_util.h"
-
-typedef unsigned long long ull;
 
 std::vector<ull> primes = { 2 };
 
@@ -60,10 +59,10 @@ std::vector<std::pair<ull, ull>> get_factors(int n)
 
     // std::pow returns a double with mantissa 53 bits effective which I don't
     // think has enough precision for 10^{2n} <= 10^{18}.
-    ull p = util::pow(ull(10), 2 * n);
+    uint64_t p = util::pow(ull(10), 2 * n);
 
-    for (ull e2 = 0, p2 = 1; e2 <= 2 * n; e2++, p2 *= 2)
-        for (ull e5 = 0, p5 = 1; p2 * p5 <= p / (p2 * p5); e5++, p5 *= 5)
+    for (uint64_t e2 = 0, p2 = 1; e2 <= 2 * n; e2++, p2 *= 2)
+        for (uint64_t e5 = 0, p5 = 1; p2 * p5 <= p / (p2 * p5); e5++, p5 *= 5)
             pairs.emplace_back(p2 * p5, p / (p2 * p5));
 
     return pairs;
@@ -73,12 +72,12 @@ void get_solutions(int n, std::set<std::vector<ull>> &solutions)
 {
     for (std::pair<ull, ull> &factor : get_factors(n))
     {
-        ull f = util::pow(ull(10), n) + factor.first;
-        ull g = util::pow(ull(10), n) + factor.second;
-        ull d = util::gcd(f, g);
-        ull step_a = f / d, step_b = g / d;
+        uint64_t f = util::pow(ull(10), n) + factor.first;
+        uint64_t g = util::pow(ull(10), n) + factor.second;
+        uint64_t d = util::gcd(f, g);
+        uint64_t step_a = f / d, step_b = g / d;
 
-        ull k = 0;
+        uint64_t k = 0;
         while ((++k) * k <= d)
         {
             if (d % k == 0)

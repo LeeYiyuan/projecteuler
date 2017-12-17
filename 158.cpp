@@ -41,19 +41,18 @@
 #include <vector>
 #include <iostream>
 #include <gmpxx.h>
+#include <cstdint>
 #include "gmp_util.h"
 #include "number_util.h"
 
-typedef unsigned long long ull;
-
-ull p(int n)
+uint64_t p(int n)
 {
     return util::mpz_to<ull>(util::binom(mpz_class(26), mpz_class(n))) * ((ull(1) << n) - n - 1);
 }
 
 int main()
 {
-    ull max;
+    uint64_t max;
     for (int n = 2; n <= 26; n++)
         max = std::max(max, p(n));
 

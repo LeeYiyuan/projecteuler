@@ -23,8 +23,7 @@
 
 #include <vector>
 #include <iostream>
-
-typedef unsigned long long ull;
+#include <cstdint>
 
 int main()
 {
@@ -33,8 +32,8 @@ int main()
 
     for (int i = 3; i < 50; i++)
     {
-        ull b_i = b.back() + r.back();
-        ull r_i = r.back() + *(b.end() - 3);
+        uint64_t b_i = b.back() + r.back();
+        uint64_t r_i = r.back() + *(b.end() - 3);
         b.emplace_back(b_i);
         r.emplace_back(r_i);
     }

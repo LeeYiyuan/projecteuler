@@ -27,7 +27,7 @@
     It turns out that for k = 1, ..., 5, there are at least two differences that
     are each divisible by either 2 or 3. On the other hand, when k = 0, there
     are two differences that are divisible by neither 2 or 3. As such, out of
-    the three neighbours in ring r + 1, there will be at most one prime
+    the three neighbours in ring r + 1, there wiint64_t be at most one prime
     difference except when n is on the top most vertex, in which case there can
     be up to two prime differences.
 
@@ -84,21 +84,21 @@
 #include <vector>
 #include <utility>
 #include <cmath>
+#include <cstdint>
 #include "prime_util.h"
 #include "number_util.h"
 
-typedef signed long long ll;
 typedef std::pair<ll, ll> node_type;
 
-ll get_number(ll r, ll i)
+int64_t get_number(int64_t r, int64_t i)
 {
     return 2 + 3 * r * (r - 1) + i;
 }
 
-std::vector<node_type> get_neighbours(ll r, ll i)
+std::vector<node_type> get_neighbours(int64_t r, int64_t i)
 {
     std::vector<node_type> results;
-    ll f = i / r;
+    int64_t f = i / r;
     if (i % r != 0)
     {
         results.emplace_back(r - 1, util::mod(f * (r - 1) + (i - f * r) - 1, 6 * (r - 1)));
@@ -120,14 +120,14 @@ std::vector<node_type> get_neighbours(ll r, ll i)
     return results;
 }
 
-int PD(ll r, ll i)
+int PD(int64_t r, int64_t i)
 {
     int count = 0;
-    ll n = get_number(r, i);
+    int64_t n = get_number(r, i);
     for (node_type &neighbour : get_neighbours(r, i))
     {
-        ll n_neighbour = get_number(neighbour.first, neighbour.second);
-        ll diff = n > n_neighbour ? (n - n_neighbour) : (n_neighbour - n);
+        int64_t n_neighbour = get_number(neighbour.first, neighbour.second);
+        int64_t diff = n > n_neighbour ? (n - n_neighbour) : (n_neighbour - n);
         if (util::is_prime(diff))
             count++;
     }
@@ -137,12 +137,12 @@ int PD(ll r, ll i)
 int main()
 {
     // PD(1) = 3, PD(2) = 3.
-    ll index = 2;
-    ll r = 2;
+    int64_t index = 2;
+    int64_t r = 2;
     while (true)
     {
         std::vector<ll> values_i = { 0, 6 * r - 1 };
-        for (ll &i : values_i)
+        for (int64_t &i : values_i)
         {
             if (PD(r, i) == 3)
             {

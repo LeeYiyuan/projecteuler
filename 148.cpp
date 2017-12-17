@@ -48,23 +48,22 @@
 
 #include <iostream>
 #include <vector>
+#include <cstdint>
 
-typedef unsigned long long ull;
-
-ull a(int d)
+uint64_t a(int d)
 {
     return d + 1;
 }
 
-ull b(int k)
+uint64_t b(int k)
 {
-    ull result = 1;
+    uint64_t result = 1;
     for (int i = 0; i < k; i++)
         result *= 28;
     return result;
 }
 
-ull c(int d)
+uint64_t c(int d)
 {
     return (d + 1) * (d + 2) / 2;
 }
@@ -72,7 +71,7 @@ ull c(int d)
 int main()
 {
     std::vector<int> limit = { 5, 1, 6, 0, 0, 6, 1, 3, 5, 3, 3 };
-    ull count = 1;
+    uint64_t count = 1;
     for (int i = 0; i < limit.size(); i++)
     {
         int d = limit[i];

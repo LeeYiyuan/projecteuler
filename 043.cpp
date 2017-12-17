@@ -18,8 +18,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
-
-typedef unsigned long long ull;
+#include <cstdint>
 
 std::vector<int> modulos = { 2, 3, 5, 7, 11, 13, 17 };
 
@@ -31,7 +30,7 @@ void process(int index, std::vector<int> const &numbers, std::vector<int> const 
     {
         for (int const &number : numbers)
         {
-            ull s = 0;
+            uint64_t s = 0;
             for (int i = 0; i < numbers.size(); i++)
                 s += (ull)(std::pow(10, 10 - i - 1) * numbers[i]);
             for (int j = 0; j < selected_numbers.size(); j++)
@@ -80,8 +79,8 @@ int main()
         }
     }
 
-    ull sum = 0;
-    for (ull &result : results)
+    uint64_t sum = 0;
+    for (uint64_t &result : results)
         sum += result;
 
     std::cout << sum;

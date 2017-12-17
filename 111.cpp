@@ -22,9 +22,8 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <cstdint>
 #include "prime_util.h"
-
-typedef unsigned long long ull;
 
 std::vector<ull> get_primes(int n, int d, int c)
 {
@@ -58,7 +57,7 @@ std::vector<ull> get_primes(int n, int d, int c)
             if (digits[0] == 0)
                 continue;
 
-            ull p = 0;
+            uint64_t p = 0;
             for (int i = 0; i < n; i++)
                 p = 10 * p + digits[i];
 
@@ -70,18 +69,18 @@ std::vector<ull> get_primes(int n, int d, int c)
     return primes;
 }
 
-void NS(int n, int d, int c, int &N, ull &S)
+void NS(int n, int d, int c, int &N, uint64_t &S)
 {
     N = 0;
     S = 0;
-    for (ull &p : get_primes(n, d, c))
+    for (uint64_t &p : get_primes(n, d, c))
     {
         N++;
         S += p;
     }
 }
 
-void MNS(int n, int d, int &M, int &N, ull &S)
+void MNS(int n, int d, int &M, int &N, uint64_t &S)
 {
     int c = n;
     NS(n, d, c, N, S);
@@ -91,12 +90,12 @@ void MNS(int n, int d, int &M, int &N, ull &S)
 
 int main()
 {
-    ull S_total = 0;
+    uint64_t S_total = 0;
     for (int d = 0; d < 10; d++)
     {
         int M = 0;
         int N = 0;
-        ull S = 0;
+        uint64_t S = 0;
         MNS(10, d, M, N, S);
         S_total += S;
     }

@@ -117,12 +117,11 @@
 #include <cmath>
 #include <vector>
 #include <numeric>
+#include <cstdint>
 
-typedef unsigned long long ull;
-
-ull f(ull n, int digit)
+uint64_t f(uint64_t n, int digit)
 {
-    ull result = 0;
+    uint64_t result = 0;
     std::string n_s = std::to_string(n);
     int l = n_s.length();
     int head_count = 0;
@@ -146,7 +145,7 @@ ull f(ull n, int digit)
     return result;
 }
 
-void search(std::vector<ull> const &selected, ull n_selected, int digit, ull &sum)
+void search(std::vector<ull> const &selected, uint64_t n_selected, int digit, uint64_t &sum)
 {
     if (selected.back() < 10)
     {
@@ -155,8 +154,8 @@ void search(std::vector<ull> const &selected, ull n_selected, int digit, ull &su
         return;
     }
 
-    ull d_limit = 1;
-    ull _d_limit = selected.back();
+    uint64_t d_limit = 1;
+    uint64_t _d_limit = selected.back();
     while (_d_limit >= 10)
     {
         d_limit *= 10;
@@ -164,13 +163,13 @@ void search(std::vector<ull> const &selected, ull n_selected, int digit, ull &su
     }
 
     int d_base = 0;
-    ull m = 1;
-    ull d = d_base * m;
-    ull n = n_selected + d;
+    uint64_t m = 1;
+    uint64_t d = d_base * m;
+    uint64_t n = n_selected + d;
     while (d < d_limit)
     {
-        ull sub_n_min = n;
-        ull sub_n_max = n + m - 1;
+        uint64_t sub_n_min = n;
+        uint64_t sub_n_max = n + m - 1;
 
         if (f(sub_n_min, digit) <= sub_n_max && f(sub_n_max, digit) >= sub_n_min)
         {
@@ -192,12 +191,12 @@ void search(std::vector<ull> const &selected, ull n_selected, int digit, ull &su
 
 int main()
 {
-    ull sum = 0;
+    uint64_t sum = 0;
     for (int digit = 1; digit <= 9; digit++)
     {
         int d_base = 0;
-        ull m = 1;
-        ull d = d_base * m;
+        uint64_t m = 1;
+        uint64_t d = d_base * m;
         while (d <= 90000000000)
         {
             search({ d }, d, digit, sum);

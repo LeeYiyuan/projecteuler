@@ -22,18 +22,17 @@
 
 #include <vector>
 #include <iostream>
+#include <cstdint>
 
-typedef unsigned long long ull;
-
-ull count_ways(int m, int n)
+uint64_t count_ways(int m, int n)
 {
     std::vector<ull> b(m, 1);
     std::vector<ull> c(m, 0);
     c.back() = 1;
     for (int i = m; i < n; i++)
     {
-        ull b_i = b.back() + c.back();
-        ull c_i = *(b.end() - m) + *(c.end() - m);
+        uint64_t b_i = b.back() + c.back();
+        uint64_t c_i = *(b.end() - m) + *(c.end() - m);
         b.emplace_back(b_i);
         c.emplace_back(c_i);
     }
@@ -42,7 +41,7 @@ ull count_ways(int m, int n)
 
 int main()
 {
-    ull sum = 0;
+    uint64_t sum = 0;
     for (int m = 2; m <= 4; m++)
         sum += count_ways(m, 50);
 

@@ -1,8 +1,7 @@
 #include <iostream>
+#include <cstdint>
 
-typedef unsigned long long ull;
-
-ull collatz(ull n)
+uint64_tcollatz(uint64_tn)
 {
     return n % 2 == 0 ? n / 2 : 3 * n + 1;
 }
@@ -14,7 +13,7 @@ int main()
 
     for (int i = 0; i < 1000000; i++)
     {
-        ull j = i;
+        uint64_tj = i;
         int length = 1;
         while (j > 1)
         {

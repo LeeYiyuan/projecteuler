@@ -12,11 +12,10 @@
 
 #include <iostream>
 #include <vector>
-
-typedef unsigned long long ull;
+#include <cstdint>
 
 // Generates counts via brute force, used only for base case.
-void generate(int rows, int columns, ull map, std::vector<ull> const& blocks, int block_index, std::vector<ull> &counts)
+void generate(int rows, int columns, uint64_t map, std::vector<ull> const& blocks, int block_index, std::vector<ull> &counts)
 {
     counts[map]++; // Assume there is one way to arrange nothing.
     for (int i = block_index; i < blocks.size(); i++)
@@ -25,12 +24,12 @@ void generate(int rows, int columns, ull map, std::vector<ull> const& blocks, in
 }
 
 // Linear transformation underlying the dynamic programming part.
-ull transform(int rows, int columns, ull map, std::vector<ull> const& blocks, int block_index, std::vector<ull> const &counts)
+uint64_t transform(int rows, int columns, uint64_t map, std::vector<ull> const& blocks, int block_index, std::vector<ull> const &counts)
 {
     if ((map & ((ull(1) << rows) - 1)) == 0)
         return counts[map >> rows];
 
-    ull result = 0;
+    uint64_t result = 0;
     for (int i = block_index; i < blocks.size(); i++)
         if ((map & blocks[i]) == blocks[i])
             result += transform(rows, columns, map ^ blocks[i], blocks, i + 1, counts);
@@ -74,7 +73,7 @@ int main()
     for (int i = 2; i < columns - 1; i++)
     {
         std::vector<ull> _counts(1 << (2 * rows));
-        for (ull j = 0; j < (1 << 2 * rows); j++)
+        for (uint64_t j = 0; j < (1 << 2 * rows); j++)
             _counts[j] = transform(rows, columns, j | (((1 << rows) - 1) << (2 * rows)), blocks, 0, counts);
         
         std::swap(counts, _counts);

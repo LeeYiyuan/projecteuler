@@ -27,15 +27,14 @@
 #include <cmath>
 #include <numeric>
 #include <algorithm>
+#include <cstdint>
 #include "iter_util.h"
 #include "number_util.h"
-
-typedef unsigned long long ull;
 
 int main()
 {
     int turns = 15;
-    ull numerator_sum = 0;
+    uint64_t numerator_sum = 0;
 
     for (int length = int(std::ceil(double(turns + 1) / 2)); length <= turns; length++)
     {
@@ -43,7 +42,7 @@ int main()
         std::iota(range.begin(), range.end(), 2);
         for (std::vector<int> &combinations : util::get_combinations(range.begin(), range.end(), length))
         {
-            ull numerator = 1;
+            uint64_t numerator = 1;
             for (int d = 2; d <= turns + 1; d++)
                 if (!std::binary_search(combinations.begin(), combinations.end(), d))
                     numerator *= d - 1;

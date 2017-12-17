@@ -32,7 +32,6 @@
 #include <gmpxx.h>
 #include "number_util.h"
 
-typedef unsigned long long ull;
 
 int main()
 {

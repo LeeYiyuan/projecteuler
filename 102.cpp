@@ -20,22 +20,22 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include <cstdint>
 #include "io_util.h"
 #include "string_util.h"
 
-typedef unsigned long long ull;
 typedef std::pair<int, int> point_type;
 
-ull get_distance2(point_type const &A, point_type const &B)
+uint64_t get_distance2(point_type const &A, point_type const &B)
 {
     return (A.first - B.first) * (A.first - B.first) + (A.second - B.second) * (A.second - B.second);
 }
 
 double get_area(point_type const &A, point_type const &B, point_type const &C)
 {
-    ull la2 = get_distance2(A, B);
-    ull lb2 = get_distance2(A, C);
-    ull lc2 = get_distance2(B, C);
+    uint64_t la2 = get_distance2(A, B);
+    uint64_t lb2 = get_distance2(A, C);
+    uint64_t lc2 = get_distance2(B, C);
     return std::sqrt(4 * la2 * lb2 - (la2 + lb2 - lc2) * (la2 + lb2 - lc2)) / 4;
 }
 

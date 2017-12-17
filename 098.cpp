@@ -22,12 +22,11 @@
 #include <iostream>
 #include <utility>
 #include <cmath>
+#include <cstdint>
 #include "io_util.h"
 #include "string_util.h"
 
-typedef signed long long ll;
-
-ll get_number(std::pair<std::string, std::string> const &p, ll n_A)
+int64_t get_number(std::pair<std::string, std::string> const &p, int64_t n_A)
 {
     std::unordered_map<char, int> letter_to_digit;
     for (int i = 0; i < p.first.length(); i++)
@@ -86,13 +85,13 @@ int main()
         squares[std::to_string(n * n).length()].emplace_back(n * n);
 
 
-    ll largest_square = -1;
+    int64_t largest_square = -1;
     for (std::pair<std::string, std::string> &p : pairs)
     {
         int length = p.first.length();
-        for (ll &square : squares[length])
+        for (int64_t &square : squares[length])
         {
-            ll number = get_number(p, square);
+            int64_t number = get_number(p, square);
             if (number != -1 && std::find(squares[length].begin(), squares[length].end(), number) != squares[length].end())
             {
                 largest_square = std::max(largest_square, std::max(square, number));

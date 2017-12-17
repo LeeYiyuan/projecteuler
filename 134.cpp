@@ -28,10 +28,9 @@
 
 #include <iostream>
 #include <vector>
+#include <cstdint>
 #include "prime_util.h"
 #include "number_util.h"
-
-typedef long long ll;
 
 int main()
 {
@@ -41,21 +40,21 @@ int main()
     // For when p1 is the largest prime such that p1 <= 1000000.
     primes.emplace_back(util::get_next_prime(primes.back()));
 
-    ll sum_S = 0;
+    int64_t sum_S = 0;
     for (int i = 0; i < primes.size() - 1; i++)
     {
         int p1 = primes[i];
         int p2 = primes[i + 1];
 
         int _p1 = p1;
-        ll m = 1;
+        int64_t m = 1;
         while (_p1 > 0)
         {
             m *= 10;
             _p1 /= 10;
         }
-        ll k = (p1 * util::inv_mod(ll(p2), m)) % m;
-        ll S = k * p2;
+        int64_t k = (p1 * util::inv_mod(ll(p2), m)) % m;
+        int64_t S = k * p2;
         sum_S += S;
     }
 

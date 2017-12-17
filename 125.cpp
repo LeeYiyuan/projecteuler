@@ -8,11 +8,10 @@
 #include <unordered_set>
 #include <cmath>
 #include <numeric>
+#include <cstdint>
 #include "string_util.h"
 
-typedef unsigned long long ull;
-
-ull get_sum(int a, int b)
+uint64_t get_sum(int a, int b)
 {
     return (b * (b + 1) * (2 * b + 1) - (a - 1) * (a) * (2 * a - 1)) / 6;
 }
@@ -24,7 +23,7 @@ int main()
     while (get_sum(a, a + 1) < std::pow(10, 8))
     {
         int b = a + 1;
-        ull s = get_sum(a, b);
+        uint64_t s = get_sum(a, b);
         while (s < std::pow(10, 8))
         {
             if (util::is_palindrome(std::to_string(s)))

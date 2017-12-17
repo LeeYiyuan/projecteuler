@@ -25,8 +25,7 @@
 
 #include <iostream>
 #include <vector>
-
-typedef unsigned long long ull;
+#include <cstdint>
 
 int main()
 {
@@ -55,7 +54,7 @@ int main()
         }
     }
 
-    ull non_bouncy_count = 0;
+    uint64_t non_bouncy_count = 0;
     for (int l = 1; l <= n_digits; l++)
         for (int d = 1; d < 10; d++)
             non_bouncy_count += increasing_counts[l][d] + decreasing_counts[l][d];

@@ -2,9 +2,8 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <cstdint>
 #include "string_util.h"
-
-typedef unsigned long long ull;
 
 int main()
 {
@@ -35,10 +34,10 @@ R"(73167176531330624919225119674426574742355349194934
     for (char &d : digits_string)
         digits.emplace_back(d - '0');
 
-    ull largest_product = 0;
+    uint64_t largest_product = 0;
     for (int i = 0; i < digits.size() - num_product_digits + 1; i++)
     {
-        ull product = 1;
+        uint64_t product = 1;
         for (int j = 0; j < num_product_digits; j++)
             product *= digits[i + j];
         if (product > largest_product)
