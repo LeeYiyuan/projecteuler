@@ -146,11 +146,11 @@ int main()
     int sum = 0;
     for (int &n : n_candidates)
     {
-        unsigned long long n2 = n;
+        mpz_class n2 = n;
         n2 *= n;
-        if (!util::is_prime(n2 + 15) && !util::is_prime(n2 + 19) && !util::is_prime(n2 + 21) && !util::is_prime(n2 + 25) &&
-            util::is_prime(n2 + 1) && util::is_prime(n2 + 3) && util::is_prime(n2 + 7) && util::is_prime(n2 + 9) &&
-            util::is_prime(n2 + 13) && util::is_prime(n2 + 27))
+        if (!util::is_prime<mpz_class>(n2 + 15) && !util::is_prime<mpz_class>(n2 + 19) && !util::is_prime<mpz_class>(n2 + 21) && !util::is_prime<mpz_class>(n2 + 25) &&
+            util::is_prime<mpz_class>(n2 + 1) && util::is_prime<mpz_class>(n2 + 3) && util::is_prime<mpz_class>(n2 + 7) && util::is_prime<mpz_class>(n2 + 9) &&
+            util::is_prime<mpz_class>(n2 + 13) && util::is_prime<mpz_class>(n2 + 27))
         {
             sum += n;
         }

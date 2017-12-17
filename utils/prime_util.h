@@ -27,7 +27,7 @@ namespace util
         {
             if (a_to_power == n - 1)
                 return true;
-            a_to_power = util::mul_mod(a_to_power, a_to_power, n);
+            a_to_power = (a_to_power * a_to_power) % n;
         }
 
         return a_to_power == n - 1;

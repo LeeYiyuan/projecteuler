@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdint>
 #include "prime_util.h"
 
 int main()
@@ -12,7 +13,7 @@ int main()
         for (int b = -1000; b <= 1000; b++)
         {
             int n = 0;
-            while (util::is_prime(n * n + a * n + b))
+            while (util::is_prime(uint64_t(n * n + a * n + b)))
                 n++;
             if (n > max_count)
             {
