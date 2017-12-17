@@ -32,7 +32,7 @@ parser.add_argument('solutions', metavar='SOLUTION', nargs='+', type=check_solut
 args = parser.parse_args()
 
 answers = None
-if args.answers_file is None:
+if args.answers_file is not None:
     f = open(args.answers_file)
     answers = f.readlines()
 
@@ -67,7 +67,6 @@ def worker():
             else:
                 output = run_process.stdout.read().decode('utf-8').rstrip('\n')
                 outcome = '?'
-                print(answers is None)
                 if answers is not None:
                     if len(answers) >= int(solution):
                         if output == answers[int(solution) - 1].rstrip('\n'):
