@@ -106,8 +106,14 @@ void search(std::vector<std::vector<int>> const &basis, std::vector<int> const &
         }
     }
 
-    if (end < start) return;
-    if (index == basis.size() - 1) { count += end - start + 1; return; }
+    if (end < start) 
+        return;
+
+    if (index == basis.size() - 1) 
+    { 
+        count += end - start + 1; 
+        return; 
+    }
 
     std::vector<int> _vector(vector.size());
     for (int i = start; i <= end; i++)
