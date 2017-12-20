@@ -36,14 +36,13 @@
     n = 2, ..., 10 because the maximum dimension of the codomain of A is
     at most 4 * 10 + 4 = 44 which can fit entirely into a uint64. Using bit
     operators allow us to calculate A_{m + 1} given A_m rather efficiently.
-    Also, uint64's are easy to put in a hashmap to allow for O(1) lookup when
-    checking for a cycle.
+    
+    The tortise and hare algorithm is used to compute details of the cycles.
 */
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <unordered_map>
 #include <utility>
 
 typedef unsigned long long ull;
@@ -79,34 +78,37 @@ int main()
     ull total = 0;
     for (ull n = 2; n <= 10; n++)
     { 
-        ull m = 4 * (n + 1);
+        ull mA = 4 * (n + 1);
         ull A;  
-        ull k;
-        generate_A(n, m, A, k);
+        ull kA;
+        generate_A(n, mA, A, kA);
 
-        std::unordered_map<ull, std::pair<ull, ull>> history;
+        ull mB = mA, B = A, kB = kA;
 
         do
         {
-            history[A] = { m, k };
-            m++;
-            if (move_next(n, m, A)) k++;
-        } while (history.find(A) == history.end());
+            mA++;
+            if (move_next(n, mA, A)) kA++;
+            mB++;
+            if (move_next(n, mB, B)) kB++;
+            mB++;
+            if (move_next(n, mB, B)) kB++;
+        } while (A != B);
 
-        ull wavelength = m - history[A].first;
-        ull count_per_period = k - history[A].second;
-        ull number_of_periods = (100000000000 - k) / count_per_period;
+        ull wavelength = mB - mA;
+        ull count_per_period = kB - kA;
+        ull number_of_periods = (100000000000 - kB) / count_per_period;
 
-        m += number_of_periods * wavelength;
-        k += number_of_periods * count_per_period;
+        mB += number_of_periods * wavelength;
+        kB += number_of_periods * count_per_period;
 
-        while (k < 100000000000)
+        while (kB < 100000000000)
         {
-            m++;
-            if (move_next(n, m, A)) k++;
+            mB++;
+            if (move_next(n, mB, B)) kB++;
         }
 
-        total += m;
+        total += mB;
     }
     std::cout << total;
 }
