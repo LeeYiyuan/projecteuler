@@ -6,8 +6,6 @@
 #include <unordered_set>
 #include <iostream>
 
-typedef unsigned long long ull;
-
 int main()
 {
     std::vector<int> factorials = {
@@ -26,12 +24,12 @@ int main()
     int count = 0;
     for (int n = 1; n < 1000000; n++)
     {
-        ull _n = n;
-        std::unordered_set<ull> sequence;
+        int _n = n;
+        std::unordered_set<int> sequence;
         while (sequence.find(_n) == sequence.end())
         {
             sequence.emplace(_n);
-            ull next = 0;
+            int next = 0;
             while (_n > 0)
             {
                 next += factorials[_n % 10];
