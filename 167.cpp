@@ -18,16 +18,17 @@
     Note that an exception has to be made for the case where m = 2 * (4n + 4),
     in which case m is written as the sum of two non-distinct integers.
 
-    Since A is a sequence in the finite set {0, 1}^{4n + 4} and it can be 
-    described using a first order homogeneous linear recurrence relation, then
-    by the Pigeonhole Principle, the sequence must be periodic eventually.
+    Since A is the sequence of iterated function values of some function that 
+    maps the finite set {0, 1}^{4n + 4} to itself, A must eventually become
+    periodic.
 
     By considering:
 
-        1) the number of m that are in U(2, 2n + 1) up before A_m starts cycling,
-        2) the value of m for which A_m starts to cycle,
-        3) the number of elements in U(2, 2n + 1) in each cycle, and
-        4) the period of each cycle,
+        1) the number of m that are in U(2, 2n + 1) up before A_m starts turns
+           periodic,
+        2) the value of m for which A_m starts to turn periodic,
+        3) the number of elements in U(2, 2n + 1) in each period, and
+        4) the length of each cycle
 
     we can calculate U(2, 2n + 1)_k for large values of k rather efficiently
     due to the aforementioned periodicity.
@@ -95,12 +96,12 @@ int main()
             if (move_next(n, mB, B)) kB++;
         } while (A != B);
 
-        ull wavelength = mB - mA;
-        ull count_per_period = kB - kA;
-        ull number_of_periods = (100000000000 - kB) / count_per_period;
+        ull cycle_length = mB - mA;
+        ull count_per_cycle = kB - kA;
+        ull number_of_cycles = (100000000000 - kB) / count_per_cycle;
 
-        mB += number_of_periods * wavelength;
-        kB += number_of_periods * count_per_period;
+        mB += number_of_cycles * cycle_length;
+        kB += number_of_cycles * count_per_cycle;
 
         while (kB < 100000000000)
         {
