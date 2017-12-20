@@ -1,9 +1,8 @@
 /*
-    Naive solution.
+    Tortise and hare cycle detection.
 */
 
 #include <vector>
-#include <unordered_set>
 #include <iostream>
 
 std::vector<int> factorials = {
