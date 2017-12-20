@@ -4,8 +4,9 @@
 
 #include <vector>
 #include <unordered_set>
-#include <string>
 #include <iostream>
+
+typedef unsigned long long ull;
 
 int main()
 {
@@ -25,15 +26,18 @@ int main()
     int count = 0;
     for (int n = 1; n < 1000000; n++)
     {
-        int _n = n;
-        std::unordered_set<int> sequence;
+        ull _n = n;
+        std::unordered_set<ull> sequence;
         while (sequence.find(_n) == sequence.end())
         {
             sequence.emplace(_n);
-            std::string _n_string = std::to_string(_n);
-            _n = 0;
-            for (char &d : _n_string)
-                _n += factorials[d - '0'];
+            ull next = 0;
+            while (_n > 0)
+            {
+                next += factorials[_n % 10];
+                _n /= 10;
+            }
+            _n = next;
         }
         if (sequence.size() == 60)
             count++;
