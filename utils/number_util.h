@@ -93,4 +93,19 @@ namespace util
         }
         return numerator / denominator;
     }
+
+    template <typename T>
+    int length(T n)
+    {
+        if (n == T(0)) return 1;
+
+        int l = 0;
+        while (n > 0)
+        {
+            l++;
+            n /= 10;
+        }
+
+        return l;
+    }
 }

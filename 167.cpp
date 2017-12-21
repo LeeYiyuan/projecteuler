@@ -96,6 +96,7 @@ int main()
             if (move_next(n, mB, B)) kB++;
         } while (A != B);
 
+        // Note that the cycle may not and need not necessarily be fundamental.
         ull cycle_length = mB - mA;
         ull count_per_cycle = kB - kA;
         ull number_of_cycles = (100000000000 - kB) / count_per_cycle;
