@@ -39,9 +39,10 @@
 */
 
 #include <iostream>
+#include <cstdint>
 
 int main()
 {
-    unsigned long long n = 501;
+    uint64_t n = 501;
     std::cout << 16 * n * (n + 1) * (2 * n + 1) / 6 - 28 * n * (n + 1) / 2 + 16 * n - 3;
 }

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstdint>
 
 /*
     Kadane's algorithm, taken from https://en.wikipedia.org/wiki/Maximum_subarray_problem
@@ -35,7 +36,7 @@ int main()
 
     std::vector<int> s;
     for (int k = 1; k <= 55; k++)
-        s.emplace_back((100003 - 200003 * k + 300007 * (unsigned long long)(k) * k * k) % 1000000 - 500000);
+        s.emplace_back((100003 - 200003 * k + 300007 * (uint64_t)(k) * k * k) % 1000000 - 500000);
     for (int k = 56; k <= 4000000; k++)
         s.emplace_back((*(s.end() - 24) + *(s.end() - 55) + 1000000) % 1000000 - 500000);
 

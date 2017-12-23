@@ -45,11 +45,10 @@
 #include <vector>
 #include <algorithm>
 #include <utility>
-
-typedef unsigned long long ull;
+#include <cstdint>
 
 // Naive and inefficient method to generate the initial A_m.
-void generate_A(int n, int m, ull &A, ull &k)
+void generate_A(int n, int m, uint64_t &A, uint64_t &k)
 {
     std::vector<int> indices = { 2, 2 * n + 1 };
     for (int i = 2 * n + 2; i <= m; i++)
@@ -61,12 +60,12 @@ void generate_A(int n, int m, ull &A, ull &k)
 
     A = 0;
     for (int index : indices)
-        A |= ull(1) << (m - index);
+        A |= uint64_t(1) << (m - index);
 
     k = indices.size();
 }
 
-bool move_next(int n, int m, ull &A)
+bool move_next(int n, int m, uint64_t &A)
 {
     bool result = (m != 8 * (n + 1)) & (((A >> (2 - 1)) & 1) ^ ((A >> (4 * (n + 1) - 1)) & 1));
     A <<= 1;
@@ -76,15 +75,15 @@ bool move_next(int n, int m, ull &A)
 
 int main()
 {   
-    ull total = 0;
-    for (ull n = 2; n <= 10; n++)
+    uint64_t total = 0;
+    for (uint64_t n = 2; n <= 10; n++)
     { 
-        ull mA = 4 * (n + 1);
-        ull A;  
-        ull kA;
+        uint64_t mA = 4 * (n + 1);
+        uint64_t A;  
+        uint64_t kA;
         generate_A(n, mA, A, kA);
 
-        ull mB = mA, B = A, kB = kA;
+        uint64_t mB = mA, B = A, kB = kA;
 
         do
         {
@@ -97,9 +96,9 @@ int main()
         } while (A != B);
 
         // Note that the cycle may not and need not necessarily be fundamental.
-        ull cycle_length = mB - mA;
-        ull count_per_cycle = kB - kA;
-        ull number_of_cycles = (100000000000 - kB) / count_per_cycle;
+        uint64_t cycle_length = mB - mA;
+        uint64_t count_per_cycle = kB - kA;
+        uint64_t number_of_cycles = (100000000000 - kB) / count_per_cycle;
 
         mB += number_of_cycles * cycle_length;
         kB += number_of_cycles * count_per_cycle;

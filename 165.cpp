@@ -13,6 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include <cstdint>
 #include "number_util.h"
 
 int sign(int x) { return (x > 0) - (x < 0); }
@@ -58,7 +59,7 @@ int main()
     std::vector<int> numbers(5000 * 4);
     std::set<std::vector<int>> intersections;
 
-    unsigned long long s = 290797;
+    uint64_t s = 290797;
     for (int i = 0; i < numbers.size(); i++)
     {
         s = (s * s) % 50515093;

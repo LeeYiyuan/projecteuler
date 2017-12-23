@@ -24,6 +24,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cstdint>
 
 int main()
 {
@@ -54,7 +55,7 @@ int main()
         ntop5[n] = p5;
     }
 
-    long long count = 0;
+    uint64_t count = 0;
     int i = 0;
     while (3 * i <= s)
     {

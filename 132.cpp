@@ -52,7 +52,7 @@ bool is_factor(int p)
     {
         for (int b = 0; b <= b_max; b++)
         {
-            unsigned long long q = std::pow(2, a) * std::pow(5, b);
+            uint64_t q = std::pow(2, a) * std::pow(5, b);
             if (util::pow_mod(uint64_t(10), q, uint64_t(9 * p)) == 1)
                 return true;
         }

@@ -8,11 +8,12 @@
 
 #include <iostream>
 #include <vector>
+#include <cstdint>
 
 int main()
 {
     int n = 20;
-    std::vector<unsigned long long> counts(100), _counts(100);
+    std::vector<uint64_t> counts(100), _counts(100);
     
     for (int i = 0; i < 100; i++)
         counts[i] = i >= 10 && ((i % 10) + (i / 10) <= 9);
@@ -24,11 +25,11 @@ int main()
                 _counts[j] += counts[(k * 10) + (j / 10)];
 
         counts = std::move(_counts);
-        _counts = std::vector<unsigned long long>(100);
+        _counts = std::vector<uint64_t>(100);
     }
 
-    unsigned long long count = 0;
-    for (unsigned long long const &c : counts)
+    uint64_t count = 0;
+    for (uint64_t const &c : counts)
         count += c;
 
     std::cout << count;    

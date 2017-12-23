@@ -32,6 +32,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstdint>
 #include "prime_util.h"
 #include "number_util.h"
 
@@ -72,7 +73,7 @@ int main()
                 if (a > 0 && a < b)
                 {
                     int rad_a = n_to_rad[a];
-                    if (util::gcd(b, c) == 1 && (unsigned long long)(rad_a) * rad_b * rad_c < c)
+                    if (util::gcd(b, c) == 1 && (uint64_t)(rad_a) * rad_b * rad_c < c)
                         sum += c;
                 }
             }

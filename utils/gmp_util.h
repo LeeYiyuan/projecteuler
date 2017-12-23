@@ -2,6 +2,7 @@
 
 #include <gmp.h>
 #include <gmpxx.h>
+#include <cstdint>
 
 namespace util
 {
@@ -12,10 +13,10 @@ namespace util
     }
 
     template <>
-    mpz_class to_mpz(signed long long n);
+    mpz_class to_mpz(int64_t n);
 
     template <>
-    mpz_class to_mpz(unsigned long long n);
+    mpz_class to_mpz(uint64_t n);
 
     template <typename T>
     T mpz_to(mpz_class n)

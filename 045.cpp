@@ -1,23 +1,24 @@
 #include <iostream>
 #include <cmath>
+#include <cstdint>
 
-unsigned long long get_triangular(unsigned long long n)
+uint64_t get_triangular(uint64_t n)
 {
     return n * (n + 1) / 2;
 }
 
-bool is_pentagonal(unsigned long long p_n)
+bool is_pentagonal(uint64_t p_n)
 {
     // Solution to 3n^2 - n - 2p_n = 0.
     double n = (1 + std::sqrt(1 + 24 * p_n)) / 6;
-    return (unsigned long long)(n) == n;
+    return (uint64_t)(n) == n;
 }
 
-bool is_hexagonal(unsigned long long h_n)
+bool is_hexagonal(uint64_t h_n)
 {
     // Solution to 2n^2 - n - h_n = 0
     double n = (1 + std::sqrt(1 + 8 * h_n)) / 4;
-    return (unsigned long long)(n) == n;
+    return (uint64_t)(n) == n;
 }
 
 int main()

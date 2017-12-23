@@ -9,11 +9,12 @@
 #include <vector>
 #include <climits>
 #include <algorithm>
+#include <cstdint>
 
 int main()
 {
     std::vector<int> s;
-    unsigned long long t = 0;
+    uint64_t t = 0;
     for (int k = 1; k <= 500500; k++)
     {
         t = (615949 * t + 797807) % (1 << 20);

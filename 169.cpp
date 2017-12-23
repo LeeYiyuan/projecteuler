@@ -28,11 +28,12 @@
 #include <gmpxx.h>
 #include <number_util.h>
 #include <vector>
+#include <cstdint>
 
 int main()
 {
     mpz_class n = util::pow(mpz_class(10), 25);
-    std::vector<unsigned long long> cases = { 1, 1 };
+    std::vector<uint64_t> cases = { 1, 1 };
 
     while ((n >>= 1) > 0)
     {

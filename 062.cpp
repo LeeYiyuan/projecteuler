@@ -29,8 +29,9 @@
 #include <numeric>
 #include <map>
 #include <algorithm>
+#include <cstdint>
 
-std::vector<int> get_digit_vector(unsigned long long n)
+std::vector<int> get_digit_vector(uint64_t n)
 {
     std::vector<int> v(10);
     for (char &digit : std::to_string(n))
@@ -40,16 +41,16 @@ std::vector<int> get_digit_vector(unsigned long long n)
 
 int main()
 {
-    std::map<std::vector<int>, std::vector<unsigned long long>> digit_vectors;
+    std::map<std::vector<int>, std::vector<uint64_t>> digit_vectors;
 
-    unsigned long long n = 1;
+    uint64_t n = 1;
     while (true)
     {
-        unsigned long long cube = n * n * n;
+        uint64_t cube = n * n * n;
         std::vector<int> v = get_digit_vector(cube);
         auto it = digit_vectors.find(v);
         if (it == digit_vectors.end())
-            it = digit_vectors.emplace(v, std::vector<unsigned long long>{ 0, cube }).first;
+            it = digit_vectors.emplace(v, std::vector<uint64_t>{ 0, cube }).first;
         it->second[0]++;
         if (it->second[0] == 5)
         {

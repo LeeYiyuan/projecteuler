@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstdint>
 
 struct node_struct
 {
@@ -42,7 +43,7 @@ struct node_struct
     }
 };
 
-unsigned long long search(node_struct *header)
+uint64_t search(node_struct *header)
 {
     if (header->size == 0)
         return 1;
@@ -61,7 +62,7 @@ unsigned long long search(node_struct *header)
     if (column->size == 0)
         return 0;
     
-    unsigned long long count = 0;
+    uint64_t count = 0;
 
     column->cover();
     header->size--;
