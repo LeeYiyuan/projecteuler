@@ -26,9 +26,9 @@
 
 #include <iostream>
 #include <gmpxx.h>
-#include <number_util.h>
 #include <vector>
 #include <cstdint>
+#include "number_util.h"
 
 int main()
 {

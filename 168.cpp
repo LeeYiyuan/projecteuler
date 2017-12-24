@@ -11,7 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <gmpxx.h>
-#include <number_util.h>
+#include "number_util.h"
 
 void search(mpz_class n, int length, mpz_class &sum)
 {

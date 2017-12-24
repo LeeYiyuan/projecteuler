@@ -20,7 +20,7 @@
 #include <algorithm>
 #include <cmath>
 #include <gmpxx.h>
-#include <number_util.h>
+#include "number_util.h"
 
 int main()
 {
