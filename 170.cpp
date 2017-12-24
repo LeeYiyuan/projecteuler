@@ -7,12 +7,15 @@
 
     We start with decreasing permutations of 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 as n.
     
-    For each n, we look for integers q and d such that n = q * d, and the 
-    concatenation of q and d is pandigital with the modified restriction that
-    need only appear at least once. Next, we see if there is a way to split
-    d as a concatenation of multiple integers with possible zeroes in between 
-    such that the consitituent integers concatenate with q into a 0-9 pandigital
-    number. If there is, then n is a hit.
+    For each n, we look for integers d and q such that n = d * q, and the 
+    concatenation of d and q is pandigital with the modified restriction that 0
+    need only appear at least once, i.e. it is allowed to repeat. 
+    
+    Next, we see if there is a way to split q as a concatenation of multiple 
+    integers with possible zeroes in between such that the consitituent integers, 
+    when multiplied by d, do not overflow their implied length and that they 
+    concatenate with d to form a 0-9 pandigital number. If there is, then n is 
+    a hit.
 */
 
 #include <iostream>
