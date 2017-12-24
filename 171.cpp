@@ -11,7 +11,8 @@
     For each possible a, we have the number of times each digit must occur. 
     Instead of permutating through the possible n that satisfies the occurences
     dictated by a, we use combinatorics and summations to find the sum of all
-    such possible n in a more efficient manner.
+    such possible n in a more efficient manner, by considering the positions
+    of each digit and the number of such cases.
 */
 
 #include <iostream>
