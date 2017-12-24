@@ -33,7 +33,7 @@
 int main()
 {
     mpz_class n = util::pow(mpz_class(10), 25);
-    std::vector<uint64_t> cases = { 1, 1 };
+    std::vector<uint64_t> cases = { 1, (n & 1) == 0 };
 
     while ((n >>= 1) > 0)
     {
