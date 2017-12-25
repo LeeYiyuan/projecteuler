@@ -24,14 +24,14 @@
 #include "io_util.h"
 #include "string_util.h"
 
-typedef std::pair<int, int> point_type;
+typedef std::pair<int, int> point_t;
 
-uint64_t get_distance2(point_type const &A, point_type const &B)
+uint64_t get_distance2(point_t const &A, point_t const &B)
 {
     return (A.first - B.first) * (A.first - B.first) + (A.second - B.second) * (A.second - B.second);
 }
 
-double get_area(point_type const &A, point_type const &B, point_type const &C)
+double get_area(point_t const &A, point_t const &B, point_t const &C)
 {
     uint64_t la2 = get_distance2(A, B);
     uint64_t lb2 = get_distance2(A, C);
@@ -39,7 +39,7 @@ double get_area(point_type const &A, point_type const &B, point_type const &C)
     return std::sqrt(4 * la2 * lb2 - (la2 + lb2 - lc2) * (la2 + lb2 - lc2)) / 4;
 }
 
-bool is_in_triangle(point_type const &A, point_type const &B, point_type const &C, point_type const &P)
+bool is_in_triangle(point_t const &A, point_t const &B, point_t const &C, point_t const &P)
 {
     double total_area = get_area(A, B, P) + get_area(A, C, P) + get_area(B, C, P);
     double triangle_area = get_area(A, B, C);
@@ -53,10 +53,10 @@ int main()
     for (std::string &triangle_row_string : util::split(triangles_string, '\n'))
     {
         std::vector<std::string> coord_strings = util::split(triangle_row_string, ',');
-        point_type A(std::stoi(coord_strings[0]), std::stoi(coord_strings[1]));
-        point_type B(std::stoi(coord_strings[2]), std::stoi(coord_strings[3]));
-        point_type C(std::stoi(coord_strings[4]), std::stoi(coord_strings[5]));
-        if (is_in_triangle(A, B, C, point_type(0, 0)))
+        point_t A(std::stoi(coord_strings[0]), std::stoi(coord_strings[1]));
+        point_t B(std::stoi(coord_strings[2]), std::stoi(coord_strings[3]));
+        point_t C(std::stoi(coord_strings[4]), std::stoi(coord_strings[5]));
+        if (is_in_triangle(A, B, C, point_t(0, 0)))
             count++;
     }
     std::cout << count;

@@ -93,20 +93,20 @@
 #include "iter_util.h"
 #include "number_util.h"
 
-struct group_struct
+struct group_t
 {
     std::vector<int> combination;
     mpq_class s;
-    group_struct(std::vector<int> &combination, mpq_class s)
+    group_t(std::vector<int> &combination, mpq_class s)
     {
         this->combination = combination;
         this->s = s;
     }
 };
 
-std::vector<group_struct> get_eliminating_groups(std::vector<int> const &available_terms, mpq_class fraction, int polarity, int p, int e)
+std::vector<group_t> get_eliminating_groups(std::vector<int> const &available_terms, mpq_class fraction, int polarity, int p, int e)
 {
-    std::vector<group_struct> groups;
+    std::vector<group_t> groups;
 
     std::vector<int> terms;
     for (int const &term : available_terms)
@@ -194,7 +194,7 @@ void search(std::vector<int> const &available_terms, mpq_class fraction, std::ve
     int p = primes[0];
     std::vector<int> _primes(primes.begin() + 1, primes.end());
 
-    for (group_struct &group : get_eliminating_groups(available_terms, fraction, -1, p, 1))
+    for (group_t &group : get_eliminating_groups(available_terms, fraction, -1, p, 1))
     {
         std::vector<int> _available_terms;
         for (int const &t : available_terms)

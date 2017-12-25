@@ -22,24 +22,24 @@
 #include <string>
 #include <algorithm>
 
-typedef std::pair<std::string, int> hit_type;
+typedef std::pair<std::string, int> hit_t;
 
-int get_value(hit_type const &hit)
+int get_value(hit_t const &hit)
 {
     return (hit.first == "S" ? 1 : hit.first == "D" ? 2 : 3) * hit.second;
 }
 
-int get_score(std::vector<hit_type> const &combination)
+int get_score(std::vector<hit_t> const &combination)
 {
     int sum = 0;
-    for (hit_type const &hit : combination)
+    for (hit_t const &hit : combination)
         sum +=  get_value(hit);
     return sum;
 }
 
 int main()
 {
-    std::vector<hit_type> hits;
+    std::vector<hit_t> hits;
 
     std::vector<std::string> m_strings = { "S", "D", "T" };
     for (std::string &m : m_strings)
@@ -48,8 +48,8 @@ int main()
     hits.emplace_back("S", 25);
     hits.emplace_back("D", 25);
 
-    std::vector<std::vector<hit_type>> combinations;
-    for (hit_type &hit : hits)
+    std::vector<std::vector<hit_t>> combinations;
+    for (hit_t &hit : hits)
         if (hit.first == "D")
                 combinations.emplace_back(1, hit);
 
@@ -57,15 +57,15 @@ int main()
 
     for (int i = 0; i < 2; i++)
     {
-        std::vector<std::vector<hit_type>> _combinations;
-        for (std::vector<hit_type> &combination : combinations)
+        std::vector<std::vector<hit_t>> _combinations;
+        for (std::vector<hit_t> &combination : combinations)
         {
             auto it_hit = hits.begin();
             if (i == 1)
                 it_hit = std::find(hits.begin(), hits.end(), combination.back());
             for (; it_hit != hits.end(); ++it_hit)
             {
-                hit_type &hit = *it_hit;
+                hit_t &hit = *it_hit;
                 _combinations.emplace_back(combination);
                 _combinations.back().emplace_back(hit);
                 if (get_score(_combinations.back()) < 100)

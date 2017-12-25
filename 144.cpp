@@ -35,10 +35,10 @@
 
 #define PI 3.14159265358979323846
 
-struct step_struct
+struct step_t
 {
     double x, y, m;
-    step_struct(double x, double y, double m)
+    step_t(double x, double y, double m)
     {
         this->x = x;
         this->y = y;
@@ -54,7 +54,7 @@ double mod(double n, double m)
     return result;
 }
 
-step_struct get_next(step_struct const &step)
+step_t get_next(step_t const &step)
 {
     double x = step.x;
     double y = step.y;
@@ -109,13 +109,13 @@ step_struct get_next(step_struct const &step)
 
     double y_next = m * x_next + s;
 
-    return step_struct(x_next, y_next, m);
+    return step_t(x_next, y_next, m);
 }
 
 int main()
 {
     int count = 0;
-    step_struct step(1.4, -9.6, (-9.6 - 10.1) / (1.4 - 0));
+    step_t step(1.4, -9.6, (-9.6 - 10.1) / (1.4 - 0));
     while (!(std::abs(step.x) <= 0.01 && step.y > 0))
     {
         step = get_next(step);

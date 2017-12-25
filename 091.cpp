@@ -19,10 +19,10 @@
 #include <set>
 #include <algorithm>
 
-typedef std::pair<int, int> coord_class;
-typedef std::pair<coord_class, coord_class> result_class;
+typedef std::pair<int, int> coord_t;
+typedef std::pair<coord_t, coord_t> result_t;
 
-bool is_perpendicular(coord_class const &A, coord_class const &B)
+bool is_perpendicular(coord_t const &A, coord_t const &B)
 {
     return A.first * B.first + A.second * B.second == 0;
 }
@@ -31,7 +31,7 @@ int main()
 {
     int dimension = 50;
 
-    std::set<result_class> results;
+    std::set<result_t> results;
     for (int x_1 = 0; x_1 <= dimension; x_1++)
     {
         for (int y_1 = 0; y_1 <= dimension; y_1++)
@@ -40,14 +40,14 @@ int main()
             {
                 for (int y_2 = 0; y_2 <= dimension; y_2++)
                 {
-                    coord_class OP(x_1, y_1);
-                    coord_class OQ(x_2, y_2);
-                    coord_class PQ(x_2 - x_1, y_2 - y_1);
+                    coord_t OP(x_1, y_1);
+                    coord_t OQ(x_2, y_2);
+                    coord_t PQ(x_2 - x_1, y_2 - y_1);
                     int height = std::max(OP.second, OQ.second);
                     int width = std::max(OP.first, OQ.first);
 
                     // Invalid coordinate pairs.
-                    if (OP == coord_class(0, 0) || OQ == coord_class(0, 0) || OP == OQ)
+                    if (OP == coord_t(0, 0) || OQ == coord_t(0, 0) || OP == OQ)
                         continue;
 
                     // Invalid width or height from origin.
@@ -59,9 +59,9 @@ int main()
                         continue;
 
                     // Is already counted.
-                    if (results.find(result_class(OP, OQ)) != results.end())
+                    if (results.find(result_t(OP, OQ)) != results.end())
                         continue;
-                    if (results.find(result_class(OQ, OP)) != results.end())
+                    if (results.find(result_t(OQ, OP)) != results.end())
                         continue;
 
                     results.emplace(OP, OQ);

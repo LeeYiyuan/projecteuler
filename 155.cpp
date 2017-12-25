@@ -23,12 +23,12 @@
 #include <set>
 #include <vector>
 
-struct q_type
+struct q_t
 {
     unsigned int n, d;
-    q_type(unsigned int const &_n, unsigned int const &_d) : n(_n), d(_d) { }
+    q_t(unsigned int const &_n, unsigned int const &_d) : n(_n), d(_d) { }
 
-    bool operator<(q_type const &rhs) const
+    bool operator<(q_t const &rhs) const
     {
         return this->n * rhs.d < this->d * rhs.n;
     }
@@ -36,13 +36,13 @@ struct q_type
 
 int main()
 {
-    std::set<q_type> all_values = {
-        { q_type(1, 1) }
+    std::set<q_t> all_values = {
+        { q_t(1, 1) }
     };
 
-    std::vector<std::set<q_type>> values = {
+    std::vector<std::set<q_t>> values = {
         { },
-        { q_type(1, 1) }
+        { q_t(1, 1) }
     };
 
     for (int n = 2; n <= 18; n++)
@@ -52,13 +52,13 @@ int main()
         int j = 1;
         while (i >= j)
         {
-            for (q_type const &a : values[i])
+            for (q_t const &a : values[i])
             {
-                for (q_type const &b : values[j])
+                for (q_t const &b : values[j])
                 {
                     int v = a.n * b.d + a.d * b.n;
-                    q_type parallel(v, a.d * b.d);
-                    q_type series(a.n * b.n, v);
+                    q_t parallel(v, a.d * b.d);
+                    q_t series(a.n * b.n, v);
                     
                     if (all_values.find(parallel) == all_values.end())
                     {

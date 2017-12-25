@@ -5,12 +5,12 @@
 
 namespace util
 {
-    struct pell_solution
+    struct pell_solution_t
     {
         mpz_class x, y;
 
-        pell_solution();
-        pell_solution(mpz_class x, mpz_class y);
+        pell_solution_t();
+        pell_solution_t(mpz_class x, mpz_class y);
     };
 
     class pell_PQa_algorithm
@@ -28,13 +28,13 @@ namespace util
         bool has_repeated();
     };
 
-    std::vector<pell_solution> LMM_algorithm(mpz_class D, mpz_class N);
+    std::vector<pell_solution_t> LMM_algorithm(mpz_class D, mpz_class N);
 
     class pell_solver
     {
     public:
         mpz_class D, N;
-        pell_solution solution;
+        pell_solution_t solution;
 
         void init(mpz_class D, mpz_class N);
         pell_solver();
@@ -43,9 +43,9 @@ namespace util
 
     private:
         bool has_solution;
-        pell_solution unit_fundamental;
-        std::vector<pell_solution> fundamentals;
-        std::vector<pell_solution> unit_solutions;
-        std::vector<pell_solution> solutions;
+        pell_solution_t unit_fundamental;
+        std::vector<pell_solution_t> fundamentals;
+        std::vector<pell_solution_t> unit_solutions;
+        std::vector<pell_solution_t> solutions;
     };
 }

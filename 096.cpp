@@ -9,9 +9,9 @@
 #include "io_util.h"
 #include "string_util.h"
 
-typedef std::vector<std::vector<int>> grid_type;
+typedef std::vector<std::vector<int>> grid_t;
 
-bool is_valid(grid_type const &grid, int r, int c)
+bool is_valid(grid_t const &grid, int r, int c)
 {
     // Check row.
     for (int _c = 0; _c < 9; _c++)
@@ -32,7 +32,7 @@ bool is_valid(grid_type const &grid, int r, int c)
     return true;
 }
 
-bool solve(grid_type &grid, int r, int c)
+bool solve(grid_t &grid, int r, int c)
 {
     if (r == 9)
         return true;
@@ -68,7 +68,7 @@ int main()
 {
     std::string grid_string = util::read_file("096_sudoku.txt");
     std::vector<std::string> grid_row_strings = util::split(grid_string, '\n');
-    std::vector<grid_type> grid;
+    std::vector<grid_t> grid;
 
     for (int i = 0; i < 50; i++)
     {
@@ -79,7 +79,7 @@ int main()
     }
 
     int s = 0;
-    for (grid_type &grid : grid)
+    for (grid_t &grid : grid)
     {
         solve(grid, 0, 0);
         s += grid[0][0] * 100 + grid[0][1] * 10 + grid[0][2];

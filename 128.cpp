@@ -88,16 +88,16 @@
 #include "prime_util.h"
 #include "number_util.h"
 
-typedef std::pair<int64_t, int64_t> node_type;
+typedef std::pair<int64_t, int64_t> node_t;
 
 int64_t get_number(int64_t r, int64_t i)
 {
     return 2 + 3 * r * (r - 1) + i;
 }
 
-std::vector<node_type> get_neighbours(int64_t r, int64_t i)
+std::vector<node_t> get_neighbours(int64_t r, int64_t i)
 {
-    std::vector<node_type> results;
+    std::vector<node_t> results;
     int64_t f = i / r;
     if (i % r != 0)
     {
@@ -124,7 +124,7 @@ int PD(int64_t r, int64_t i)
 {
     int count = 0;
     int64_t n = get_number(r, i);
-    for (node_type &neighbour : get_neighbours(r, i))
+    for (node_t &neighbour : get_neighbours(r, i))
     {
         int64_t n_neighbour = get_number(neighbour.first, neighbour.second);
         int64_t diff = n > n_neighbour ? (n - n_neighbour) : (n_neighbour - n);

@@ -10,12 +10,12 @@
     http://www.jpr2718.org/pell.pdf
 */
 
-util::pell_solution::pell_solution()
+util::pell_solution_t::pell_solution_t()
 {
 
 }
 
-util::pell_solution::pell_solution(mpz_class x, mpz_class y)
+util::pell_solution_t::pell_solution_t(mpz_class x, mpz_class y)
 {
     this->x = x;
     this->y = y;
@@ -87,9 +87,9 @@ bool util::pell_PQa_algorithm::has_repeated()
     return false;
 }
 
-std::vector<util::pell_solution> util::LMM_algorithm(mpz_class D, mpz_class N)
+std::vector<util::pell_solution_t> util::LMM_algorithm(mpz_class D, mpz_class N)
 {
-    std::vector<util::pell_solution> fundamentals;
+    std::vector<util::pell_solution_t> fundamentals;
 
     std::vector<mpz_class> f_list;
     mpz_class f = 0;
@@ -164,10 +164,10 @@ void util::pell_solver::init(mpz_class D, mpz_class N)
         }
         else
         {
-            for (pell_solution &fundamental : LMM_algorithm(D, N))
+            for (pell_solution_t &fundamental : LMM_algorithm(D, N))
             {
                 fundamentals.emplace_back(fundamental);
-                unit_solutions.emplace_back(pell_solution(1, 0));
+                unit_solutions.emplace_back(pell_solution_t(1, 0));
                 solutions.emplace_back(fundamental);
             }
         }
@@ -192,9 +192,9 @@ bool util::pell_solver::move_next()
         return false;
 
     bool has_minimal_solution = false;
-    pell_solution minimal_solution;
+    pell_solution_t minimal_solution;
 
-    for (pell_solution &solution : solutions)
+    for (pell_solution_t &solution : solutions)
     {
         if (!has_minimal_solution || (
                 abs(solution.x) < abs(minimal_solution.x) ||
@@ -210,12 +210,12 @@ bool util::pell_solver::move_next()
     {
         while (abs(solutions[i].x) <= minimal_solution.x && abs(solutions[i].y) <= minimal_solution.y)
         {
-            unit_solutions[i] = pell_solution(
+            unit_solutions[i] = pell_solution_t(
                 unit_fundamental.x * unit_solutions[i].x + D * unit_fundamental.y * unit_solutions[i].y,
                 unit_fundamental.x * unit_solutions[i].y + unit_fundamental.y * unit_solutions[i].x
             );
 
-            solutions[i] = pell_solution(
+            solutions[i] = pell_solution_t(
                 fundamentals[i].x * unit_solutions[i].x + D * fundamentals[i].y * unit_solutions[i].y,
                 fundamentals[i].x * unit_solutions[i].y + fundamentals[i].y * unit_solutions[i].x
             );

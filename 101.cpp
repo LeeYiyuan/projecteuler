@@ -32,23 +32,23 @@
 #include <gmpxx.h>
 #include "number_util.h"
 
-struct term_struct
+struct term_t
 {
     mpz_class value;
     std::vector<int> offsets;
     mpz_class denominator = 1;
 };
 
-std::vector<term_struct> interpolate(std::vector<mpz_class> const &values)
+std::vector<term_t> interpolate(std::vector<mpz_class> const &values)
 {
-    std::vector<term_struct> terms;
+    std::vector<term_t> terms;
 
     for (int n = 0; n < values.size(); n++)
     {
         mpz_class value = values[n];
 
         terms.emplace_back();
-        term_struct &term = terms.back();
+        term_t &term = terms.back();
         term.value = value;
         for (int _n = 0; _n < values.size(); _n++)
         {
@@ -63,10 +63,10 @@ std::vector<term_struct> interpolate(std::vector<mpz_class> const &values)
     return terms;
 }
 
-mpz_class evaluate(std::vector<term_struct> const &terms, int n)
+mpz_class evaluate(std::vector<term_t> const &terms, int n)
 {
     mpz_class s = 0;
-    for (term_struct const &term : terms)
+    for (term_t const &term : terms)
     {
         mpz_class _s = term.value;
         for (int const &offset : term.offsets)
@@ -91,7 +91,7 @@ int main()
         for (int n = 1; n <= k; n++)
             values.emplace_back(evaluate_U(n));
 
-        std::vector<term_struct> polynomial = interpolate(values);
+        std::vector<term_t> polynomial = interpolate(values);
 
         int n = 0;
         mpz_class p_n;

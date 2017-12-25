@@ -13,10 +13,10 @@
 #include "io_util.h"
 #include "string_util.h"
 
-typedef std::vector<std::vector<int>> matrix_type;
-typedef std::pair<int, int> edge_type;
+typedef std::vector<std::vector<int>> matrix_t;
+typedef std::pair<int, int> edge_t;
 
-bool is_connected(matrix_type const &matrix)
+bool is_connected(matrix_t const &matrix)
 {
     std::vector<int> vertices(matrix.size());
     std::iota(vertices.begin(), vertices.end(), 0);
@@ -46,7 +46,7 @@ bool is_connected(matrix_type const &matrix)
     return S.size() == matrix.size();
 }
 
-int get_weight(matrix_type const &matrix)
+int get_weight(matrix_t const &matrix)
 {
     int s = 0;
     for (std::vector<int> const &row : matrix)
@@ -56,13 +56,13 @@ int get_weight(matrix_type const &matrix)
     return s / 2;
 }
 
-int find_minimum_weight(matrix_type const &matrix, std::vector<edge_type> const &edges, int index)
+int find_minimum_weight(matrix_t const &matrix, std::vector<edge_t> const &edges, int index)
 {
     int weight = get_weight(matrix);
     for (int i = index; i < edges.size(); i++)
     {
-        edge_type edge = edges[i];
-        matrix_type _matrix(matrix);
+        edge_t edge = edges[i];
+        matrix_t _matrix(matrix);
         _matrix[edges[i].first][edges[i].second] = -1;
         _matrix[edges[i].second][edges[i].first] = -1;
         if (is_connected(_matrix))
@@ -74,7 +74,7 @@ int find_minimum_weight(matrix_type const &matrix, std::vector<edge_type> const 
 int main()
 {
     std::string matrix_string = util::read_file("107_network.txt");
-    matrix_type matrix;
+    matrix_t matrix;
     for (std::string &matrix_row_string : util::split(matrix_string, '\n'))
     {
         matrix.emplace_back();
@@ -87,7 +87,7 @@ int main()
         }
     }
 
-    std::vector<edge_type> edges;
+    std::vector<edge_t> edges;
     for (int r = 0; r < matrix.size(); r++)
     {
         for (int c = r + 1; c < matrix.size(); c++)
@@ -96,7 +96,7 @@ int main()
                 edges.emplace_back(r, c);
         }
     }
-    std::sort(edges.begin(), edges.end(), [&matrix](edge_type const &A, edge_type const &B)
+    std::sort(edges.begin(), edges.end(), [&matrix](edge_t const &A, edge_t const &B)
     {
         return matrix[A.first][A.second] > matrix[B.first][B.second];
     });

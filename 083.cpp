@@ -25,9 +25,9 @@
 #include "io_util.h"
 #include "string_util.h"
 
-typedef std::pair<int, int> node_type;
+typedef std::pair<int, int> node_t;
 
-int get_length(std::vector<std::vector<int>> const &M, node_type const &u, node_type const &v)
+int get_length(std::vector<std::vector<int>> const &M, node_t const &u, node_t const &v)
 {
     return M[v.first][v.second];
 }
@@ -48,11 +48,11 @@ int compare_dist(int a, int b)
         return -1;
 }
 
-std::vector<node_type> get_neighbours(std::vector<std::vector<int>> const &M, node_type const &v)
+std::vector<node_t> get_neighbours(std::vector<std::vector<int>> const &M, node_t const &v)
 {
     int r = v.first;
     int c = v.second;
-    std::vector<node_type> neighbours;
+    std::vector<node_t> neighbours;
 
     if (r > 0)
         neighbours.emplace_back(r - 1, c);
@@ -79,32 +79,32 @@ int main()
         }
     }
 
-    std::vector<node_type> Q;
-    std::map<node_type, int> dist;
-    std::map<node_type, node_type> prev;
-    node_type source(0, 0);
+    std::vector<node_t> Q;
+    std::map<node_t, int> dist;
+    std::map<node_t, node_t> prev;
+    node_t source(0, 0);
 
     for(int r = 0; r < M.size(); r++)
     {
         for (int c = 0; c < M.size(); c++)
         {
             Q.emplace_back(r, c);
-            node_type &v = Q.back();
+            node_t &v = Q.back();
             dist[v] = -1;
-            prev[v] = node_type(-1, -1);
+            prev[v] = node_t(-1, -1);
         }
     }
     dist[source] = 0;
 
     while (Q.size() > 0)
     {
-        node_type u(-1, -1);
-        for (node_type &v : Q)
-            if (u == node_type(-1, -1) || compare_dist(dist[v], dist[u]) == -1)
+        node_t u(-1, -1);
+        for (node_t &v : Q)
+            if (u == node_t(-1, -1) || compare_dist(dist[v], dist[u]) == -1)
                 u = v;
         Q.erase(std::remove(Q.begin(), Q.end(), u), Q.end());
 
-        for (node_type &v : get_neighbours(M, u))
+        for (node_t &v : get_neighbours(M, u))
         {
             if (std::find(Q.begin(), Q.end(), v) != Q.end())
             {
@@ -118,5 +118,5 @@ int main()
         }
     }
 
-    std::cout << dist[node_type(M.size() - 1, M.size() - 1)] + M[source.first][source.second];
+    std::cout << dist[node_t(M.size() - 1, M.size() - 1)] + M[source.first][source.second];
 }

@@ -18,8 +18,8 @@
 #include <utility>
 #include <algorithm>
 
-typedef std::pair<std::vector<int>, std::vector<int>> case_type;
-typedef std::pair<int, int> combination_type;
+typedef std::pair<std::vector<int>, std::vector<int>> case_t;
+typedef std::pair<int, int> combination_t;
 
 template <typename T>
 bool contains(std::vector<T> const &v, T const &n)
@@ -29,15 +29,15 @@ bool contains(std::vector<T> const &v, T const &n)
 
 int main()
 {
-    std::vector<case_type> cases = {
-        case_type()
+    std::vector<case_t> cases = {
+        case_t()
     };
-    std::vector<case_type> _cases;
+    std::vector<case_t> _cases;
 
     for (int n = 0; n < 10; n++)
     {
-        std::vector<case_type> _cases;
-        for (case_type &c: cases)
+        std::vector<case_t> _cases;
+        for (case_t &c: cases)
         {
             _cases.emplace_back(c);
 
@@ -54,14 +54,14 @@ int main()
         cases = _cases;
     }
 
-    for (case_type &c : cases)
+    for (case_t &c : cases)
         if (c.first.size() == 6 && c.second.size() == 6)
             _cases.emplace_back(c);
     cases = std::move(_cases);
-    _cases = std::vector<case_type>();
+    _cases = std::vector<case_t>();
 
     // We can't use unorderd_set because there is no default hash for pairs in C++17.
-    std::set<combination_type> required_combinations({
+    std::set<combination_t> required_combinations({
         { 0, 1 },
         { 0, 4 },
         { 0, 9 },
@@ -74,7 +74,7 @@ int main()
     });
 
     // For each case, check if required set is a subset of possible combinations
-    for (case_type &c : cases)
+    for (case_t &c : cases)
     {
         auto extended_case_A = c.first;
         if (contains(c.first, 6) && !contains(c.first, 9))
@@ -86,9 +86,9 @@ int main()
             extended_case_B.emplace_back(9);
         if (contains(c.second, 9) && !contains(c.second, 6))
             extended_case_B.emplace_back(6);
-        case_type extended_case(extended_case_A, extended_case_B);
+        case_t extended_case(extended_case_A, extended_case_B);
 
-        std::set<combination_type> combinations;
+        std::set<combination_t> combinations;
         for (int &a : extended_case.first)
         {
             for (int &b : extended_case.second)
@@ -102,13 +102,13 @@ int main()
             _cases.emplace_back(c);
     }
     cases = std::move(_cases);
-    _cases = std::vector<case_type>();
+    _cases = std::vector<case_t>();
 
-    for (case_type &c : cases)
-        if (!contains(_cases, case_type(c.second, c.first)))
+    for (case_t &c : cases)
+        if (!contains(_cases, case_t(c.second, c.first)))
             _cases.emplace_back(c);
     cases = std::move(_cases);
-    _cases = std::vector<case_type>();
+    _cases = std::vector<case_t>();
 
     std::cout << cases.size();
 }
